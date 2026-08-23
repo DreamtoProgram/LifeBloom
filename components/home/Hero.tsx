@@ -6,7 +6,8 @@ import { GoldDivider } from '@/components/ui';
 
 // ============================================================
 // Hero — Main homepage hero section
-// Optimized for both Desktop & Mobile screen viewports
+// Mobile: Clean stacked layout (Photo 100% visible, no overlay over face)
+// Desktop: Floating card overlap layout
 // ============================================================
 
 export function Hero() {
@@ -128,11 +129,11 @@ export function Hero() {
               </div>
             </div>
 
-            {/* RIGHT — Portrait + floating card (Order 2 on Mobile & Desktop) */}
+            {/* RIGHT — Portrait + profile card */}
             <div className="order-2 relative flex justify-center lg:justify-end mt-4 lg:mt-0">
               <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px]">
 
-                {/* Portrait image */}
+                {/* Portrait image — 100% un-obscured on mobile */}
                 <div className="relative rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-xl sm:shadow-2xl shadow-[#183B2A]/10 border border-[#E5E0D8]/60">
                   <Image
                     src="/founder.jpg"
@@ -142,55 +143,51 @@ export function Hero() {
                     priority
                     sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 480px"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#183B2A]/25 via-transparent to-transparent" aria-hidden="true" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#183B2A]/20 via-transparent to-transparent" aria-hidden="true" />
                 </div>
 
-                {/* Floating profile card — top right */}
-                <div className="absolute top-3 right-3 sm:-top-4 sm:-right-4 md:top-6 md:-right-8 bg-[#183B2A]/95 backdrop-blur-md text-white rounded-xl sm:rounded-2xl p-3.5 sm:p-5 shadow-xl sm:shadow-2xl max-w-[165px] sm:max-w-[200px] z-10 border border-white/10">
-                  <p className="font-serif text-xs sm:text-sm italic text-[#C9A35B] mb-0.5 sm:mb-1">Meet</p>
-                  <h2 className="font-serif text-sm sm:text-lg font-semibold leading-snug sm:leading-tight mb-2 sm:mb-3">
+                {/* Profile card — BELOW photo on Mobile (< md), FLOATING on Desktop (>= md) */}
+                <div className="mt-4 md:mt-0 md:absolute md:top-6 md:-right-8 bg-[#183B2A] text-white rounded-2xl p-5 shadow-xl md:shadow-2xl md:max-w-[210px] z-10 border border-white/10">
+                  <p className="font-serif text-xs sm:text-sm italic text-[#C9A35B] mb-1">Meet</p>
+                  <h2 className="font-serif text-base sm:text-lg font-semibold leading-tight mb-3">
                     Dr. Shivani<br />Dhand Koccher
                   </h2>
-                  <ul className="space-y-1 sm:space-y-1.5">
+                  <ul className="space-y-1.5">
                     {[
                       'Life Coach',
                       'NLP Practitioner',
                       'HR & Human Capital Expert',
-                      'Educator | 15+ Yrs Exp',
+                      'Educator | 15+ Years Experience',
                     ].map((item) => (
-                      <li key={item} className="flex items-start gap-1 sm:gap-1.5">
+                      <li key={item} className="flex items-start gap-1.5">
                         <span className="mt-1 shrink-0 w-1 h-1 rounded-full bg-[#C9A35B]" aria-hidden="true" />
-                        <span className="font-sans text-[10px] sm:text-[11px] text-white/85 leading-tight">{item}</span>
+                        <span className="font-sans text-xs md:text-[11px] text-white/85 leading-snug">{item}</span>
                       </li>
                     ))}
                   </ul>
                   {/* Signature */}
-                  <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-white/10">
-                    <p className="font-serif text-xs sm:text-sm italic text-[#C9A35B]/90">Dr. Shivani</p>
+                  <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
+                    <p className="font-serif text-sm italic text-[#C9A35B]/90">Dr. Shivani</p>
+                    <span className="font-sans text-[10px] text-white/40 uppercase tracking-widest md:hidden">Founder</span>
                   </div>
                 </div>
 
-                {/* Floating badge — bottom left */}
-                <div className="absolute bottom-3 left-3 sm:-bottom-4 sm:-left-4 md:-left-8 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-lg sm:shadow-xl border border-[#E5E0D8] z-10">
-                  <div className="flex items-center gap-2.5 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#DDE8D9] flex items-center justify-center shrink-0">
+                {/* Floating badge — bottom left (Desktop / Tablet) */}
+                <div className="hidden sm:flex absolute -bottom-4 -left-4 md:-left-8 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-[#E5E0D8] z-10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#DDE8D9] flex items-center justify-center shrink-0">
                       <LeafIcon />
                     </div>
                     <div>
-                      <div className="font-sans text-[11px] sm:text-xs font-semibold text-[#183B2A]">Trusted Coaching</div>
-                      <div className="font-sans text-[10px] sm:text-[11px] text-[#6D716A]">Personalized for You</div>
+                      <div className="font-sans text-xs font-semibold text-[#183B2A]">Trusted Coaching</div>
+                      <div className="font-sans text-[11px] text-[#6D716A]">Personalized for You</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Decorative gold ring */}
                 <div
-                  className="hidden sm:block absolute -bottom-8 -right-8 w-32 h-32 rounded-full border border-[#C9A35B]/20 pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="hidden sm:block absolute -bottom-4 -right-4 w-20 h-20 rounded-full border border-[#C9A35B]/30 pointer-events-none"
+                  className="hidden md:block absolute -bottom-8 -right-8 w-32 h-32 rounded-full border border-[#C9A35B]/20 pointer-events-none"
                   aria-hidden="true"
                 />
               </div>
