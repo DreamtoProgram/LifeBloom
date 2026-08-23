@@ -1,0 +1,47 @@
+# ============================================================
+# Next.js Production .gitignore
+# Excludes build outputs, dependency caches, secrets, and system files.
+# ============================================================
+
+# Dependencies
+/node_modules
+/.pnpm
+
+# Next.js Build & Static Exports
+/.next/
+/out/
+/build
+/dist
+
+# TypeScript & Build Logs
+tsconfig.tsbuildinfo
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment Variables & Local Secrets
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel Deployment Artifacts
+.vercel
+
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# Agent Rules Auto-Generated Files
+AGENTS.md
+CLAUDE.md
