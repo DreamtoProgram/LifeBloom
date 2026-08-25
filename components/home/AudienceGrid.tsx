@@ -6,6 +6,7 @@ import { Container } from '@/components/ui';
 
 // ============================================================
 // AudienceGrid — "Who We Help" section on homepage
+// Design: White section, reduced dark overlay, lavender accents
 // ============================================================
 
 const audienceIcons: Record<string, React.ReactNode> = {
@@ -44,22 +45,21 @@ const audienceIcons: Record<string, React.ReactNode> = {
 export function AudienceGrid() {
   return (
     <section
-      className="py-24 bg-[#F8F5EE]"
+      className="py-24 bg-white"
       aria-labelledby="who-we-help-heading"
     >
       <Container>
         {/* Section header */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-[1px] w-10 bg-[#C9A35B]" aria-hidden="true" />
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase">
+            <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
               Who We Help
             </p>
-            <span className="text-[#C9A35B] text-sm" aria-hidden="true">🌿</span>
           </div>
           <h2
             id="who-we-help-heading"
-            className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#20251F] leading-[1.15]"
+            className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15]"
           >
             Guidance for Every Journey
           </h2>
@@ -85,14 +85,14 @@ export function AudienceGrid() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 17vw"
                 />
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#183B2A]/80 via-[#183B2A]/20 to-transparent transition-opacity duration-300 group-hover:from-[#183B2A]/90" />
+                {/* Softer overlay — lavender/pink tinted instead of hard green */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#25222A]/60 via-[#25222A]/10 to-transparent transition-opacity duration-300 group-hover:from-[#9B70C7]/65" />
               </div>
 
               {/* Caption */}
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-white/80">
+                  <div className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-white/90">
                     {audienceIcons[audience.icon] || audienceIcons['star']}
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export function AudienceGrid() {
               </div>
 
               {/* Hover: arrow */}
-              <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[#C9A35B]">
+              <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[#C9A5E8]">
                 <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
@@ -115,7 +115,7 @@ export function AudienceGrid() {
         <div className="mt-10 text-center">
           <a
             href="/who-we-help"
-            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#183B2A] hover:text-[#C9A35B] transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 group"
           >
             See Who We Work With
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">

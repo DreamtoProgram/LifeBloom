@@ -6,6 +6,7 @@ import { Container } from '@/components/ui';
 
 // ============================================================
 // ServicesPreview — 6 service cards on homepage
+// Design: White cards with lavender/blush icon palette
 // ============================================================
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -41,22 +42,14 @@ const serviceIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-const cardTints = [
-  'bg-[#DDE8D9]/30',
-  'bg-[#F8F5EE]',
-  'bg-[#DDE8D9]/20',
-  'bg-[#F8F5EE]',
-  'bg-[#DDE8D9]/30',
-  'bg-[#F8F5EE]',
-];
-
-const iconBgColors = [
-  'bg-[#DDE8D9]',
-  'bg-[#DDE8D9]/70',
-  'bg-[#DFA77D]/15',
-  'bg-[#C9A35B]/10',
-  'bg-[#DDE8D9]',
-  'bg-[#DDE8D9]/70',
+// Alternating icon backgrounds and text colors
+const iconStyles = [
+  { bg: 'bg-[#EEE7FA]', color: 'text-[#9B70C7]' },
+  { bg: 'bg-[#FBE8F0]', color: 'text-[#C4637A]' },
+  { bg: 'bg-[#EEE7FA]', color: 'text-[#9B70C7]' },
+  { bg: 'bg-[#F7DCE8]', color: 'text-[#E99AB8]' },
+  { bg: 'bg-[#EEE7FA]', color: 'text-[#9B70C7]' },
+  { bg: 'bg-[#FBE8F0]', color: 'text-[#C4637A]' },
 ];
 
 export function ServicesPreview() {
@@ -64,31 +57,31 @@ export function ServicesPreview() {
 
   return (
     <section
-      className="py-24 bg-[#F8F5EE]"
+      className="py-24 bg-white"
       aria-labelledby="services-heading"
     >
       <Container>
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div className="max-w-xl">
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">
+            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-4">
               What We Offer
             </p>
             <h2
               id="services-heading"
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#20251F] leading-[1.15] mb-4"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
             >
-              Coaching & Development
+              Coaching &amp; Development
               <br />
-              <span className="text-[#183B2A]">Programs for Every Stage of Life</span>
+              <span className="text-[#9B70C7] italic">Programs for Every Stage of Life</span>
             </h2>
-            <p className="font-sans text-base text-[#6D716A] leading-relaxed">
+            <p className="font-sans text-base text-[#6E6872] leading-relaxed">
               LifeBloom offers a range of coaching and development programs designed to help you grow in every area of life.
             </p>
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#183B2A] hover:text-[#C9A35B] transition-colors duration-200 shrink-0 group"
+            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 shrink-0 group"
             aria-label="View all services"
           >
             View All Services
@@ -115,30 +108,30 @@ export function ServicesPreview() {
           {previewServices.map((service, idx) => (
             <article
               key={service.slug}
-              className={`group relative rounded-2xl p-7 border border-[#E5E0D8] ${cardTints[idx]}
-                hover:border-[#183B2A]/20 hover:shadow-lg hover:shadow-[#183B2A]/5
-                hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
+              className="group relative rounded-2xl p-7 bg-white border border-[#EDE7EE]
+                hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)]
+                hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               role="listitem"
             >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-full ${iconBgColors[idx]} flex items-center justify-center text-[#183B2A] mb-5`}>
+              <div className={`w-12 h-12 rounded-full ${iconStyles[idx].bg} ${iconStyles[idx].color} flex items-center justify-center mb-5`}>
                 {serviceIcons[service.icon] || serviceIcons.leaf}
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-xl font-semibold text-[#20251F] mb-3 leading-snug group-hover:text-[#183B2A] transition-colors duration-200">
+              <h3 className="font-serif text-xl font-semibold text-[#25222A] mb-3 leading-snug group-hover:text-[#9B70C7] transition-colors duration-200">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="font-sans text-sm text-[#6D716A] leading-relaxed mb-6 line-clamp-3">
+              <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6 line-clamp-3">
                 {service.shortDescription}
               </p>
 
               {/* Learn more link */}
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-[#183B2A] hover:text-[#C9A35B] transition-colors duration-200 group/link"
+                className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 group/link"
                 aria-label={`Learn more about ${service.title}`}
               >
                 Learn More
@@ -156,8 +149,11 @@ export function ServicesPreview() {
                 </svg>
               </Link>
 
-              {/* Subtle top accent bar on hover */}
-              <div className="absolute top-0 left-6 right-6 h-[2px] bg-[#C9A35B] rounded-b-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" aria-hidden="true" />
+              {/* Lavender top accent bar on hover */}
+              <div
+                className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8] rounded-b-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                aria-hidden="true"
+              />
             </article>
           ))}
         </div>

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { Container } from '@/components/ui';
 
 // ============================================================
-// Footer — Deep forest green footer with all columns
+// Footer — Light elegant footer (replaces dark green)
+// Design: Very pale blush-white with lavender accents
 // ============================================================
 
 const quickLinks = [
@@ -20,7 +21,7 @@ const quickLinks = [
 const serviceLinks = [
   { label: 'Life Coaching', href: '/services/life-coaching' },
   { label: 'Career Coaching', href: '/services/career-professional-coaching' },
-  { label: 'Mindfulness & Stress Management', href: '/services/mindfulness-stress-management' },
+  { label: 'Mindfulness & Stress', href: '/services/mindfulness-stress-management' },
   { label: 'Emotional Intelligence', href: '/services/emotional-intelligence' },
   { label: 'NLP Transformation', href: '/services/nlp-transformation' },
   { label: 'Corporate Workshops', href: '/services/corporate-workshops' },
@@ -44,7 +45,7 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#183B2A] text-white" role="contentinfo">
+    <footer className="bg-[#FCF8FB] border-t border-[#EDE7EE]" role="contentinfo">
       <Container className="pt-16 pb-8">
         {/* Main grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
@@ -54,13 +55,13 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4" aria-label="LifeBloom — Home">
               <FooterLogoMark />
               <div>
-                <div className="font-serif text-xl font-semibold leading-none text-white">LifeBloom</div>
-                <div className="text-[10px] font-sans text-white/50 tracking-[0.12em] uppercase mt-0.5">
+                <div className="font-serif text-xl font-semibold leading-none text-[#25222A]">LifeBloom</div>
+                <div className="text-[10px] font-sans text-[#6E6872] tracking-[0.12em] uppercase mt-0.5">
                   Empower. Transform. Grow.
                 </div>
               </div>
             </Link>
-            <p className="font-sans text-sm text-white/65 leading-relaxed mb-6 max-w-xs">
+            <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6 max-w-xs">
               LifeBloom is a life coaching and personal development platform dedicated to helping individuals and organizations unlock their potential and create meaningful change.
             </p>
             {/* Social icons */}
@@ -69,7 +70,7 @@ export function Footer() {
                 href="[INSTAGRAM URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
                 aria-label="LifeBloom on Instagram"
               >
                 <InstagramIcon />
@@ -78,7 +79,7 @@ export function Footer() {
                 href="[LINKEDIN URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
                 aria-label="LifeBloom on LinkedIn"
               >
                 <LinkedInIcon />
@@ -87,7 +88,7 @@ export function Footer() {
                 href="[FACEBOOK URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
                 aria-label="LifeBloom on Facebook"
               >
                 <FacebookIcon />
@@ -96,7 +97,7 @@ export function Footer() {
                 href="[YOUTUBE URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
                 aria-label="LifeBloom on YouTube"
               >
                 <YoutubeIcon />
@@ -106,7 +107,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#C9A35B] mb-5">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#9B70C7] mb-5">
               Quick Links
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -114,7 +115,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-white/65 hover:text-white transition-colors duration-200"
+                    className="font-sans text-sm text-[#6E6872] hover:text-[#25222A] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -125,7 +126,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#C9A35B] mb-5">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#9B70C7] mb-5">
               Our Services
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -133,7 +134,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-white/65 hover:text-white transition-colors duration-200"
+                    className="font-sans text-sm text-[#6E6872] hover:text-[#25222A] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -144,7 +145,7 @@ export function Footer() {
 
           {/* Resources + Newsletter */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#C9A35B] mb-5">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#9B70C7] mb-5">
               Resources
             </h3>
             <ul className="space-y-2.5 mb-8" role="list">
@@ -152,7 +153,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-white/65 hover:text-white transition-colors duration-200"
+                    className="font-sans text-sm text-[#6E6872] hover:text-[#25222A] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -161,11 +162,11 @@ export function Footer() {
             </ul>
 
             {/* Newsletter */}
-            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#C9A35B] mb-3">
+            <h3 className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-[#9B70C7] mb-3">
               Stay Connected
             </h3>
-            <p className="text-sm text-white/60 mb-3 font-sans">
-              Subscribe to our newsletter for insights, tips and updates.
+            <p className="text-sm text-[#6E6872] mb-3 font-sans">
+              Subscribe for insights, tips and updates.
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -178,13 +179,13 @@ export function Footer() {
               <input
                 id="footer-email"
                 type="email"
-                placeholder="Your email address"
+                placeholder="Your email"
                 required
-                className="flex-1 min-w-0 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm text-white placeholder:text-white/40 font-sans focus:outline-none focus:border-[#C9A35B] transition-colors duration-200"
+                className="flex-1 min-w-0 bg-white border border-[#EDE7EE] rounded-full px-4 py-2 text-sm text-[#25222A] placeholder:text-[#6E6872]/60 font-sans focus:outline-none focus:border-[#C9A5E8] transition-colors duration-200"
               />
               <button
                 type="submit"
-                className="shrink-0 w-9 h-9 rounded-full bg-[#C9A35B] flex items-center justify-center text-white hover:bg-[#b8924a] transition-colors duration-200"
+                className="shrink-0 w-9 h-9 rounded-full bg-[#9B70C7] flex items-center justify-center text-white hover:bg-[#865CB5] transition-colors duration-200"
                 aria-label="Subscribe to newsletter"
               >
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -195,12 +196,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Gold divider */}
-        <div className="h-[1px] bg-white/10 mb-6" aria-hidden="true" />
+        {/* Lavender divider */}
+        <div className="h-[1px] bg-[#EDE7EE] mb-6" aria-hidden="true" />
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-xs text-white/40">
+          <p className="font-sans text-xs text-[#6E6872]">
             © {new Date().getFullYear()} LifeBloom. All Rights Reserved.
           </p>
           <nav aria-label="Legal navigation">
@@ -208,11 +209,11 @@ export function Footer() {
               {legalLinks.map((link, idx) => (
                 <li key={link.href} className="flex items-center gap-4">
                   {idx > 0 && (
-                    <span className="text-white/20" aria-hidden="true">|</span>
+                    <span className="text-[#C9A5E8]/60" aria-hidden="true">|</span>
                   )}
                   <Link
                     href={link.href}
-                    className="font-sans text-xs text-white/40 hover:text-white/70 transition-colors duration-200"
+                    className="font-sans text-xs text-[#6E6872] hover:text-[#9B70C7] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -226,12 +227,16 @@ export function Footer() {
   );
 }
 
+// ============================================================
+// Inline SVGs
+// ============================================================
+
 function FooterLogoMark() {
   return (
     <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="19" stroke="white" strokeWidth="1.5" opacity="0.3" />
-      <path d="M20 10 C14 16, 12 22, 20 30 C28 22, 26 16, 20 10z" fill="white" opacity="0.9" />
-      <path d="M13 17 Q20 12, 27 17" stroke="#C9A35B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <circle cx="20" cy="20" r="19" stroke="#C9A5E8" strokeWidth="1.5" />
+      <path d="M20 10 C14 16, 12 22, 20 30 C28 22, 26 16, 20 10z" fill="#9B70C7" opacity="0.9" />
+      <path d="M13 17 Q20 12, 27 17" stroke="#E99AB8" strokeWidth="1.2" fill="none" strokeLinecap="round" />
     </svg>
   );
 }

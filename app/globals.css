@@ -1,34 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 @import "tailwindcss";
 
-:root {
-  --color-forest: #183B2A;
-  --color-natural: #315A3C;
-  --color-sage-light: #DDE8D9;
-  --color-ivory: #F8F5EE;
-  --color-gold: #C9A35B;
-  --color-terracotta: #DFA77D;
-  --color-text-dark: #20251F;
-  --color-text-muted: #6D716A;
-  --color-border: #E5E0D8;
+/* ============================================================
+   LifeBloom Design Tokens — White + Blush Pink + Soft Lavender
+   ============================================================ */
 
+:root {
+  /* Backgrounds */
+  --color-bg:           #FFFFFF;
+  --color-bg-soft:      #FCF8FB;
+  --color-bg-blush:     #FBE8F0;
+  --color-bg-lavender:  #EEE7FA;
+
+  /* Accent palette */
+  --color-blush:        #FBE8F0;
+  --color-blush-mid:    #F7DCE8;
+  --color-lavender:     #EEE7FA;
+  --color-lavender-accent: #C9A5E8;
+  --color-purple:       #9B70C7;
+  --color-purple-dark:  #865CB5;
+  --color-pink:         #E99AB8;
+
+  /* Text */
+  --color-text:         #25222A;
+  --color-muted:        #6E6872;
+
+  /* Borders & shadows */
+  --color-border:       #EDE7EE;
+  --shadow-soft:        rgba(74, 52, 80, 0.08);
+
+  /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
 }
 
 @theme {
-  --color-forest: #183B2A;
-  --color-natural: #315A3C;
-  --color-sage: #DDE8D9;
-  --color-ivory: #F8F5EE;
-  --color-gold: #C9A35B;
-  --color-terracotta: #DFA77D;
-  --color-ink: #20251F;
-  --color-muted: #6D716A;
-  --color-border: #E5E0D8;
+  /* Backgrounds */
+  --color-bg:                #FFFFFF;
+  --color-bg-soft:           #FCF8FB;
+  --color-bg-blush:          #FBE8F0;
+  --color-bg-lavender:       #EEE7FA;
 
+  /* Accent palette */
+  --color-blush:             #FBE8F0;
+  --color-blush-mid:         #F7DCE8;
+  --color-lavender:          #EEE7FA;
+  --color-lavender-accent:   #C9A5E8;
+  --color-purple:            #9B70C7;
+  --color-purple-dark:       #865CB5;
+  --color-pink:              #E99AB8;
+
+  /* Text */
+  --color-ink:               #25222A;
+  --color-muted:             #6E6872;
+
+  /* Borders */
+  --color-border:            #EDE7EE;
+
+  /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
 }
 
 *, *::before, *::after {
@@ -41,8 +72,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-ivory);
-  color: var(--color-text-dark);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -64,27 +95,30 @@ body {
   }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ivory);
+  background: var(--color-bg-soft);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sage);
+  background: var(--color-lavender-accent);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-natural);
+  background: var(--color-purple);
 }
 
+/* Focus ring */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-lavender-accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
+/* Text selection */
 ::selection {
-  background-color: var(--color-sage);
-  color: var(--color-forest);
+  background-color: var(--color-lavender);
+  color: var(--color-purple-dark);
 }

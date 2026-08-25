@@ -2,6 +2,7 @@ import React from 'react';
 
 // ============================================================
 // SectionHeading — Reusable section header with eyebrow label
+// Design: White/blush/lavender theme
 // ============================================================
 
 interface SectionHeadingProps {
@@ -11,7 +12,7 @@ interface SectionHeadingProps {
   align?: 'left' | 'center' | 'right';
   theme?: 'light' | 'dark';
   className?: string;
-  highlightWord?: string; // Word to highlight in gold/green
+  highlightWord?: string;
 }
 
 export function SectionHeading({
@@ -29,18 +30,17 @@ export function SectionHeading({
     right: 'text-right',
   }[align];
 
-  const eyebrowColor = theme === 'dark' ? 'text-[#C9A35B]' : 'text-[#C9A35B]';
-  const headingColor = theme === 'dark' ? 'text-white' : 'text-[#20251F]';
-  const subheadingColor = theme === 'dark' ? 'text-white/70' : 'text-[#6D716A]';
+  const eyebrowColor = theme === 'dark' ? 'text-[#C9A5E8]' : 'text-[#9B70C7]';
+  const headingColor = theme === 'dark' ? 'text-white' : 'text-[#25222A]';
+  const subheadingColor = theme === 'dark' ? 'text-white/70' : 'text-[#6E6872]';
 
-  // Process heading to highlight a specific word
   const renderHeading = () => {
     if (!highlightWord) return heading;
     const parts = heading.split(highlightWord);
     return (
       <>
         {parts[0]}
-        <span className="text-[#183B2A] italic">{highlightWord}</span>
+        <span className="text-[#9B70C7] italic">{highlightWord}</span>
         {parts[1]}
       </>
     );
@@ -90,16 +90,18 @@ export function Container({ children, className = '', as: Tag = 'div' }: Contain
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'sage' | 'gold' | 'forest' | 'ivory';
+  variant?: 'lavender' | 'pink' | 'purple' | 'soft' | 'sage';
   className?: string;
 }
 
-export function Badge({ children, variant = 'sage', className = '' }: BadgeProps) {
+export function Badge({ children, variant = 'lavender', className = '' }: BadgeProps) {
   const variantStyles = {
-    sage: 'bg-[#DDE8D9] text-[#183B2A]',
-    gold: 'bg-[#C9A35B]/10 text-[#C9A35B] border border-[#C9A35B]/30',
-    forest: 'bg-[#183B2A] text-white',
-    ivory: 'bg-[#F8F5EE] text-[#6D716A] border border-[#E5E0D8]',
+    lavender: 'bg-[#EEE7FA] text-[#7F55A8] border border-[#C9A5E8]/50',
+    pink:     'bg-[#FBE8F0] text-[#C4637A] border border-[#E99AB8]/40',
+    purple:   'bg-[#9B70C7] text-white',
+    soft:     'bg-[#FCF8FB] text-[#6E6872] border border-[#EDE7EE]',
+    // kept for backwards compat
+    sage:     'bg-[#EEE7FA] text-[#7F55A8] border border-[#C9A5E8]/50',
   };
 
   return (
@@ -112,17 +114,20 @@ export function Badge({ children, variant = 'sage', className = '' }: BadgeProps
 }
 
 // ============================================================
-// GoldDivider — Decorative gold line
+// LavenderDivider — Decorative lavender accent line
 // ============================================================
 
-export function GoldDivider({ className = '' }: { className?: string }) {
+export function LavenderDivider({ className = '' }: { className?: string }) {
   return (
     <div className={`flex items-center gap-3 ${className}`} aria-hidden="true">
-      <div className="h-[1px] w-12 bg-[#C9A35B]" />
-      <div className="h-1 w-1 rounded-full bg-[#C9A35B]" />
+      <div className="h-[1px] w-12 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" />
+      <div className="h-1.5 w-1.5 rounded-full bg-[#C9A5E8]" />
     </div>
   );
 }
+
+// Keep GoldDivider name as alias for backward compat
+export const GoldDivider = LavenderDivider;
 
 // ============================================================
 // StatCard — For impact numbers
@@ -137,10 +142,10 @@ interface StatCardProps {
 export function StatCard({ number, label, theme = 'light' }: StatCardProps) {
   return (
     <div className="text-center">
-      <div className={`font-serif text-4xl md:text-5xl font-normal mb-2 ${theme === 'dark' ? 'text-[#C9A35B]' : 'text-[#183B2A]'}`}>
+      <div className={`font-serif text-4xl md:text-5xl font-normal mb-2 ${theme === 'dark' ? 'text-[#C9A5E8]' : 'text-[#9B70C7]'}`}>
         {number}
       </div>
-      <div className={`font-sans text-sm ${theme === 'dark' ? 'text-white/70' : 'text-[#6D716A]'} leading-tight`}>
+      <div className={`font-sans text-sm ${theme === 'dark' ? 'text-white/70' : 'text-[#6E6872]'} leading-tight`}>
         {label}
       </div>
     </div>

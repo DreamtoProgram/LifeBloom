@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 
 // ============================================================
-// Navbar — Sticky header (no green topbar per design specification)
+// Navbar — Sticky, translucent → white on scroll
+// Design: White + Lavender/Purple palette
 // ============================================================
 
 const NAV_LINKS = [
@@ -61,11 +62,8 @@ export function Navbar() {
   }, [mobileOpen]);
 
   const navbarBg = scrolled || !isHomePage
-    ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E5E0D8]'
-    : 'bg-transparent';
-
-  const textColor = scrolled || !isHomePage ? 'text-[#20251F]' : 'text-[#20251F]';
-  const logoColor = scrolled || !isHomePage ? 'text-[#183B2A]' : 'text-[#183B2A]';
+    ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#EDE7EE]'
+    : 'bg-white/80 backdrop-blur-sm';
 
   return (
     <>
@@ -74,19 +72,19 @@ export function Navbar() {
         role="banner"
       >
         <nav
-          className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
+          className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[72px] md:h-[80px]"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <Link
             href="/"
-            className={`flex items-center gap-2.5 ${logoColor} shrink-0`}
+            className="flex items-center gap-2.5 shrink-0"
             aria-label="LifeBloom — Home"
           >
             <LogoMark />
             <div>
-              <div className="font-serif text-xl font-semibold leading-none tracking-tight">LifeBloom</div>
-              <div className="text-[10px] font-sans text-[#6D716A] tracking-[0.12em] uppercase leading-none mt-0.5">
+              <div className="font-serif text-xl font-semibold leading-none tracking-tight text-[#25222A]">LifeBloom</div>
+              <div className="text-[10px] font-sans text-[#6E6872] tracking-[0.12em] uppercase leading-none mt-0.5">
                 Empower. Transform. Grow.
               </div>
             </div>
@@ -100,9 +98,9 @@ export function Navbar() {
                 return (
                   <li key={link.href} className="relative group">
                     <button
-                      className={`flex items-center gap-1 px-3 py-2 text-sm font-sans font-medium rounded-md transition-colors duration-200 ${textColor}
-                        ${isActive ? 'text-[#183B2A]' : 'text-[#6D716A]'}
-                        hover:text-[#183B2A] hover:bg-[#DDE8D9]/50`}
+                      className={`flex items-center gap-1 px-3 py-2 text-sm font-sans font-medium rounded-lg transition-colors duration-200
+                        ${isActive ? 'text-[#9B70C7] font-semibold' : 'text-[#6E6872]'}
+                        hover:text-[#9B70C7] hover:bg-[#EEE7FA]/60`}
                       aria-haspopup="true"
                       aria-expanded={servicesOpen}
                       onClick={() => setServicesOpen(!servicesOpen)}
@@ -112,12 +110,12 @@ export function Navbar() {
                     </button>
                     {/* Dropdown */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="bg-white rounded-2xl shadow-xl border border-[#E5E0D8] p-2 min-w-[220px]">
+                      <div className="bg-white rounded-2xl shadow-xl border border-[#EDE7EE] p-2 min-w-[220px]">
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm font-sans text-[#20251F] rounded-xl hover:bg-[#DDE8D9] hover:text-[#183B2A] transition-colors duration-150"
+                            className="block px-4 py-2.5 text-sm font-sans text-[#25222A] rounded-xl hover:bg-[#EEE7FA] hover:text-[#9B70C7] transition-colors duration-150"
                           >
                             {child.label}
                           </Link>
@@ -131,10 +129,10 @@ export function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`block px-3 py-2 text-sm font-sans font-medium rounded-md transition-colors duration-200
+                    className={`block px-3 py-2 text-sm font-sans font-medium rounded-lg transition-colors duration-200
                       ${isActive
-                        ? 'text-[#183B2A] font-semibold'
-                        : 'text-[#6D716A] hover:text-[#183B2A] hover:bg-[#DDE8D9]/50'
+                        ? 'text-[#9B70C7] font-semibold'
+                        : 'text-[#6E6872] hover:text-[#9B70C7] hover:bg-[#EEE7FA]/60'
                       }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -159,7 +157,7 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-md text-[#183B2A] hover:bg-[#DDE8D9] transition-colors"
+            className="lg:hidden p-2 rounded-lg text-[#9B70C7] hover:bg-[#EEE7FA] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -179,24 +177,24 @@ export function Navbar() {
         aria-hidden={!mobileOpen}
       >
         <div
-          className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/20 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-[#F8F5EE] shadow-2xl transition-transform duration-300 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ${
             mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           {/* Mobile menu header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-[#E5E0D8]">
-            <div className="flex items-center gap-2 text-[#183B2A]">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-[#EDE7EE]">
+            <div className="flex items-center gap-2">
               <LogoMark size="sm" />
-              <span className="font-serif text-lg font-semibold">LifeBloom</span>
+              <span className="font-serif text-lg font-semibold text-[#25222A]">LifeBloom</span>
             </div>
             <button
               onClick={() => setMobileOpen(false)}
-              className="p-2 rounded-md text-[#183B2A] hover:bg-[#DDE8D9]"
+              className="p-2 rounded-lg text-[#9B70C7] hover:bg-[#EEE7FA]"
               aria-label="Close menu"
             >
               <CloseIcon />
@@ -214,8 +212,8 @@ export function Navbar() {
                       href={link.href}
                       className={`block px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors
                         ${isActive
-                          ? 'bg-[#183B2A] text-white'
-                          : 'text-[#20251F] hover:bg-[#DDE8D9] hover:text-[#183B2A]'
+                          ? 'bg-[#9B70C7] text-white'
+                          : 'text-[#25222A] hover:bg-[#EEE7FA] hover:text-[#9B70C7]'
                         }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -235,17 +233,17 @@ export function Navbar() {
           </div>
 
           {/* Mobile contact info */}
-          <div className="border-t border-[#E5E0D8] px-6 py-4">
-            <p className="text-xs text-[#6D716A] font-sans mb-3">Get in touch</p>
+          <div className="border-t border-[#EDE7EE] px-6 py-4">
+            <p className="text-xs text-[#6E6872] font-sans mb-3">Get in touch</p>
             <a
               href="mailto:[CLIENT EMAIL]"
-              className="block text-sm text-[#183B2A] font-sans mb-1 hover:text-[#C9A35B] transition-colors"
+              className="block text-sm text-[#25222A] font-sans mb-1 hover:text-[#9B70C7] transition-colors"
             >
               [CLIENT EMAIL]
             </a>
             <a
               href="tel:[CLIENT PHONE]"
-              className="block text-sm text-[#183B2A] font-sans hover:text-[#C9A35B] transition-colors"
+              className="block text-sm text-[#25222A] font-sans hover:text-[#9B70C7] transition-colors"
             >
               [CLIENT PHONE]
             </a>
@@ -256,15 +254,18 @@ export function Navbar() {
   );
 }
 
+// ============================================================
 // Inline SVGs
+// ============================================================
+
 function LogoMark({ size = 'md' }: { size?: 'sm' | 'md' }) {
   const s = size === 'sm' ? 28 : 36;
   return (
     <svg width={s} height={s} viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="19" stroke="#183B2A" strokeWidth="1.5" />
-      <path d="M20 32c0 0-10-8-10-16a10 10 0 0 1 20 0c0 8-10 16-10 16z" fill="#183B2A" opacity="0.15" />
-      <path d="M20 10 C14 16, 12 22, 20 30 C28 22, 26 16, 20 10z" fill="#183B2A" />
-      <path d="M13 17 Q20 12, 27 17" stroke="#C9A35B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+      <circle cx="20" cy="20" r="19" stroke="#C9A5E8" strokeWidth="1.5" />
+      <path d="M20 32c0 0-10-8-10-16a10 10 0 0 1 20 0c0 8-10 16-10 16z" fill="#9B70C7" opacity="0.15" />
+      <path d="M20 10 C14 16, 12 22, 20 30 C28 22, 26 16, 20 10z" fill="#9B70C7" />
+      <path d="M13 17 Q20 12, 27 17" stroke="#E99AB8" strokeWidth="1.2" fill="none" strokeLinecap="round" />
     </svg>
   );
 }

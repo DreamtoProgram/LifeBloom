@@ -6,14 +6,16 @@ import { Container } from '@/components/ui';
 
 // ============================================================
 // Testimonials + Impact Stats section
-// Layout: left testimonial card | center stats | right CTA
+// Design: Blush/lavender background, lavender testimonial card
+// IMPORTANT: Only verified stats are shown (15+ years, 1000+ target)
 // ============================================================
 
+// Only verified, publicly stated figures
 const impactStats = [
   { number: '15+', label: 'Years of Experience' },
-  { number: '1000+', label: 'People Impacted (Target by 2027)' },
-  { number: '500+', label: 'Coaching Hours' },
-  { number: '100+', label: 'Workshops Conducted' },
+  { number: '1000+', label: 'People Targeted by 2027' },
+  { number: 'Holistic', label: 'Approach to Coaching' },
+  { number: 'Proven', label: 'NLP-Based Method' },
 ];
 
 export function Testimonials() {
@@ -22,7 +24,7 @@ export function Testimonials() {
 
   return (
     <section
-      className="py-24 bg-white"
+      className="py-24 bg-[#FCF8FB]"
       aria-labelledby="testimonials-heading"
       id="testimonials"
     >
@@ -31,16 +33,19 @@ export function Testimonials() {
 
           {/* LEFT — Testimonial card */}
           <div className="lg:col-span-1">
-            <div className="h-full bg-[#183B2A] rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between">
-              {/* Quote mark */}
-              <div className="absolute top-6 right-8 font-serif text-[120px] leading-none text-white/5 select-none" aria-hidden="true">
-                "
+            <div
+              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between"
+              style={{ background: 'linear-gradient(135deg, #9B70C7 0%, #C9A5E8 100%)' }}
+            >
+              {/* Large quote mark */}
+              <div className="absolute top-6 right-8 font-serif text-[120px] leading-none text-white/10 select-none" aria-hidden="true">
+                &ldquo;
               </div>
 
               <div>
                 <div className="flex gap-1 mb-6" aria-label="5 star rating" role="img">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="16" height="16" fill="#C9A35B" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg key={i} width="16" height="16" fill="#FBE8F0" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                     </svg>
                   ))}
@@ -48,17 +53,17 @@ export function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="font-serif text-lg md:text-xl text-white leading-relaxed mb-6 relative z-10">
-                  "{active.quote}"
+                  &ldquo;{active.quote}&rdquo;
                 </blockquote>
               </div>
 
               <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-[1px] bg-[#C9A35B]" aria-hidden="true" />
-                  <p className="font-sans text-sm text-[#C9A35B] font-medium">{active.clientLabel}</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-[1px] bg-white/40" aria-hidden="true" />
+                  <p className="font-sans text-sm text-white/90 font-medium">{active.clientLabel}</p>
                 </div>
                 {active.context && (
-                  <p className="font-sans text-xs text-white/40">{active.context}</p>
+                  <p className="font-sans text-xs text-white/60">{active.context}</p>
                 )}
 
                 {/* Dot navigation */}
@@ -72,7 +77,7 @@ export function Testimonials() {
                         aria-selected={idx === activeIdx}
                         aria-label={`View testimonial ${idx + 1}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === activeIdx ? 'w-6 bg-[#C9A35B]' : 'w-1.5 bg-white/30'
+                          idx === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40'
                         }`}
                       />
                     ))}
@@ -84,21 +89,21 @@ export function Testimonials() {
 
           {/* CENTER — Impact stats */}
           <div className="lg:col-span-1">
-            <div className="h-full bg-[#F8F5EE] rounded-3xl p-8 md:p-10 flex flex-col">
+            <div className="h-full bg-white rounded-3xl p-8 md:p-10 flex flex-col border border-[#EDE7EE]">
               <div className="mb-8">
-                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-3">
+                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-3">
                   Making an Impact
                 </p>
-                <h2 id="testimonials-heading" className="font-serif text-2xl text-[#20251F]">
+                <h2 id="testimonials-heading" className="font-serif text-2xl text-[#25222A]">
                   Creating Real, Meaningful Change
                 </h2>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 flex-1">
+              <div className="grid grid-cols-2 gap-4 flex-1">
                 {impactStats.map((stat) => (
-                  <div key={stat.label} className="flex flex-col items-center text-center p-4 rounded-2xl bg-white border border-[#E5E0D8]">
-                    <div className="font-serif text-3xl md:text-4xl text-[#183B2A] mb-2">{stat.number}</div>
-                    <div className="font-sans text-xs text-[#6D716A] leading-snug">{stat.label}</div>
+                  <div key={stat.label} className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCF8FB] border border-[#EDE7EE]">
+                    <div className="font-serif text-2xl md:text-3xl text-[#9B70C7] mb-2">{stat.number}</div>
+                    <div className="font-sans text-xs text-[#6E6872] leading-snug">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -109,29 +114,27 @@ export function Testimonials() {
           <div className="lg:col-span-1">
             <div
               className="h-full rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, #F8F5EE 0%, #DDE8D9 100%)',
-              }}
+              style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
             >
               {/* Decorative blob */}
               <div
                 className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-40"
-                style={{ background: 'radial-gradient(circle, #DDE8D9 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)' }}
                 aria-hidden="true"
               />
 
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#183B2A" strokeWidth="1.5" aria-hidden="true">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#9B70C7" strokeWidth="1.5" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                   </svg>
                 </div>
 
-                <h3 className="font-serif text-2xl md:text-3xl text-[#20251F] leading-[1.2] mb-4">
+                <h3 className="font-serif text-2xl md:text-3xl text-[#25222A] leading-[1.2] mb-4">
                   Ready to Start Your Transformation?
                 </h3>
 
-                <p className="font-sans text-sm text-[#6D716A] leading-relaxed mb-8">
+                <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-8">
                   Take the first step towards a happier, more fulfilled and purposeful life.
                 </p>
               </div>
@@ -139,7 +142,7 @@ export function Testimonials() {
               <div className="relative z-10">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-[#183B2A] text-white font-sans text-sm font-semibold hover:bg-[#315A3C] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold hover:bg-[#865CB5] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
                   aria-label="Book a free discovery call with LifeBloom"
                 >
                   <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">

@@ -56,7 +56,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-[#F8F5EE] text-[#20251F] antialiased">
+      <body className="bg-white text-[#25222A] antialiased">
         <Navbar />
         <main id="main-content" tabIndex={-1}>
           {children}

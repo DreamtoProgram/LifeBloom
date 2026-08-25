@@ -5,11 +5,12 @@ import Link from 'next/link';
 
 // ============================================================
 // Button — Reusable CTA component
+// Design: Lavender/Purple primary system
 // ============================================================
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'gold';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'gradient';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   onClick?: () => void;
@@ -56,35 +57,37 @@ export function Button({
 
   const variantStyles = {
     primary: `
-      bg-[#183B2A] text-white border-2 border-[#183B2A]
-      hover:bg-[#315A3C] hover:border-[#315A3C]
-      hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#183B2A]/20
-      focus-visible:outline-[#183B2A]
+      bg-[#9B70C7] text-white border-2 border-[#9B70C7]
+      hover:bg-[#865CB5] hover:border-[#865CB5]
+      hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#9B70C7]/25
+      focus-visible:outline-[#9B70C7]
     `,
     secondary: `
-      bg-transparent text-[#183B2A] border-2 border-[#183B2A]
-      hover:bg-[#183B2A] hover:text-white
-      hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#183B2A]/20
-      focus-visible:outline-[#183B2A]
+      bg-white text-[#7F55A8] border-2 border-[#C9A5E8]
+      hover:bg-[#EEE7FA] hover:border-[#9B70C7]
+      hover:-translate-y-0.5
+      focus-visible:outline-[#C9A5E8]
     `,
     outline: `
       bg-transparent text-white border-2 border-white/70
-      hover:bg-white hover:text-[#183B2A] hover:border-white
+      hover:bg-white hover:text-[#9B70C7] hover:border-white
       hover:-translate-y-0.5
       focus-visible:outline-white
     `,
     ghost: `
-      bg-transparent text-[#183B2A] border-2 border-transparent
-      hover:bg-[#DDE8D9] hover:border-[#DDE8D9]
-      focus-visible:outline-[#183B2A]
+      bg-transparent text-[#9B70C7] border-2 border-transparent
+      hover:bg-[#EEE7FA] hover:border-[#EEE7FA]
+      focus-visible:outline-[#C9A5E8]
     `,
-    gold: `
-      bg-[#C9A35B] text-white border-2 border-[#C9A35B]
-      hover:bg-[#b8924a] hover:border-[#b8924a]
-      hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#C9A35B]/30
-      focus-visible:outline-[#C9A35B]
+    gradient: `
+      text-white border-2 border-transparent
+      hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#9B70C7]/25
+      focus-visible:outline-[#9B70C7]
     `,
   };
+
+  // gradient variant needs inline style
+  const isGradient = variant === 'gradient';
 
   const classes = `
     ${baseStyles}
@@ -92,6 +95,10 @@ export function Button({
     ${variantStyles[variant]}
     ${className}
   `.trim().replace(/\s+/g, ' ');
+
+  const gradientStyle = isGradient
+    ? { background: 'linear-gradient(135deg, #E99AB8 0%, #9B70C7 100%)' }
+    : undefined;
 
   const content = (
     <>
@@ -121,6 +128,7 @@ export function Button({
       <Link
         href={href}
         className={`group ${classes}`}
+        style={gradientStyle}
         aria-label={ariaLabel}
         {...linkProps}
       >
@@ -135,6 +143,7 @@ export function Button({
       onClick={onClick}
       disabled={disabled || loading}
       className={`group ${classes}`}
+      style={gradientStyle}
       aria-label={ariaLabel}
     >
       {content}
@@ -142,7 +151,7 @@ export function Button({
   );
 }
 
-// Arrow icon for "Learn More" buttons
+// Arrow icon
 export function ArrowIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -151,7 +160,7 @@ export function ArrowIcon({ className = 'w-4 h-4' }: { className?: string }) {
   );
 }
 
-// Play icon for video buttons
+// Play icon
 export function PlayIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
