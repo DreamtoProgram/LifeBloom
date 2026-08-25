@@ -22,7 +22,7 @@ const NAV_LINKS = [
       { label: 'Mindfulness', href: '/services/mindfulness-stress-management' },
       { label: 'Emotional Intelligence', href: '/services/emotional-intelligence' },
       { label: 'Corporate Workshops', href: '/services/corporate-workshops' },
-      { label: 'NLP Transformation', href: '/services/nlp-transformation' },
+      { label: 'NLP', href: '/services/nlp-transformation' },
     ],
   },
   { label: 'Who We Help', href: '/who-we-help' },

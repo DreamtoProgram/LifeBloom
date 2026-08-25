@@ -4,9 +4,9 @@ import { services } from '@/lib/data/services';
 import { Container } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Coaching & Development Services',
+  title: 'Coaching & Development Services | LifeBloom',
   description:
-    'Explore LifeBloom\'s range of coaching and development services including life coaching, career coaching, NLP transformation, mindfulness, emotional intelligence and corporate workshops.',
+    "Explore LifeBloom's range of coaching and development services including life coaching, career coaching, NLP, mindfulness, emotional intelligence and corporate workshops.",
 };
 
 const categories = [
@@ -19,42 +19,60 @@ const categories = [
 
 export default function ServicesPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#F8F5EE]">
-      <Container>
-        {/* Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">Services</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#20251F] leading-[1.1] mb-6">
-            Coaching & Development<br />
-            <span className="text-[#183B2A]">Programs</span>
-          </h1>
-          <p className="font-sans text-base text-[#6D716A] leading-relaxed">
-            LifeBloom offers a thoughtfully curated range of coaching and development programs designed to support growth at every stage of life and career.
-          </p>
-        </div>
+    <div className="pt-[80px] pb-24 bg-white">
+      {/* Page hero header */}
+      <div
+        className="py-20 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #FBE8F0 50%, #EEE7FA 100%)' }}
+      >
+        <div
+          className="absolute right-0 top-0 w-80 h-80 rounded-full opacity-40 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
+          aria-hidden="true"
+        />
+        <Container className="relative z-10">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Services</p>
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
+              Coaching & Development<br />
+              <span className="text-[#9B70C7] italic">Programs</span>
+            </h1>
+            <p className="font-sans text-base text-[#6E6872] leading-relaxed">
+              LifeBloom offers a thoughtfully curated range of coaching and development programs designed to support growth at every stage of life and career.
+            </p>
+          </div>
+        </Container>
+      </div>
 
-        {/* Services grid */}
+      {/* Services grid */}
+      <Container className="pt-16">
         <div className="space-y-16">
           {categories.map((cat) => {
             const catServices = services.filter((s) => s.category === cat.id);
             if (catServices.length === 0) return null;
             return (
               <div key={cat.id}>
-                <h2 className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-6 border-b border-[#E5E0D8] pb-4">
+                <h2 className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-6 border-b border-[#EDE7EE] pb-4">
                   {cat.label}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {catServices.map((service) => (
-                    <article key={service.slug} className="group bg-white rounded-2xl p-7 border border-[#E5E0D8] hover:border-[#183B2A]/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                      <h3 className="font-serif text-xl text-[#20251F] mb-3 group-hover:text-[#183B2A] transition-colors">
+                    <article
+                      key={service.slug}
+                      className="group bg-white rounded-2xl p-7 border border-[#EDE7EE] hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)] hover:-translate-y-1 transition-all duration-300"
+                    >
+                      <h3 className="font-serif text-xl text-[#25222A] mb-3 group-hover:text-[#9B70C7] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="font-sans text-sm text-[#6D716A] leading-relaxed mb-6 line-clamp-3">
+                      <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6 line-clamp-3">
                         {service.shortDescription}
                       </p>
                       <Link
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-[#183B2A] hover:text-[#C9A35B] transition-colors"
+                        className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors"
                         aria-label={`Learn more about ${service.title}`}
                       >
                         Learn More

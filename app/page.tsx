@@ -12,7 +12,7 @@ import { FinalCTA } from '@/components/home/FinalCTA';
 export const metadata: Metadata = {
   title: 'LifeBloom | Life Coaching & Personal Development',
   description:
-    'LifeBloom offers personalized life coaching, career guidance, NLP transformation, mindfulness and corporate development programs. Discover clarity, confidence and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, India.',
+    'LifeBloom offers personalized life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, India.',
   openGraph: {
     title: 'LifeBloom | Life Coaching & Personal Development',
     description:

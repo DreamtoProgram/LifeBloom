@@ -23,7 +23,7 @@ const serviceLinks = [
   { label: 'Career Coaching', href: '/services/career-professional-coaching' },
   { label: 'Mindfulness & Stress', href: '/services/mindfulness-stress-management' },
   { label: 'Emotional Intelligence', href: '/services/emotional-intelligence' },
-  { label: 'NLP Transformation', href: '/services/nlp-transformation' },
+  { label: 'NLP', href: '/services/nlp-transformation' },
   { label: 'Corporate Workshops', href: '/services/corporate-workshops' },
   { label: 'All Services', href: '/services' },
 ];

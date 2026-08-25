@@ -45,19 +45,29 @@ const formatLabel: Record<string, string> = {
   'hybrid': 'In-Person or Online',
 };
 
+const topicColors = [
+  'bg-[#EEE7FA] text-[#7F55A8]',
+  'bg-[#FBE8F0] text-[#C4637A]',
+];
+
 export default function WorkshopsPage() {
   return (
-    <div className="pt-28 bg-[#F8F5EE]">
+    <div className="pt-[80px] bg-white">
       {/* Hero */}
-      <section className="pb-20">
+      <section className="pb-20 pt-16">
         <Container>
           <div className="max-w-2xl">
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">Workshops & Programs</p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#20251F] leading-[1.1] mb-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
+                Workshops & Programs
+              </p>
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#25222A] leading-[1.1] mb-6">
               Corporate Workshops &<br />
-              <span className="text-[#183B2A] italic">Development Programs</span>
+              <span className="text-[#9B70C7] italic">Development Programs</span>
             </h1>
-            <p className="font-sans text-base text-[#6D716A] leading-relaxed mb-8">
+            <p className="font-sans text-base text-[#6E6872] leading-relaxed mb-8">
               LifeBloom partners with organizations and educational institutions to design and deliver impactful workshops and development programs.
             </p>
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
@@ -68,26 +78,29 @@ export default function WorkshopsPage() {
       </section>
 
       {/* Workshops grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#FCF8FB]">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {workshops.map((workshop) => (
-              <article key={workshop.title} className="group bg-[#F8F5EE] rounded-3xl p-8 border border-[#E5E0D8] hover:border-[#183B2A]/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <article
+                key={workshop.title}
+                className="group bg-white rounded-3xl p-8 border border-[#EDE7EE] hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)] hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="font-sans text-xs font-semibold text-[#C9A35B] bg-[#C9A35B]/10 px-3 py-1 rounded-full">
+                  <span className="font-sans text-xs font-semibold text-[#9B70C7] bg-[#EEE7FA] px-3 py-1 rounded-full">
                     {formatLabel[workshop.format]}
                   </span>
-                  <span className="font-sans text-xs text-[#6D716A]">{workshop.duration}</span>
+                  <span className="font-sans text-xs text-[#6E6872]">{workshop.duration}</span>
                 </div>
-                <h2 className="font-serif text-xl text-[#20251F] mb-3 group-hover:text-[#183B2A] transition-colors">
+                <h2 className="font-serif text-xl text-[#25222A] mb-3 group-hover:text-[#9B70C7] transition-colors">
                   {workshop.title}
                 </h2>
-                <p className="font-sans text-sm text-[#6D716A] leading-relaxed mb-6">
+                <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6">
                   {workshop.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {workshop.topics.map((t) => (
-                    <span key={t} className="font-sans text-xs bg-[#DDE8D9] text-[#183B2A] px-3 py-1 rounded-full">
+                  {workshop.topics.map((t, idx) => (
+                    <span key={t} className={`font-sans text-xs px-3 py-1 rounded-full ${topicColors[idx % 2]}`}>
                       {t}
                     </span>
                   ))}
@@ -98,16 +111,24 @@ export default function WorkshopsPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[#183B2A]">
-        <Container className="text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
+      {/* CTA — blush/lavender gradient replaces dark green */}
+      <section
+        className="py-20 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
+      >
+        <div
+          className="absolute inset-0 opacity-30 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 80% 50%, #FFFFFF 0%, transparent 60%)' }}
+          aria-hidden="true"
+        />
+        <Container className="text-center relative z-10">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
             Let's Design the Right Program for Your Organization
           </h2>
-          <p className="font-sans text-base text-white/70 mb-8 max-w-lg mx-auto">
+          <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">
             All LifeBloom workshops can be customized to suit your organization's goals, culture and team size.
           </p>
-          <Button href="/contact" variant="outline" size="lg" icon={<ArrowIcon />}>
+          <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
             Get in Touch
           </Button>
         </Container>

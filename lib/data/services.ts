@@ -159,7 +159,7 @@ export const services: Service[] = [
   },
   {
     slug: 'nlp-transformation',
-    title: 'NLP-Based Personal Transformation',
+    title: 'NLP',
     shortDescription: 'Mindset development, communication, behavioral change and confidence building using NLP principles.',
     fullDescription: 'Neuro-Linguistic Programming (NLP) offers powerful tools for understanding and shifting the patterns of thought, language, and behavior that shape our lives. LifeBloom integrates NLP techniques into personal transformation coaching to help you create meaningful and lasting change.',
     icon: 'brain',

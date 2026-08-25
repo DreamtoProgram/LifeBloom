@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | LifeBloom',
   },
   description:
-    'LifeBloom offers premium life coaching, career guidance, NLP-based transformation, mindfulness and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand.',
+    'LifeBloom offers premium life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand.',
   keywords: [
     'life coaching', 'personal development', 'career coaching', 'NLP coaching',
     'mindfulness', 'emotional intelligence', 'leadership development', 'Dr Shivani',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'LifeBloom',
     title: 'LifeBloom | Life Coaching & Personal Development',
     description:
-      'Empowering individuals and organizations through personalized life coaching, career guidance, NLP transformation, and mindfulness programs.',
+      'Empowering individuals and organizations through personalized life coaching, career guidance, NLP, and mindfulness programs.',
     images: [
       {
         url: '/founder.jpg',

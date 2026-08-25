@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button, ArrowIcon } from '@/components/ui/Button';
-import { Container, GoldDivider, StatCard } from '@/components/ui';
+import { Container, LavenderDivider, StatCard } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'About Dr. Shivani Koccher Dhand | Life Coach & NLP Practitioner',
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-28 bg-[#F8F5EE]">
+    <div className="pt-[80px] bg-white">
       {/* Hero */}
-      <section className="pb-24">
+      <section className="pb-24 pt-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — Image */}
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] relative shadow-2xl shadow-[#183B2A]/10">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] relative shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE]">
                 <Image
                   src="/founder.jpg"
                   alt="Dr. Shivani Koccher Dhand — Life Coach and Founder of LifeBloom"
@@ -27,23 +27,27 @@ export default function AboutPage() {
                   priority
                   sizes="(max-width: 1024px) 90vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FBE8F0]/20 via-transparent to-transparent" aria-hidden="true" />
               </div>
-              {/* Decorative ring */}
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full border border-[#C9A35B]/30" aria-hidden="true" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full border border-[#DDE8D9]" aria-hidden="true" />
+              {/* Decorative rings */}
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full border border-[#C9A5E8]/30" aria-hidden="true" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full border border-[#EDE7EE]" aria-hidden="true" />
             </div>
 
             {/* Right — Content */}
             <div>
-              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">
-                Meet Your Coach
-              </p>
-              <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#20251F] leading-[1.1] mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
+                  Meet Your Coach
+                </p>
+              </div>
+              <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
                 Helping People Unlock<br />
-                <span className="text-[#183B2A] italic">Their Human Potential</span>
+                <span className="text-[#9B70C7] italic">Their Human Potential</span>
               </h1>
-              <GoldDivider className="mb-6" />
-              <div className="space-y-4 text-[#6D716A] font-sans text-base leading-relaxed mb-8">
+              <LavenderDivider className="mb-6" />
+              <div className="space-y-4 text-[#6E6872] font-sans text-base leading-relaxed mb-8">
                 <p>
                   Dr. Shivani Koccher Dhand is the founder of LifeBloom and a dedicated Life Coach, NLP Practitioner, HR & Human Capital Expert, and Educator based in Phagwara, India.
                 </p>
@@ -65,20 +69,20 @@ export default function AboutPage() {
                   'Personal & Professional Development Specialist',
                 ].map((cred) => (
                   <div key={cred} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#DDE8D9] flex items-center justify-center shrink-0">
-                      <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="#183B2A" strokeWidth="3" aria-hidden="true">
+                    <div className="w-5 h-5 rounded-full bg-[#EEE7FA] flex items-center justify-center shrink-0">
+                      <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="#9B70C7" strokeWidth="3" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </div>
-                    <span className="font-sans text-sm text-[#20251F] font-medium">{cred}</span>
+                    <span className="font-sans text-sm text-[#25222A] font-medium">{cred}</span>
                   </div>
                 ))}
               </div>
 
               {/* Stats */}
-              <div className="flex gap-8 mb-8 p-6 bg-white rounded-2xl border border-[#E5E0D8]">
+              <div className="flex gap-8 mb-8 p-6 bg-[#FCF8FB] rounded-2xl border border-[#EDE7EE]">
                 <StatCard number="15+" label="Years Experience" />
-                <div className="w-[1px] bg-[#E5E0D8]" aria-hidden="true" />
+                <div className="w-[1px] bg-[#EDE7EE]" aria-hidden="true" />
                 <StatCard number="1000+" label="People Targeted by 2027" />
               </div>
 
@@ -91,14 +95,18 @@ export default function AboutPage() {
       </section>
 
       {/* Coaching Philosophy */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#FCF8FB]">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">Coaching Philosophy</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#20251F] leading-[1.2] mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-[1px] w-10 bg-gradient-to-r from-transparent to-[#C9A5E8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Coaching Philosophy</p>
+              <div className="h-[1px] w-10 bg-gradient-to-l from-transparent to-[#C9A5E8]" aria-hidden="true" />
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] leading-[1.2] mb-8">
               A Human-Centered Approach to Growth
             </h2>
-            <div className="space-y-4 text-[#6D716A] font-sans text-base leading-relaxed text-left">
+            <div className="space-y-4 text-[#6E6872] font-sans text-base leading-relaxed text-left">
               <p>
                 Dr. Shivani believes that every person has the innate capacity to grow, change and create a more meaningful life. Her coaching philosophy is grounded in the belief that lasting transformation begins with deep self-awareness, honest reflection and purposeful action.
               </p>
@@ -113,13 +121,24 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Why LifeBloom */}
-      <section className="py-24 bg-[#183B2A]">
-        <Container>
+      {/* Why LifeBloom — blush/lavender gradient replaces dark green */}
+      <section
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
+      >
+        <div
+          className="absolute right-0 top-0 w-64 h-64 rounded-full opacity-50 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
+          aria-hidden="true"
+        />
+        <Container className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-1">
-              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">Why LifeBloom</p>
-              <h2 className="font-serif text-3xl md:text-4xl text-white leading-[1.2]">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-8 bg-[#C9A5E8]" aria-hidden="true" />
+                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Why LifeBloom</p>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] leading-[1.2]">
                 What Makes LifeBloom Different
               </h2>
             </div>
@@ -130,9 +149,9 @@ export default function AboutPage() {
                 { title: 'Evidence-Informed', description: 'Grounded in NLP, emotional intelligence research and positive psychology principles.' },
                 { title: 'Human-Centered', description: 'Warm, non-judgmental, confidential and deeply focused on your growth.' },
               ].map((item) => (
-                <div key={item.title} className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                  <h3 className="font-serif text-lg text-white mb-2">{item.title}</h3>
-                  <p className="font-sans text-sm text-white/65 leading-relaxed">{item.description}</p>
+                <div key={item.title} className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-[#EDE7EE]">
+                  <h3 className="font-serif text-lg text-[#25222A] mb-2">{item.title}</h3>
+                  <p className="font-sans text-sm text-[#6E6872] leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -141,12 +160,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#F8F5EE] text-center">
+      <section className="py-20 bg-white text-center">
         <Container>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#20251F] mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
             Ready to Begin Your Journey?
           </h2>
-          <p className="font-sans text-base text-[#6D716A] mb-8 max-w-lg mx-auto">
+          <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">
             Take the first step. Start a conversation with Dr. Shivani today.
           </p>
           <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>

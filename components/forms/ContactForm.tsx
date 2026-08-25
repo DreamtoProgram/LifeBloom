@@ -5,6 +5,7 @@ import { submitInquiry } from '@/lib/api/inquiries';
 
 // ============================================================
 // ContactForm — Ready for POST /api/inquiries integration
+// Design: White + Blush Pink + Soft Lavender
 // ============================================================
 
 const interestOptions = [
@@ -15,7 +16,7 @@ const interestOptions = [
   { value: 'corporate-workshop', label: 'Corporate Workshop' },
   { value: 'leadership-development', label: 'Leadership Development' },
   { value: 'mindfulness-stress', label: 'Mindfulness & Stress Management' },
-  { value: 'nlp-transformation', label: 'NLP-Based Transformation' },
+  { value: 'nlp', label: 'NLP' },
   { value: 'other', label: 'Other' },
 ];
 
@@ -85,13 +86,13 @@ export function ContactForm() {
   if (state === 'success') {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 rounded-full bg-[#DDE8D9] flex items-center justify-center mx-auto mb-6">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#183B2A" strokeWidth="2" aria-hidden="true">
+        <div className="w-16 h-16 rounded-full bg-[#EEE7FA] flex items-center justify-center mx-auto mb-6">
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#9B70C7" strokeWidth="2" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h2 className="font-serif text-2xl text-[#20251F] mb-3">Thank You!</h2>
-        <p className="font-sans text-base text-[#6D716A]">
+        <h2 className="font-serif text-2xl text-[#25222A] mb-3">Thank You!</h2>
+        <p className="font-sans text-base text-[#6E6872]">
           Your message has been received. We will be in touch with you shortly.
         </p>
       </div>
@@ -107,8 +108,8 @@ export function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         {/* Name */}
         <div>
-          <label htmlFor="contact-name" className="block font-sans text-sm font-medium text-[#20251F] mb-2">
-            Full Name <span className="text-[#DFA77D]" aria-label="required">*</span>
+          <label htmlFor="contact-name" className="block font-sans text-sm font-medium text-[#25222A] mb-2">
+            Full Name <span className="text-[#E99AB8]" aria-label="required">*</span>
           </label>
           <input
             id="contact-name"
@@ -122,9 +123,9 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your full name"
-            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#20251F] placeholder:text-[#6D716A]/50
-              focus:outline-none focus:ring-2 focus:ring-[#183B2A]/30 focus:border-[#183B2A] transition-all
-              ${errors.name ? 'border-red-400 bg-red-50' : 'border-[#E5E0D8] hover:border-[#6D716A]/40'}`}
+            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50
+              focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all
+              ${errors.name ? 'border-red-400 bg-red-50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}`}
           />
           {errors.name && (
             <p id="name-error" className="mt-1.5 font-sans text-xs text-red-600" role="alert">{errors.name}</p>
@@ -133,8 +134,8 @@ export function ContactForm() {
 
         {/* Email */}
         <div>
-          <label htmlFor="contact-email" className="block font-sans text-sm font-medium text-[#20251F] mb-2">
-            Email Address <span className="text-[#DFA77D]" aria-label="required">*</span>
+          <label htmlFor="contact-email" className="block font-sans text-sm font-medium text-[#25222A] mb-2">
+            Email Address <span className="text-[#E99AB8]" aria-label="required">*</span>
           </label>
           <input
             id="contact-email"
@@ -148,9 +149,9 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="your@email.com"
-            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#20251F] placeholder:text-[#6D716A]/50
-              focus:outline-none focus:ring-2 focus:ring-[#183B2A]/30 focus:border-[#183B2A] transition-all
-              ${errors.email ? 'border-red-400 bg-red-50' : 'border-[#E5E0D8] hover:border-[#6D716A]/40'}`}
+            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50
+              focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all
+              ${errors.email ? 'border-red-400 bg-red-50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}`}
           />
           {errors.email && (
             <p id="email-error" className="mt-1.5 font-sans text-xs text-red-600" role="alert">{errors.email}</p>
@@ -161,8 +162,8 @@ export function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         {/* Phone */}
         <div>
-          <label htmlFor="contact-phone" className="block font-sans text-sm font-medium text-[#20251F] mb-2">
-            Phone Number <span className="text-[#6D716A]/50 font-normal">(optional)</span>
+          <label htmlFor="contact-phone" className="block font-sans text-sm font-medium text-[#25222A] mb-2">
+            Phone Number <span className="text-[#6E6872]/50 font-normal">(optional)</span>
           </label>
           <input
             id="contact-phone"
@@ -172,14 +173,14 @@ export function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="+91 XXXXX XXXXX"
-            className="w-full bg-white border border-[#E5E0D8] hover:border-[#6D716A]/40 rounded-xl px-4 py-3 font-sans text-sm text-[#20251F] placeholder:text-[#6D716A]/50 focus:outline-none focus:ring-2 focus:ring-[#183B2A]/30 focus:border-[#183B2A] transition-all"
+            className="w-full bg-white border border-[#EDE7EE] hover:border-[#C9A5E8] rounded-xl px-4 py-3 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50 focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all"
           />
         </div>
 
         {/* Interest */}
         <div>
-          <label htmlFor="contact-interest" className="block font-sans text-sm font-medium text-[#20251F] mb-2">
-            Area of Interest <span className="text-[#DFA77D]" aria-label="required">*</span>
+          <label htmlFor="contact-interest" className="block font-sans text-sm font-medium text-[#25222A] mb-2">
+            Area of Interest <span className="text-[#E99AB8]" aria-label="required">*</span>
           </label>
           <select
             id="contact-interest"
@@ -190,10 +191,10 @@ export function ContactForm() {
             aria-invalid={!!errors.interest}
             value={formData.interest}
             onChange={handleChange}
-            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#20251F]
-              focus:outline-none focus:ring-2 focus:ring-[#183B2A]/30 focus:border-[#183B2A] transition-all cursor-pointer
-              ${errors.interest ? 'border-red-400 bg-red-50' : 'border-[#E5E0D8] hover:border-[#6D716A]/40'}
-              ${!formData.interest ? 'text-[#6D716A]/50' : ''}`}
+            className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#25222A]
+              focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all cursor-pointer
+              ${errors.interest ? 'border-red-400 bg-red-50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}
+              ${!formData.interest ? 'text-[#6E6872]/50' : ''}`}
           >
             {interestOptions.map((opt) => (
               <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
@@ -209,8 +210,8 @@ export function ContactForm() {
 
       {/* Message */}
       <div className="mb-7">
-        <label htmlFor="contact-message" className="block font-sans text-sm font-medium text-[#20251F] mb-2">
-          Your Message <span className="text-[#DFA77D]" aria-label="required">*</span>
+        <label htmlFor="contact-message" className="block font-sans text-sm font-medium text-[#25222A] mb-2">
+          Your Message <span className="text-[#E99AB8]" aria-label="required">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -223,9 +224,9 @@ export function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us a little about what you're looking for..."
           rows={5}
-          className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#20251F] placeholder:text-[#6D716A]/50
-            focus:outline-none focus:ring-2 focus:ring-[#183B2A]/30 focus:border-[#183B2A] transition-all resize-none
-            ${errors.message ? 'border-red-400 bg-red-50' : 'border-[#E5E0D8] hover:border-[#6D716A]/40'}`}
+          className={`w-full bg-white border rounded-xl px-4 py-3 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50
+            focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all resize-none
+            ${errors.message ? 'border-red-400 bg-red-50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}`}
         />
         {errors.message && (
           <p id="message-error" className="mt-1.5 font-sans text-xs text-red-600" role="alert">{errors.message}</p>
@@ -245,10 +246,10 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state === 'loading'}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#183B2A] text-white font-sans text-sm font-semibold
-          hover:bg-[#315A3C] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#183B2A]/20
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold
+          hover:bg-[#865CB5] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#9B70C7]/20
           disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none
-          transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183B2A]"
+          transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9B70C7]"
         aria-busy={state === 'loading'}
       >
         {state === 'loading' ? (

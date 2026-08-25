@@ -11,48 +11,67 @@ export const metadata: Metadata = {
 
 export default function InsightsPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#F8F5EE]">
-      <Container>
-        <div className="max-w-2xl mb-16">
-          <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#C9A35B] uppercase mb-4">Insights</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#20251F] leading-[1.1] mb-6">
-            Ideas That Inspire Growth
-          </h1>
-          <p className="font-sans text-base text-[#6D716A] leading-relaxed">
-            Thought leadership, perspectives and practical ideas on life coaching, human development, emotional intelligence and the future of work.
-          </p>
-        </div>
+    <div className="pt-[80px] pb-24 bg-white">
+      <div
+        className="py-20 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #FBE8F0 50%, #EEE7FA 100%)' }}
+      >
+        {/* Decorative blob */}
+        <div
+          className="absolute right-0 bottom-0 w-80 h-80 rounded-full opacity-40 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)', transform: 'translate(30%, 30%)' }}
+          aria-hidden="true"
+        />
+        <Container className="relative z-10">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Insights</p>
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
+              Ideas That Inspire Growth
+            </h1>
+            <p className="font-sans text-base text-[#6E6872] leading-relaxed">
+              Thought leadership, perspectives and practical ideas on life coaching, human development, emotional intelligence and the future of work.
+            </p>
+          </div>
+        </Container>
+      </div>
 
+      <Container className="pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {insights.map((insight) => (
             <article
               key={insight.slug}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#E5E0D8] hover:border-[#183B2A]/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group bg-white rounded-2xl overflow-hidden border border-[#EDE7EE] hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)] hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Cover */}
-              <div className="h-48 bg-[#183B2A] relative overflow-hidden">
+              {/* Cover — lavender/pink gradient replaces dark green */}
+              <div
+                className="h-48 relative overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #C9A5E8 0%, #9B70C7 50%, #E99AB8 100%)' }}
+              >
                 <div className="absolute inset-0 opacity-20" style={{
-                  backgroundImage: `radial-gradient(circle at 30% 70%, #DDE8D9 0%, transparent 60%), radial-gradient(circle at 80% 20%, #C9A35B 0%, transparent 50%)`,
+                  backgroundImage: `radial-gradient(circle at 30% 70%, #FFFFFF 0%, transparent 60%), radial-gradient(circle at 80% 20%, #FBE8F0 0%, transparent 50%)`,
                 }} />
                 <div className="absolute bottom-4 left-4 flex flex-wrap gap-1.5">
                   {insight.topics.slice(0, 2).map((t) => (
-                    <Badge key={t} variant="lavender" className="text-[10px]">{t}</Badge>
+                    <Badge key={t} variant="soft" className="text-[10px]">{t}</Badge>
                   ))}
                 </div>
               </div>
 
               <div className="p-6">
-                <h2 className="font-serif text-lg text-[#20251F] leading-snug mb-3 group-hover:text-[#183B2A] transition-colors">
+                <h2 className="font-serif text-lg text-[#25222A] leading-snug mb-3 group-hover:text-[#9B70C7] transition-colors">
                   {insight.title}
                 </h2>
-                <p className="font-sans text-sm text-[#6D716A] leading-relaxed line-clamp-3 mb-4">
+                <p className="font-sans text-sm text-[#6E6872] leading-relaxed line-clamp-3 mb-4">
                   {insight.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="font-sans text-xs text-[#6D716A]">{insight.readingTime} min read</span>
+                  <span className="font-sans text-xs text-[#6E6872]">{insight.readingTime} min read</span>
                   <Link
                     href={`/insights/${insight.slug}`}
-                    className="font-sans text-sm font-semibold text-[#183B2A] hover:text-[#C9A35B] transition-colors flex items-center gap-1"
+                    className="font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors flex items-center gap-1"
                     aria-label={`Read: ${insight.title}`}
                   >
                     Read Article
