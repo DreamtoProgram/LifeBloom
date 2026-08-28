@@ -16,7 +16,7 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: 'welcome-1',
     sender: 'assistant',
-    text: "Hello! 👋 Welcome to LifeBloom. I'm your AI coaching assistant.",
+    text: "Hello! 👋 I'm Shivi, your LifeBloom AI coaching assistant.",
     timestamp: 'Just now',
   },
   {
@@ -106,6 +106,12 @@ export function ChatbotWidget() {
           { label: 'Book Your Discovery Call', href: '/contact' },
           { label: 'About Dr. Shivani', href: '/about' },
         ];
+      } else if (lower.includes('who are you') || lower.includes('name') || lower.includes('shivi')) {
+        replyText = "I'm Shivi, your LifeBloom AI assistant! I'm here 24/7 to guide you through our coaching programs, answer questions, and help you connect directly with Dr. Shivani.";
+        replyLinks = [
+          { label: 'Explore Services', href: '/services' },
+          { label: 'Start Your Journey', href: '/contact' },
+        ];
       } else {
         replyText = "Dr. Shivani Koccher Dhand is a certified Life Coach & NLP Practitioner with 15+ years of experience in human potential development. Would you like to explore our programs or start a conversation?";
         replyLinks = [
@@ -139,24 +145,25 @@ export function ChatbotWidget() {
       {/* Floating Greeting Pill (Desktop/Tablet) */}
       {showGreeting && !isOpen && (
         <aside
-          aria-label="LifeBloom Assistant message"
+          aria-label="Shivi Assistant message"
           className="fixed bottom-[96px] right-[24px] z-50 hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl shadow-[#4A3450]/10 border border-[#EDE7EE] text-[#25222A] transition-all duration-300 max-w-xs animate-fade-in-up"
         >
           <div className="relative w-7 h-7 shrink-0 rounded-full overflow-hidden">
             <Image
               src="/chatbot-icon.png"
-              alt="LifeBloom Assistant"
+              alt="Shivi — LifeBloom Assistant"
               fill
               sizes="28px"
               className="object-contain"
             />
           </div>
           <div className="text-left flex-1 min-w-0">
-            <p className="font-sans text-xs font-semibold text-[#25222A] leading-tight">
-              LifeBloom Assistant
+            <p className="font-sans text-xs font-semibold text-[#25222A] leading-tight flex items-center gap-1.5">
+              <span>Shivi</span>
+              <span className="text-[10px] font-normal text-[#9B70C7] bg-[#EEE7FA] px-1.5 py-0.2 rounded-full">AI</span>
             </p>
             <p className="font-sans text-[11px] text-[#6E6872] leading-tight mt-0.5 truncate">
-              Need guidance? Ask us anything!
+              Need guidance? Ask Shivi anything!
             </p>
           </div>
           <button
@@ -174,7 +181,7 @@ export function ChatbotWidget() {
         <div
           role="dialog"
           aria-modal="false"
-          aria-label="LifeBloom AI Chat Assistant"
+          aria-label="Shivi — LifeBloom AI Chat Assistant"
           className="fixed z-50 bg-white border border-[#EDE7EE] rounded-[24px] shadow-2xl flex flex-col overflow-hidden animate-fade-in-up
             right-[12px] left-[12px] sm:left-auto sm:right-[24px] bottom-[90px] sm:bottom-[108px]
             w-auto sm:w-[390px] md:w-[410px]
@@ -189,25 +196,30 @@ export function ChatbotWidget() {
               <div className="relative w-10 h-10 shrink-0">
                 <Image
                   src="/chatbot-icon.png"
-                  alt="LifeBloom Assistant Icon"
+                  alt="Shivi — LifeBloom Assistant Icon"
                   fill
                   sizes="40px"
                   className="object-contain"
                 />
               </div>
               <div>
-                <h3 className="font-serif text-base font-semibold text-[#25222A] leading-tight">
-                  LifeBloom Assistant
-                </h3>
+                <div className="flex items-center gap-1.5">
+                  <h3 className="font-serif text-base font-semibold text-[#25222A] leading-tight">
+                    Shivi
+                  </h3>
+                  <span className="text-[10px] font-sans font-semibold text-[#9B70C7] bg-[#EEE7FA] px-1.5 py-0.5 rounded-full">
+                    AI Assistant
+                  </span>
+                </div>
                 <p className="font-sans text-xs text-[#6E6872] leading-tight mt-0.5">
-                  Here to help you grow &amp; transform
+                  LifeBloom • Here to help you grow
                 </p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               className="w-8 h-8 rounded-full flex items-center justify-center text-[#6E6872] hover:text-[#25222A] hover:bg-[#EEE7FA] transition-colors duration-200"
-              aria-label="Close LifeBloom Assistant"
+              aria-label="Close Shivi Assistant"
             >
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -267,7 +279,7 @@ export function ChatbotWidget() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Suggested Prompts (when only initial message or user is looking for topics) */}
+          {/* Quick Suggested Prompts */}
           {messages.length <= 3 && (
             <div className="px-4 py-2 bg-[#FCF8FB] border-t border-[#EDE7EE] overflow-x-auto flex gap-2 no-scrollbar">
               {SUGGESTED_TOPICS.map((topic) => (
@@ -297,9 +309,9 @@ export function ChatbotWidget() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask LifeBloom anything..."
+                placeholder="Ask Shivi anything..."
                 className="flex-1 bg-transparent py-2 text-sm text-[#25222A] placeholder:text-[#6E6872]/60 focus:outline-none font-sans"
-                aria-label="Type your message"
+                aria-label="Type your message to Shivi"
               />
               <button
                 type="submit"
@@ -329,13 +341,13 @@ export function ChatbotWidget() {
         style={{
           filter: 'drop-shadow(0 10px 24px rgba(155, 112, 199, 0.28)) drop-shadow(0 2px 6px rgba(74, 52, 80, 0.12))',
         }}
-        aria-label={isOpen ? 'Close LifeBloom Assistant' : 'Open LifeBloom Assistant'}
+        aria-label={isOpen ? 'Close Shivi Assistant' : 'Chat with Shivi'}
         aria-expanded={isOpen}
       >
         <div className="relative w-full h-full">
           <Image
             src="/chatbot-icon.png"
-            alt="LifeBloom AI Assistant"
+            alt="Shivi — LifeBloom AI Assistant"
             fill
             sizes="(max-width: 640px) 62px, 72px"
             className="object-contain pointer-events-none"
