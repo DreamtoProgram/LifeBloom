@@ -310,7 +310,8 @@ export function ChatbotWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask Shivi anything..."
-                className="flex-1 bg-transparent py-2 text-sm text-[#25222A] placeholder:text-[#6E6872]/60 focus:outline-none font-sans"
+                className="flex-1 bg-transparent py-2 px-1 text-sm text-[#25222A] placeholder:text-[#6E6872]/60 border-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 shadow-none font-sans"
+                style={{ outline: 'none', boxShadow: 'none' }}
                 aria-label="Type your message to Shivi"
               />
               <button
