@@ -201,6 +201,29 @@ export function ChatbotWidget() {
                   sizes="40px"
                   className="object-contain"
                 />
+                <span
+                  className="absolute rounded-full bg-emerald-400 opacity-80 animate-ping pointer-events-none"
+                  style={{
+                    left: '77.1%',
+                    top: '24.8%',
+                    width: '12%',
+                    height: '12%',
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                  aria-hidden="true"
+                />
+                <span
+                  className="absolute rounded-full bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-500 pointer-events-none"
+                  style={{
+                    left: '77.1%',
+                    top: '24.8%',
+                    width: '7.5%',
+                    height: '7.5%',
+                    transform: 'translate(-50%, -50%)',
+                    boxShadow: '0 0 6px rgba(16, 185, 129, 0.95)',
+                  }}
+                  aria-hidden="true"
+                />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -353,6 +376,31 @@ export function ChatbotWidget() {
             sizes="(max-width: 640px) 62px, 72px"
             className="object-contain pointer-events-none"
             priority
+          />
+
+          {/* Active Live Green Dot Beacon Effect */}
+          <span
+            className="absolute rounded-full bg-emerald-400 opacity-80 animate-ping pointer-events-none"
+            style={{
+              left: '77.1%',
+              top: '24.8%',
+              width: '12%',
+              height: '12%',
+              transform: 'translate(-50%, -50%)',
+            }}
+            aria-hidden="true"
+          />
+          <span
+            className="absolute rounded-full bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-500 pointer-events-none"
+            style={{
+              left: '77.1%',
+              top: '24.8%',
+              width: '7.5%',
+              height: '7.5%',
+              transform: 'translate(-50%, -50%)',
+              boxShadow: '0 0 8px rgba(16, 185, 129, 0.95), 0 0 16px rgba(52, 211, 153, 0.7)',
+            }}
+            aria-hidden="true"
           />
         </div>
       </button>
