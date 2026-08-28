@@ -54,7 +54,7 @@ export function detectLanguage(text: string): 'hi' | 'pa' | 'es' | 'fr' | 'de' |
   }
 
   // Hindi in Latin / Hinglish words
-  if (/\b(mera|meri|mere|naam|nam|hai|h|hu|hoon|kya|kaise|kese|karna|hoga|hogi|mujhe|humko|aap|aapka|aapki|bataye|batayein|chahiye|kitna|kitni|namaste|shukriya|dhanyawad|madad|bhai|kripya|bolo|baat|karni)\b/.test(lower)) {
+  if (/\b(mera|meri|mere|naam|nam|hai|h|hu|hoon|kya|kaise|kese|karna|hoga|hogi|mujhe|humko|aap|aapka|aapki|bataye|batayein|chahiye|kitna|kitni|namaste|shukriya|dhanyawad|madad|bhai|kripya|bolo|baat|karni|samajh|nhi|nahi|aaya)\b/.test(lower)) {
     return 'hi';
   }
 
@@ -239,12 +239,88 @@ async function callLLMProvider(
 }
 
 /**
- * Intelligent Fallback Intent Matcher with Multilingual Response Generation
+ * Context-Aware Fallback Intent Matcher with Multilingual Response Generation
  */
-function matchFallbackTopic(text: string, lang: string): { reply: string; links?: QuickLink[] } {
+function matchFallbackTopic(
+  text: string,
+  lang: string,
+  messages: ChatMessage[]
+): { reply: string; links?: QuickLink[] } {
   const lower = text.toLowerCase().trim();
 
-  // 1. Language switch requests
+  // Find previous context from conversational history
+  const previousAssistantMsg = [...messages]
+    .slice(0, -1)
+    .reverse()
+    .find((m) => m.role === 'assistant');
+  const prevText = previousAssistantMsg ? previousAssistantMsg.content.toLowerCase() : '';
+
+  // 1. Clarification requests ("i did not understand", "samajh nahi aaya", "explain more", "what does that mean")
+  if (
+    /\b(not understand|didn't understand|did not understand|dont understand|don't understand|unclear|confused|explain more|simpler|simple words|what do you mean|samajh nahi|samajh ni|samajh nhi|samjh nahi|pata nahi lagga|samajh nahi aaya)\b/.test(
+      lower
+    )
+  ) {
+    // Check if previous context was NLP
+    if (prevText.includes('nlp') || prevText.includes('neuro-linguistic') || prevText.includes('एनएलपी')) {
+      if (lang === 'hi') {
+        return {
+          reply: "कोई बात नहीं! मैं बहुत आसान शब्दों में समझाती हूँ:\n\n**NLP (Neuro-Linguistic Programming)** आपके दिमाग के सोचने के पैटर्न को बदलने का तरीका है।\n\nजैसे जब भी हमें कोई डर, घबराहट या पुरानी नकारात्मक आदत परेशान करती है, NLP सिखाता है कि कैसे अपने विचारों और भाषा को बदलकर तुरंत आत्मविश्वास महसूस किया जाए। डॉ. शिवानी सेशंस में बहुत ही सरल मेंटल एक्सरसाइज से इसे सिखाती हैं।",
+          links: [
+            { label: 'Explore NLP Sessions', href: '/services/nlp-transformation' },
+            { label: 'Book Discovery Call', href: '/contact' },
+          ],
+        };
+      }
+      if (lang === 'pa') {
+        return {
+          reply: "ਕੋਈ ਗੱਲ ਨਹੀਂ ਜੀ! ਬਿਲਕੁਲ ਆਸਾਨ ਸ਼ਬਦਾਂ ਵਿੱਚ:\n\n**NLP** ਤੁਹਾਡੇ ਦਿਮਾਗ ਦੇ ਸੋਚਣ ਦੇ ਤਰੀਕੇ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਦੀ ਵਿਧੀ ਹੈ।\n\nਜਦੋਂ ਵੀ ਸਾਨੂੰ ਨਕਾਰਾਤਮਕ ਵਿਚਾਰ ਜਾਂ ਡਰ ਰੋਕਦਾ ਹੈ, NLP ਤੁਹਾਨੂੰ ਮਾਨਸਿਕ ਤੌਰ 'ਤੇ ਮਜ਼ਬੂਤ ਅਤੇ ਆਤਮ-ਵਿਸ਼ਵਾਸੀ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ। ਡਾ. ਸ਼ਿਵਾਨੀ ਇਸਨੂੰ ਬਹੁਤ ਹੀ ਆਸਾਨ ਤਰੀਕੇ ਨਾਲ ਸਿਖਾਉਂਦੇ ਹਨ।",
+          links: [
+            { label: 'ਐਨਐਲਪੀ ਸੇਵਾਵਾਂ', href: '/services/nlp-transformation' },
+            { label: 'ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
+          ],
+        };
+      }
+      return {
+        reply: "No problem at all! Let me explain in very simple words:\n\n**NLP (Neuro-Linguistic Programming)** is like updating the software of your mind.\n\nThink of your brain like a computer that sometimes runs outdated habits or self-doubt. NLP gives you practical mental exercises to replace negative thought loops with instant confidence and clarity—helping you react positively to challenges.\n\nDr. Shivani guides you through simple, step-by-step techniques tailored to your goals.",
+        links: [
+          { label: 'Explore NLP Transformation', href: '/services/nlp-transformation' },
+          { label: 'Book Discovery Call', href: '/contact' },
+        ],
+      };
+    }
+
+    // Check if previous context was Life Coaching
+    if (prevText.includes('life coaching') || prevText.includes('लाइफ कोचिंग') || prevText.includes('ਕੋਚਿੰਗ')) {
+      if (lang === 'hi') {
+        return {
+          reply: "सरल शब्दों में:\n\nजैसे जिम में एक ट्रेनर आपको शारीरिक फिटनेस में मदद करता है, वैसे ही **Life Coach** आपके जीवन और करियर के लक्ष्यों को हासिल करने में मार्गदर्शन करता है।\n\nडॉ. शिवानी आपके साथ 1-ऑन-1 बैठकर आपकी ताकत पहचानती हैं और आपको अपने सपनों को पूरा करने का स्पष्ट प्लान देती हैं।",
+          links: [
+            { label: 'Life Coaching Details', href: '/services/life-coaching' },
+            { label: 'Book Discovery Call', href: '/contact' },
+          ],
+        };
+      }
+      return {
+        reply: "To put it simply:\n\nJust like a personal trainer helps you get physically fit, a **Life Coach** is a personal guide for your life and career.\n\nIf you ever feel stuck, unmotivated, or unsure about your next big move, Dr. Shivani works with you 1-on-1 to gain clarity, break limiting habits, and build an actionable roadmap to succeed.",
+        links: [
+          { label: 'Explore Life Coaching', href: '/services/life-coaching' },
+          { label: 'Book Discovery Call', href: '/contact' },
+        ],
+      };
+    }
+
+    // Generic simple clarification
+    return {
+      reply: "Let me simplify it for you!\n\nAt LifeBloom, Dr. Shivani Koccher Dhand helps individuals overcome stress, gain career clarity, and build confidence through personalized 1-on-1 coaching sessions.\n\nWould you like to know how a 1-on-1 session works, or would you prefer booking a quick discovery call?",
+      links: [
+        { label: 'Explore Services', href: '/services' },
+        { label: 'Book Discovery Call', href: '/contact' },
+      ],
+    };
+  }
+
+  // 2. Language switch requests
   if (/\b(hindi|talk in hindi|speak in hindi|hindi me|hindi mein|hindi bol)\b/.test(lower)) {
     return {
       reply: "हाँ बिल्कुल! हम हिंदी में बात कर सकते हैं। LifeBloom में आपका स्वागत है।\n\nमैं डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, एनएलपी, और माइंडफुलनेस कार्यक्रमों के बारे में आपकी सहायता कर सकती हूँ। बताइए आज आप किस विषय पर बात करना चाहते हैं? 🌱",
@@ -265,7 +341,7 @@ function matchFallbackTopic(text: string, lang: string): { reply: string; links?
     };
   }
 
-  // 2. Name introduction
+  // 3. Name introduction
   if (/\b(mera naam|my name is|i am|main|mein|im)\b/.test(lower)) {
     if (lang === 'hi') {
       return {
@@ -294,7 +370,7 @@ function matchFallbackTopic(text: string, lang: string): { reply: string; links?
     };
   }
 
-  // 3. Score each domain topic based on keyword matches
+  // 4. Score each domain topic based on keyword matches
   let bestTopic = DOMAIN_TOPICS[0];
   let maxMatches = 0;
 
@@ -320,7 +396,7 @@ function matchFallbackTopic(text: string, lang: string): { reply: string; links?
     };
   }
 
-  // 4. Default localized overview
+  // 5. Default localized overview
   switch (lang) {
     case 'hi':
       return {
@@ -389,8 +465,8 @@ export async function processChatMessage(
     }
   }
 
-  // 3. Robust Multilingual Fallback Engine
-  const matched = matchFallbackTopic(userText, detectedLang);
+  // 3. Robust Context-Aware Multilingual Fallback Engine
+  const matched = matchFallbackTopic(userText, detectedLang, messages);
   return {
     reply: matched.reply,
     links: matched.links,
