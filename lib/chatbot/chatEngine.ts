@@ -211,7 +211,7 @@ async function callLLMProvider(
 ): Promise<string | null> {
   try {
     if (provider === 'gemini') {
-      // Use Gemini REST API
+      // Use Gemini REST API (gemini-2.5-flash)
       const geminiContents = messages
         .filter((m) => m.role !== 'system')
         .map((m) => ({
@@ -220,10 +220,13 @@ async function callLLMProvider(
         }));
 
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-goog-api-key': apiKey,
+          },
           body: JSON.stringify({
             systemInstruction: {
               parts: [{ text: SYSTEM_PROMPT }],
@@ -231,7 +234,7 @@ async function callLLMProvider(
             contents: geminiContents,
             generationConfig: {
               temperature: 0.7,
-              maxOutputTokens: 500,
+              maxOutputTokens: 600,
             },
           }),
         }
