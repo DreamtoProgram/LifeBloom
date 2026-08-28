@@ -127,36 +127,38 @@ export function CoachingApproach() {
           />
 
           <FadeInStagger
-            staggerDelay={110}
+            staggerDelay={90}
             direction="up"
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-4"
           >
             {stages.map((stage, idx) => (
               <div
                 key={stage.number}
-                className="group flex flex-col items-center text-center cursor-default"
+                className={`group flex flex-col items-center text-center cursor-default ${
+                  idx === 4 ? 'col-span-2 sm:col-span-1' : ''
+                }`}
               >
                 {/* Icon circle with interactive hover */}
-                <div className="relative mb-5 z-10">
+                <div className="relative mb-4 sm:mb-5 z-10">
                   <div
-                    className={`w-[104px] h-[104px] rounded-full border-2 border-white/60 ${stage.iconBg} flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[rgba(74,52,80,0.15)] transition-all duration-300`}
+                    className={`w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-full border-2 border-white/60 ${stage.iconBg} flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[rgba(74,52,80,0.15)] transition-all duration-300`}
                     style={{ color: stage.iconColor }}
                   >
-                    <div className="w-16 h-16 rounded-full bg-white/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                       {stage.icon}
                     </div>
                   </div>
                   {/* Stage number badge */}
-                  <span className={`absolute -top-2 -right-2 w-6 h-6 rounded-full ${stage.badgeBg} text-white font-sans text-[10px] font-bold flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110`}>
+                  <span className={`absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full ${stage.badgeBg} text-white font-sans text-[10px] font-bold flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110`}>
                     {idx + 1}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-serif text-lg font-semibold text-[#25222A] mb-2 group-hover:text-[#9B70C7] transition-colors duration-200">
+                <h3 className="font-serif text-base sm:text-lg font-semibold text-[#25222A] mb-1.5 group-hover:text-[#9B70C7] transition-colors duration-200">
                   {stage.title}
                 </h3>
-                <p className="font-sans text-sm text-[#6E6872] leading-relaxed max-w-[140px]">
+                <p className="font-sans text-xs sm:text-sm text-[#6E6872] leading-relaxed max-w-[150px]">
                   {stage.description}
                 </p>
               </div>
@@ -165,7 +167,7 @@ export function CoachingApproach() {
         </div>
 
         {/* Video CTA */}
-        <AnimatedSection direction="up" delay={450} className="mt-16 flex justify-end">
+        <AnimatedSection direction="up" delay={450} className="mt-12 sm:mt-16 flex justify-center sm:justify-end">
           <button
             className="flex items-center gap-4 group cursor-pointer"
             type="button"

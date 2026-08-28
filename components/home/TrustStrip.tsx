@@ -68,18 +68,23 @@ export function TrustStrip() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInStagger
-          staggerDelay={100}
+          staggerDelay={80}
           direction="up"
-          className="flex items-start justify-between gap-6 overflow-x-auto pb-2 no-scrollbar"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-start"
         >
           {trustItems.map((item, idx) => (
-            <div key={idx} className="group flex flex-col items-center text-center gap-3 min-w-[120px] flex-1 cursor-default">
-              <div className={`w-14 h-14 rounded-full ${item.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-[rgba(155,112,199,0.15)] transition-all duration-300`}>
+            <div
+              key={idx}
+              className={`group flex flex-col items-center text-center gap-3 cursor-default ${
+                idx === 4 ? 'col-span-2 sm:col-span-1' : ''
+              }`}
+            >
+              <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full ${item.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-[rgba(155,112,199,0.15)] transition-all duration-300`}>
                 {item.icon}
               </div>
               <div>
-                <div className="font-serif text-lg text-[#25222A] leading-tight group-hover:text-[#9B70C7] transition-colors duration-200">{item.stat}</div>
-                <div className="font-sans text-xs text-[#6E6872] leading-snug mt-0.5">{item.label}</div>
+                <div className="font-serif text-base sm:text-lg text-[#25222A] leading-tight group-hover:text-[#9B70C7] transition-colors duration-200">{item.stat}</div>
+                <div className="font-sans text-xs text-[#6E6872] leading-snug mt-0.5 max-w-[140px] mx-auto">{item.label}</div>
               </div>
             </div>
           ))}

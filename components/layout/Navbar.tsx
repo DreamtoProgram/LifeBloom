@@ -171,82 +171,115 @@ export function Navbar() {
       {/* Mobile menu overlay */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!mobileOpen}
       >
+        {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+          className="absolute inset-0 bg-[#25222A]/30 backdrop-blur-sm transition-opacity"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
+
+        {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ${
+          className={`absolute top-0 right-0 h-full w-[85%] max-w-[340px] bg-white shadow-2xl transition-transform duration-300 flex flex-col justify-between overflow-y-auto ${
             mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          {/* Mobile menu header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-[#EDE7EE]">
-            <div className="flex items-center gap-2">
-              <LogoMark size="sm" />
-              <span className="font-serif text-lg font-semibold text-[#25222A]">LifeBloom</span>
+          <div>
+            {/* Mobile menu header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[#EDE7EE] bg-[#FCF8FB]">
+              <div className="flex items-center gap-2">
+                <LogoMark size="sm" />
+                <span className="font-serif text-lg font-semibold text-[#25222A]">LifeBloom</span>
+              </div>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="w-10 h-10 rounded-full text-[#9B70C7] hover:bg-[#EEE7FA] flex items-center justify-center transition-colors"
+                aria-label="Close menu"
+              >
+                <CloseIcon />
+              </button>
             </div>
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="p-2 rounded-lg text-[#9B70C7] hover:bg-[#EEE7FA]"
-              aria-label="Close menu"
-            >
-              <CloseIcon />
-            </button>
+
+            {/* Mobile nav links */}
+            <nav className="px-4 py-4" aria-label="Mobile navigation">
+              <ul className="space-y-1" role="list">
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+
+                  if (link.children) {
+                    return (
+                      <li key={link.href}>
+                        <button
+                          onClick={() => setServicesOpen(!servicesOpen)}
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors text-left ${
+                            isActive
+                              ? 'bg-[#EEE7FA] text-[#7F55A8]'
+                              : 'text-[#25222A] hover:bg-[#FCF8FB]'
+                          }`}
+                          aria-expanded={servicesOpen}
+                        >
+                          <span>{link.label}</span>
+                          <ChevronDownIcon
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              servicesOpen ? 'rotate-180 text-[#9B70C7]' : 'text-[#6E6872]'
+                            }`}
+                          />
+                        </button>
+                        {servicesOpen && (
+                          <ul className="pl-4 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[#EEE7FA] ml-4">
+                            {link.children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="block px-3 py-2.5 rounded-lg font-sans text-sm text-[#6E6872] hover:text-[#9B70C7] hover:bg-[#EEE7FA]/60 transition-colors"
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors
+                          ${isActive
+                            ? 'bg-[#9B70C7] text-white'
+                            : 'text-[#25222A] hover:bg-[#EEE7FA] hover:text-[#9B70C7]'
+                          }`}
+                        aria-current={isActive ? 'page' : undefined}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
           </div>
 
-          {/* Mobile nav links */}
-          <nav className="px-4 py-6" aria-label="Mobile navigation">
-            <ul className="space-y-1" role="list">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`block px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors
-                        ${isActive
-                          ? 'bg-[#9B70C7] text-white'
-                          : 'text-[#25222A] hover:bg-[#EEE7FA] hover:text-[#9B70C7]'
-                        }`}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-
-          {/* Mobile CTA */}
-          <div className="px-4 pb-8">
-            <Button href="/contact" variant="primary" size="lg" fullWidth>
+          {/* Bottom actions */}
+          <div className="p-4 bg-[#FCF8FB] border-t border-[#EDE7EE] space-y-3">
+            <Button href="/contact" variant="primary" size="lg" fullWidth onClick={() => setMobileOpen(false)}>
               Start Your Journey
             </Button>
-          </div>
-
-          {/* Mobile contact info */}
-          <div className="border-t border-[#EDE7EE] px-6 py-4">
-            <p className="text-xs text-[#6E6872] font-sans mb-3">Get in touch</p>
-            <a
-              href="mailto:[CLIENT EMAIL]"
-              className="block text-sm text-[#25222A] font-sans mb-1 hover:text-[#9B70C7] transition-colors"
-            >
-              [CLIENT EMAIL]
-            </a>
-            <a
-              href="tel:[CLIENT PHONE]"
-              className="block text-sm text-[#25222A] font-sans hover:text-[#9B70C7] transition-colors"
-            >
-              [CLIENT PHONE]
-            </a>
+            <div className="pt-2 text-center">
+              <p className="text-xs text-[#6E6872] font-sans">
+                Phagwara, Punjab, India
+              </p>
+            </div>
           </div>
         </div>
       </div>

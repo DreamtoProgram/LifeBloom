@@ -110,12 +110,12 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-[32px] p-8 sm:p-10 md:p-12 border border-[#EDE7EE] shadow-xl shadow-[rgba(74,52,80,0.06)] transition-all">
+    <div className="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 md:p-12 border border-[#EDE7EE] shadow-xl shadow-[rgba(74,52,80,0.06)] transition-all">
       {/* Header with Envelope + Botanical Icon Badge */}
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-14 h-14 rounded-full bg-[#FBE8F0] flex items-center justify-center shrink-0 relative shadow-xs">
+      <div className="flex items-center gap-3.5 sm:gap-4 mb-6 sm:mb-8">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FBE8F0] flex items-center justify-center shrink-0 relative shadow-xs">
           {/* Envelope with botanical floral sprigs */}
-          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <svg width="26" height="26" className="sm:w-[30px] sm:h-[30px]" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             {/* Pink botanical leaves sprouting from envelope */}
             <path
               d="M19 8C20.5 6 22 5.5 24 6C23.5 8 22.5 9.5 20.5 10M20.5 10C22.5 10.5 24.5 11.5 25 13.5C23 14 21 13 20 11.5M19.5 10.5L23 7.5"
@@ -149,16 +149,16 @@ export function ContactForm() {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal tracking-tight leading-none">
             Send Us a Message
           </h2>
-          <div className="w-12 h-[2px] bg-[#E99AB8] rounded-full mt-2.5" aria-hidden="true" />
+          <div className="w-10 sm:w-12 h-[2px] bg-[#E99AB8] rounded-full mt-2" aria-hidden="true" />
         </div>
       </div>
 
       <form onSubmit={handleSubmit} noValidate aria-label="Send Us a Message Form">
         {/* 4 Form Fields Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-5 mb-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4 sm:gap-y-5 mb-6 sm:mb-7">
           {/* 1. Full Name */}
           <div>
-            <label htmlFor="contact-name" className="block font-sans text-sm font-semibold text-[#25222A] mb-2">
+            <label htmlFor="contact-name" className="block font-sans text-sm font-semibold text-[#25222A] mb-1.5 sm:mb-2">
               Full Name <span className="text-[#E99AB8]" aria-label="required">*</span>
             </label>
             <input
@@ -173,7 +173,7 @@ export function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Your full name"
-              className={`w-full bg-white border rounded-2xl px-5 py-3.5 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50
+              className={`w-full bg-white border rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 font-sans text-base sm:text-sm text-[#25222A] placeholder:text-[#6E6872]/50
                 focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all
                 ${errors.name ? 'border-red-400 bg-red-50/50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}`}
             />
@@ -184,7 +184,7 @@ export function ContactForm() {
 
           {/* 2. Email Address */}
           <div>
-            <label htmlFor="contact-email" className="block font-sans text-sm font-semibold text-[#25222A] mb-2">
+            <label htmlFor="contact-email" className="block font-sans text-sm font-semibold text-[#25222A] mb-1.5 sm:mb-2">
               Email Address <span className="text-[#E99AB8]" aria-label="required">*</span>
             </label>
             <input
@@ -199,7 +199,7 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="your@email.com"
-              className={`w-full bg-white border rounded-2xl px-5 py-3.5 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50
+              className={`w-full bg-white border rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 font-sans text-base sm:text-sm text-[#25222A] placeholder:text-[#6E6872]/50
                 focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all
                 ${errors.email ? 'border-red-400 bg-red-50/50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}`}
             />
@@ -210,7 +210,7 @@ export function ContactForm() {
 
           {/* 3. Phone Number (optional) */}
           <div>
-            <label htmlFor="contact-phone" className="block font-sans text-sm font-semibold text-[#25222A] mb-2">
+            <label htmlFor="contact-phone" className="block font-sans text-sm font-semibold text-[#25222A] mb-1.5 sm:mb-2">
               Phone Number <span className="text-[#6E6872]/60 font-normal text-xs">(optional)</span>
             </label>
             <input
@@ -221,13 +221,13 @@ export function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+91 XXXXX XXXXX"
-              className="w-full bg-white border border-[#EDE7EE] hover:border-[#C9A5E8] rounded-2xl px-5 py-3.5 font-sans text-sm text-[#25222A] placeholder:text-[#6E6872]/50 focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all"
+              className="w-full bg-white border border-[#EDE7EE] hover:border-[#C9A5E8] rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 font-sans text-base sm:text-sm text-[#25222A] placeholder:text-[#6E6872]/50 focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all"
             />
           </div>
 
           {/* 4. Area of Interest */}
           <div>
-            <label htmlFor="contact-interest" className="block font-sans text-sm font-semibold text-[#25222A] mb-2">
+            <label htmlFor="contact-interest" className="block font-sans text-sm font-semibold text-[#25222A] mb-1.5 sm:mb-2">
               Area of Interest <span className="text-[#E99AB8]" aria-label="required">*</span>
             </label>
             <div className="relative">
@@ -240,7 +240,7 @@ export function ContactForm() {
                 aria-invalid={!!errors.interest}
                 value={formData.interest}
                 onChange={handleChange}
-                className={`w-full bg-white border rounded-2xl px-5 py-3.5 font-sans text-sm text-[#25222A] appearance-none pr-10
+                className={`w-full bg-white border rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 font-sans text-base sm:text-sm text-[#25222A] appearance-none pr-10
                   focus:outline-none focus:ring-2 focus:ring-[#C9A5E8]/40 focus:border-[#9B70C7] transition-all cursor-pointer
                   ${errors.interest ? 'border-red-400 bg-red-50/50' : 'border-[#EDE7EE] hover:border-[#C9A5E8]'}
                   ${!formData.interest ? 'text-[#6E6872]/60' : ''}`}
@@ -264,7 +264,7 @@ export function ContactForm() {
         </div>
 
         {/* Decorative Divider with Center Botanical Leaf Sprig */}
-        <div className="flex items-center justify-center gap-3 my-8" aria-hidden="true">
+        <div className="flex items-center justify-center gap-3 my-6 sm:my-8" aria-hidden="true">
           <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#F7DCE8] to-[#E99AB8]/40" />
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E99AB8" strokeWidth="1.8" className="shrink-0">
             <path
@@ -289,7 +289,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={state === 'loading'}
-          className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-[#FCF8FB] hover:bg-[#F6EEFA] active:scale-[0.99] border border-[#9B70C7]/40 hover:border-[#9B70C7] text-[#6E3587] hover:text-[#521C6B] font-sans font-semibold text-sm sm:text-base flex items-center justify-center gap-3 shadow-xs hover:shadow-md hover:shadow-[#9B70C7]/15 transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed group"
+          className="w-full py-3.5 sm:py-4.5 px-4 sm:px-6 rounded-2xl bg-[#FCF8FB] hover:bg-[#F6EEFA] active:scale-[0.99] border border-[#9B70C7]/40 hover:border-[#9B70C7] text-[#6E3587] hover:text-[#521C6B] font-sans font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5 sm:gap-3 shadow-xs hover:shadow-md hover:shadow-[#9B70C7]/15 transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed group"
           aria-busy={state === 'loading'}
         >
           {state === 'loading' ? (
@@ -304,24 +304,24 @@ export function ContactForm() {
             <>
               {/* Message / Chat Bubble Icon */}
               <svg
-                width="20"
-                height="20"
+                width="18"
+                height="18"
+                className="sm:w-5 sm:h-5 shrink-0 text-[#6E3587] group-hover:scale-110 transition-transform"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="shrink-0 text-[#6E3587] group-hover:scale-110 transition-transform"
                 aria-hidden="true"
               >
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
               </svg>
 
-              <span className="leading-none">Please Answer Our Few Questions</span>
+              <span className="leading-none text-xs sm:text-base truncate">Please Answer Our Few Questions</span>
 
               {/* Right Arrow */}
-              <span className="text-lg font-normal leading-none group-hover:translate-x-1 transition-transform" aria-hidden="true">
+              <span className="text-base sm:text-lg font-normal leading-none group-hover:translate-x-1 transition-transform" aria-hidden="true">
                 →
               </span>
             </>

@@ -183,9 +183,9 @@ export function ChatbotWidget() {
           aria-modal="false"
           aria-label="Shivi — LifeBloom AI Chat Assistant"
           className="fixed z-50 bg-white border border-[#EDE7EE] rounded-[24px] shadow-2xl flex flex-col overflow-hidden animate-fade-in-up
-            right-[12px] left-[12px] sm:left-auto sm:right-[24px] bottom-[90px] sm:bottom-[108px]
+            right-[10px] left-[10px] sm:left-auto sm:right-[24px] bottom-[84px] sm:bottom-[108px]
             w-auto sm:w-[390px] md:w-[410px]
-            h-[min(70vh,580px)] sm:h-[600px] max-h-[calc(100vh-130px)]"
+            h-[min(75vh,580px)] sm:h-[600px] max-h-[calc(100dvh-100px)]"
           style={{
             boxShadow: '0 20px 60px rgba(74, 52, 80, 0.16)',
           }}
@@ -333,7 +333,7 @@ export function ChatbotWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask Shivi anything..."
-                className="flex-1 bg-transparent py-2 px-1 text-sm text-[#25222A] placeholder:text-[#6E6872]/60 border-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 shadow-none font-sans"
+                className="flex-1 bg-transparent py-2 px-1 text-base sm:text-sm text-[#25222A] placeholder:text-[#6E6872]/60 border-none outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 shadow-none font-sans"
                 style={{ outline: 'none', boxShadow: 'none' }}
                 aria-label="Type your message to Shivi"
               />

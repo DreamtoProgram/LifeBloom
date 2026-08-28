@@ -48,7 +48,7 @@ export function FounderSection() {
               </div>
 
               {/* Credential badge (bottom right of image) with subtle float */}
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-white text-[#25222A] rounded-2xl p-5 shadow-xl z-10 max-w-[200px] border border-[#EDE7EE] animate-bounce-subtle">
+              <div className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-white text-[#25222A] rounded-2xl p-4 sm:p-5 shadow-xl z-10 max-w-[190px] sm:max-w-[200px] border border-[#EDE7EE] animate-bounce-subtle">
                 <p className="font-serif text-xs italic text-[#C9A5E8] mb-1">Human Capital Expert</p>
                 <p className="font-sans text-xs text-[#6E6872] leading-snug">
                   Integrating NLP &amp; Personal Transformation

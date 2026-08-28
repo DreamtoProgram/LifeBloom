@@ -70,7 +70,7 @@ export function Footer() {
                 href="[INSTAGRAM URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
                 aria-label="LifeBloom on Instagram"
               >
                 <InstagramIcon />
@@ -79,7 +79,7 @@ export function Footer() {
                 href="[LINKEDIN URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
                 aria-label="LifeBloom on LinkedIn"
               >
                 <LinkedInIcon />
@@ -88,7 +88,7 @@ export function Footer() {
                 href="[FACEBOOK URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
                 aria-label="LifeBloom on Facebook"
               >
                 <FacebookIcon />
@@ -97,7 +97,7 @@ export function Footer() {
                 href="[YOUTUBE URL]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] transition-all duration-200"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
                 aria-label="LifeBloom on YouTube"
               >
                 <YoutubeIcon />
@@ -201,15 +201,15 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-xs text-[#6E6872]">
+          <p className="font-sans text-xs text-[#6E6872] text-center sm:text-left">
             © {new Date().getFullYear()} LifeBloom. All Rights Reserved.
           </p>
           <nav aria-label="Legal navigation">
-            <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-center sm:justify-end" role="list">
+            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 justify-center sm:justify-end" role="list">
               {legalLinks.map((link, idx) => (
-                <li key={link.href} className="flex items-center gap-4">
+                <li key={link.href} className="flex items-center gap-3 sm:gap-4">
                   {idx > 0 && (
-                    <span className="text-[#C9A5E8]/60" aria-hidden="true">|</span>
+                    <span className="text-[#C9A5E8]/60 hidden sm:inline" aria-hidden="true">|</span>
                   )}
                   <Link
                     href={link.href}
