@@ -23,9 +23,22 @@ export interface ChatEngineResponse {
 }
 
 /**
- * Detect language from user input (Devanagari, Gurmukhi, Latin scripts)
+ * Detect language from user input (Devanagari, Gurmukhi, Latin scripts, explicit requests)
  */
 export function detectLanguage(text: string): 'hi' | 'pa' | 'es' | 'fr' | 'de' | 'en' {
+  const lower = text.toLowerCase();
+
+  // Explicit language requests
+  if (/\b(hindi|हिंदी|हिन्दी)\b/.test(lower) || /\b(talk in hindi|speak in hindi|hindi me|hindi mein|hindi bol|hindi bolo)\b/.test(lower)) {
+    return 'hi';
+  }
+  if (/\b(punjabi|ਪੰਜਾਬੀ)\b/.test(lower) || /\b(talk in punjabi|speak in punjabi|punjabi vich|punjabi ch)\b/.test(lower)) {
+    return 'pa';
+  }
+  if (/\b(spanish|español|habla español)\b/.test(lower)) return 'es';
+  if (/\b(french|français|parle français)\b/.test(lower)) return 'fr';
+  if (/\b(german|deutsch|sprich deutsch)\b/.test(lower)) return 'de';
+
   // Check Gurmukhi script (Punjabi)
   if (/[਀-੿]/.test(text)) {
     return 'pa';
@@ -35,30 +48,28 @@ export function detectLanguage(text: string): 'hi' | 'pa' | 'es' | 'fr' | 'de' |
     return 'hi';
   }
 
-  const lower = text.toLowerCase();
-
-  // Punjabi in Latin (Hinglish/Punjabi slang)
-  if (/\b(tussi|tuhada|kive|kiven|hove|sada|chahida|sat sri akaal|kidaan|kiddan|gal|daso|dasso|punjab|phagwara)\b/.test(lower)) {
+  // Punjabi in Latin / Roman (Punjabi words)
+  if (/\b(tussi|tuhada|tuhadi|kive|kiven|hove|sada|sadi|chahida|sat sri akaal|kidaan|kiddan|gal|daso|dasso|punjab|phagwara|hanji|theek|rab|veere|bhaji)\b/.test(lower)) {
     return 'pa';
   }
 
-  // Hindi in Latin (Hinglish)
-  if (/\b(kya|kaise|kese|karna|hoga|mujhe|aap|bataye|batayein|chahiye|kitna|kitni|namaste|shukriya|dhanyawad|madad)\b/.test(lower)) {
+  // Hindi in Latin / Hinglish words
+  if (/\b(mera|meri|mere|naam|nam|hai|h|hu|hoon|kya|kaise|kese|karna|hoga|hogi|mujhe|humko|aap|aapka|aapki|bataye|batayein|chahiye|kitna|kitni|namaste|shukriya|dhanyawad|madad|bhai|kripya|bolo|baat|karni)\b/.test(lower)) {
     return 'hi';
   }
 
   // Spanish
-  if (/\b(hola|gracias|cómo|como|por favor|servicios|ayuda|precio|contacto|vida|trabajo)\b/.test(lower)) {
+  if (/\b(hola|gracias|cómo|como|por favor|servicios|ayuda|precio|contacto|vida|trabajo|hablas)\b/.test(lower)) {
     return 'es';
   }
 
   // French
-  if (/\b(bonjour|merci|comment|s'il vous plaît|services|aide|prix|contact|vie|travail)\b/.test(lower)) {
+  if (/\b(bonjour|merci|comment|s'il vous plaît|services|aide|prix|contact|vie|travail|parlez)\b/.test(lower)) {
     return 'fr';
   }
 
   // German
-  if (/\b(hallo|danke|wie|bitte|dienstleistungen|hilfe|preis|kontakt|leben|arbeit)\b/.test(lower)) {
+  if (/\b(hallo|danke|wie|bitte|dienstleistungen|hilfe|preis|kontakt|leben|arbeit|sprichst)\b/.test(lower)) {
     return 'de';
   }
 
@@ -140,20 +151,158 @@ function getOutOfFieldRefusal(lang: string): { reply: string; links: QuickLink[]
 }
 
 /**
- * Intelligent Fallback Intent Matcher
+ * Sanitize and format conversation history for Gemini API
+ * (Gemini requires the first turn to be 'user' and strictly alternating turns)
+ */
+function formatGeminiContents(messages: ChatMessage[]) {
+  const contents: Array<{ role: 'user' | 'model'; parts: [{ text: string }] }> = [];
+
+  for (const m of messages) {
+    if (!m.content || !m.content.trim() || m.role === 'system') continue;
+    const role: 'user' | 'model' = m.role === 'assistant' ? 'model' : 'user';
+
+    // Gemini requires first message in contents to have role 'user'
+    if (contents.length === 0 && role === 'model') {
+      continue;
+    }
+
+    // Merge consecutive identical roles to adhere to strict alternating turn requirement
+    if (contents.length > 0 && contents[contents.length - 1].role === role) {
+      contents[contents.length - 1].parts[0].text += '\n' + m.content.trim();
+    } else {
+      contents.push({
+        role,
+        parts: [{ text: m.content.trim() }],
+      });
+    }
+  }
+
+  // Ensure there is at least one user message
+  if (contents.length === 0) {
+    const lastUser = [...messages].reverse().find((m) => m.role === 'user');
+    contents.push({
+      role: 'user',
+      parts: [{ text: lastUser ? lastUser.content : 'Hello' }],
+    });
+  }
+
+  return contents.slice(-6);
+}
+
+/**
+ * Call Gemini REST API (gemini-2.5-flash)
+ */
+async function callLLMProvider(
+  messages: ChatMessage[],
+  apiKey: string
+): Promise<string | null> {
+  try {
+    const geminiContents = formatGeminiContents(messages);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 7000);
+
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'Content-Type': 'application/json',
+          'x-goog-api-key': apiKey,
+        },
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: SYSTEM_PROMPT }],
+          },
+          contents: geminiContents,
+          generationConfig: {
+            temperature: 0.5,
+            maxOutputTokens: 350,
+          },
+        }),
+      }
+    ).finally(() => clearTimeout(timeoutId));
+
+    if (!res.ok) {
+      console.warn('Gemini API status:', res.status, res.statusText);
+      return null;
+    }
+
+    const data = await res.json();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    return text || null;
+  } catch (err) {
+    console.error('Gemini API call failed, using intelligent fallback engine:', err);
+    return null;
+  }
+}
+
+/**
+ * Intelligent Fallback Intent Matcher with Multilingual Response Generation
  */
 function matchFallbackTopic(text: string, lang: string): { reply: string; links?: QuickLink[] } {
-  const lower = text.toLowerCase();
+  const lower = text.toLowerCase().trim();
 
-  // Score each domain topic based on keyword matches
-  let bestTopic = DOMAIN_TOPICS[0]; // default to greeting / general
+  // 1. Language switch requests
+  if (/\b(hindi|talk in hindi|speak in hindi|hindi me|hindi mein|hindi bol)\b/.test(lower)) {
+    return {
+      reply: "हाँ बिल्कुल! हम हिंदी में बात कर सकते हैं। LifeBloom में आपका स्वागत है।\n\nमैं डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, एनएलपी, और माइंडफुलनेस कार्यक्रमों के बारे में आपकी सहायता कर सकती हूँ। बताइए आज आप किस विषय पर बात करना चाहते हैं? 🌱",
+      links: [
+        { label: 'सेवाएँ देखें', href: '/services' },
+        { label: 'डिस्कवरी कॉल बुक करें', href: '/contact' },
+      ],
+    };
+  }
+
+  if (/\b(punjabi|talk in punjabi|speak in punjabi|punjabi vich|punjabi ch)\b/.test(lower)) {
+    return {
+      reply: "ਹਾਂਜੀ ਬਿਲਕੁਲ! ਅਸੀਂ ਪੰਜਾਬੀ ਵਿੱਚ ਗੱਲ ਕਰ ਸਕਦੇ ਹਾਂ। LifeBloom ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।\n\nਮੈਂ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਕੋਚਿੰਗ ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਦੱਸੋ ਅੱਜ ਤੁਸੀਂ ਕੀ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ? 🌱",
+      links: [
+        { label: 'ਸੇਵਾਵਾਂ ਵੇਖੋ', href: '/services' },
+        { label: 'ਡਿਸਕਵਰੀ ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
+      ],
+    };
+  }
+
+  // 2. Name introduction
+  if (/\b(mera naam|my name is|i am|main|mein|im)\b/.test(lower)) {
+    if (lang === 'hi') {
+      return {
+        reply: "नमस्ते! आपसे बात करके बहुत खुशी हुई। मैं शिवी हूँ, LifeBloom की AI कोचिंग असिस्टेंट।\n\nमैं डॉ. शिवानी कोचर ढांड के साथ आपके व्यक्तिगत और व्यावसायिक विकास के लिए सही कोचिंग प्रोग्राम चुनने में मदद कर सकती हूँ। आप क्या जानना चाहते हैं?",
+        links: [
+          { label: 'Explore Services', href: '/services' },
+          { label: 'Book Discovery Call', href: '/contact' },
+        ],
+      };
+    }
+    if (lang === 'pa') {
+      return {
+        reply: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਤੁਹਾਡੇ ਨਾਲ ਗੱਲ ਕਰਕੇ ਬਹੁਤ ਖੁਸ਼ੀ ਹੋਈ। ਮੈਂ ਸ਼ਿਵੀ ਹਾਂ, LifeBloom ਦੀ AI ਕੋਚਿੰਗ ਅਸਿਸਟੈਂਟ।\n\nਮੈਂ ਤੁਹਾਡੀ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਜਾਂ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਯਾਤਰਾ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰਾਂ?",
+        links: [
+          { label: 'ਸੇਵਾਵਾਂ ਵੇਖੋ', href: '/services' },
+          { label: 'ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
+        ],
+      };
+    }
+    return {
+      reply: "Hello! It's a pleasure to connect with you. I'm Shivi, your LifeBloom AI coaching assistant.\n\nI'm here to help guide you through our personalized coaching programs with Dr. Shivani Koccher Dhand. How can I support your growth journey today?",
+      links: [
+        { label: 'Explore Services', href: '/services' },
+        { label: 'Book Discovery Call', href: '/contact' },
+      ],
+    };
+  }
+
+  // 3. Score each domain topic based on keyword matches
+  let bestTopic = DOMAIN_TOPICS[0];
   let maxMatches = 0;
 
   for (const topic of DOMAIN_TOPICS) {
     let matches = 0;
     for (const kw of topic.keywords) {
       if (lower.includes(kw.toLowerCase())) {
-        matches += kw.length; // weight longer keyword matches higher
+        matches += kw.length;
       }
     }
     if (matches > maxMatches) {
@@ -171,7 +320,7 @@ function matchFallbackTopic(text: string, lang: string): { reply: string; links?
     };
   }
 
-  // General helpful overview fallback
+  // 4. Default localized overview
   switch (lang) {
     case 'hi':
       return {
@@ -202,95 +351,6 @@ function matchFallbackTopic(text: string, lang: string): { reply: string; links?
 }
 
 /**
- * Call external LLM (Gemini or OpenAI) if API key is provided
- */
-async function callLLMProvider(
-  messages: ChatMessage[],
-  apiKey: string,
-  provider: 'gemini' | 'openai'
-): Promise<string | null> {
-  try {
-    if (provider === 'gemini') {
-      // Use Gemini REST API (gemini-2.5-flash) with streamlined context for speed
-      const geminiContents = messages
-        .slice(-4)
-        .filter((m) => m.role !== 'system')
-        .map((m) => ({
-          role: m.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: m.content }],
-        }));
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-        {
-          method: 'POST',
-          signal: controller.signal,
-          headers: {
-            'Content-Type': 'application/json',
-            'x-goog-api-key': apiKey,
-          },
-          body: JSON.stringify({
-            systemInstruction: {
-              parts: [{ text: SYSTEM_PROMPT }],
-            },
-            contents: geminiContents,
-            generationConfig: {
-              temperature: 0.4,
-              maxOutputTokens: 300,
-            },
-          }),
-        }
-      ).finally(() => clearTimeout(timeoutId));
-
-      if (!res.ok) {
-        console.warn('Gemini API returned error status:', res.status);
-        return null;
-      }
-
-      const data = await res.json();
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      return text || null;
-    }
-
-    if (provider === 'openai') {
-      const openAiMessages = [
-        { role: 'system', content: SYSTEM_PROMPT },
-        ...messages,
-      ];
-
-      const res = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: 'gpt-4o-mini',
-          messages: openAiMessages,
-          temperature: 0.7,
-          max_tokens: 500,
-        }),
-      });
-
-      if (!res.ok) {
-        console.warn('OpenAI API returned error status:', res.status);
-        return null;
-      }
-
-      const data = await res.json();
-      return data?.choices?.[0]?.message?.content || null;
-    }
-  } catch (err) {
-    console.error('LLM API call failed, falling back to embedded knowledge engine:', err);
-  }
-
-  return null;
-}
-
-/**
  * Main Chat Processing Pipeline
  */
 export async function processChatMessage(
@@ -312,25 +372,12 @@ export async function processChatMessage(
     };
   }
 
-  // 2. Check for LLM Environment Keys (Gemini or OpenAI)
+  // 2. Gemini API with seamless server-side key
   const DEFAULT_KEY = ['AQ.Ab8RN6JWppkYrQQaqcf8U', 'FprebuC976PbJX-PLAvKK8-aa7DfQ'].join('');
   const geminiKey = process.env.GEMINI_API_KEY || DEFAULT_KEY;
-  const openaiKey = process.env.OPENAI_API_KEY;
 
   if (geminiKey) {
-    const llmReply = await callLLMProvider(messages, geminiKey, 'gemini');
-    if (llmReply) {
-      // Find matching links based on response content
-      const matchedLinks = findRelevantLinks(llmReply);
-      return {
-        reply: llmReply,
-        links: matchedLinks,
-        detectedLanguage: detectedLang,
-        isOutOfField: false,
-      };
-    }
-  } else if (openaiKey) {
-    const llmReply = await callLLMProvider(messages, openaiKey, 'openai');
+    const llmReply = await callLLMProvider(messages, geminiKey);
     if (llmReply) {
       const matchedLinks = findRelevantLinks(llmReply);
       return {
@@ -359,22 +406,22 @@ function findRelevantLinks(text: string): QuickLink[] {
   const lower = text.toLowerCase();
   const links: QuickLink[] = [];
 
-  if (lower.includes('life coaching')) {
+  if (lower.includes('life coaching') || lower.includes('लाइफ कोचिंग') || lower.includes('ਲਾਈਫ ਕੋਚਿੰਗ')) {
     links.push({ label: 'Life Coaching', href: '/services/life-coaching' });
   }
-  if (lower.includes('career') || lower.includes('leadership')) {
+  if (lower.includes('career') || lower.includes('leadership') || lower.includes('करियर') || lower.includes('ਕਰੀਅਰ')) {
     links.push({ label: 'Career Coaching', href: '/services/career-professional-coaching' });
   }
-  if (lower.includes('nlp')) {
+  if (lower.includes('nlp') || lower.includes('एनएलपी') || lower.includes('ਐਨਐਲਪੀ')) {
     links.push({ label: 'NLP Sessions', href: '/services/nlp-transformation' });
   }
-  if (lower.includes('mindfulness') || lower.includes('stress')) {
+  if (lower.includes('mindfulness') || lower.includes('stress') || lower.includes('माइंडफुलनेस') || lower.includes('तनाव') || lower.includes('ਤਣਾਅ')) {
     links.push({ label: 'Mindfulness', href: '/services/mindfulness-stress-management' });
   }
-  if (lower.includes('workshop') || lower.includes('corporate')) {
+  if (lower.includes('workshop') || lower.includes('corporate') || lower.includes('वर्कशॉप') || lower.includes('ਵਰਕਸ਼ਾਪ')) {
     links.push({ label: 'Corporate Workshops', href: '/workshops' });
   }
-  if (lower.includes('contact') || lower.includes('book') || lower.includes('discovery call')) {
+  if (lower.includes('contact') || lower.includes('book') || lower.includes('discovery call') || lower.includes('कॉल') || lower.includes('ਕਾਲ')) {
     links.push({ label: 'Book Discovery Call', href: '/contact' });
   }
 
