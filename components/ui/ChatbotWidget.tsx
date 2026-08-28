@@ -55,9 +55,9 @@ export function ChatbotWidget() {
     }
   }, [isOpen, messages, isTyping]);
 
-  const handleSendMessage = (textToSend?: string) => {
+  const handleSendMessage = async (textToSend?: string) => {
     const query = (textToSend || inputValue).trim();
-    if (!query) return;
+    if (!query || isTyping) return;
 
     const userMsg: Message = {
       id: `user-${Date.now()}`,
@@ -66,59 +66,37 @@ export function ChatbotWidget() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     if (!textToSend) setInputValue('');
     setIsTyping(true);
 
-    // Dynamic contextual assistant responses
-    setTimeout(() => {
-      let replyText = "Thank you for reaching out! Dr. Shivani Koccher Dhand provides personalized, evidence-informed coaching tailored to your specific goals.";
-      let replyLinks: { label: string; href: string }[] | undefined = undefined;
+    try {
+      // Format payload for backend
+      const payloadMessages = newMessages
+        .filter((m) => m.id !== 'welcome-1' && m.id !== 'welcome-2')
+        .map((m) => ({
+          role: m.sender === 'user' ? 'user' : 'assistant',
+          content: m.text,
+        }));
 
-      const lower = query.toLowerCase();
-      if (lower.includes('life coaching') || lower.includes('personal')) {
-        replyText = "Our Life Coaching program helps you gain clarity, build unshakable self-confidence, and overcome limiting patterns to create a life of purpose and fulfilment.";
-        replyLinks = [
-          { label: 'Explore Life Coaching', href: '/services/life-coaching' },
-          { label: 'Book Discovery Call', href: '/contact' },
-        ];
-      } else if (lower.includes('career') || lower.includes('leadership')) {
-        replyText = "Our Career & Leadership Coaching is designed for working professionals, managers, and aspiring leaders seeking career transitions, executive presence, and strategic decision-making.";
-        replyLinks = [
-          { label: 'Career Coaching Details', href: '/services/career-professional-coaching' },
-          { label: 'Get in Touch', href: '/contact' },
-        ];
-      } else if (lower.includes('nlp')) {
-        replyText = "LifeBloom integrates Neuro-Linguistic Programming (NLP) to help you reprogram subconscious thought patterns, enhance communication, and accelerate behavioral transformation.";
-        replyLinks = [
-          { label: 'Learn About NLP', href: '/services/nlp-transformation' },
-          { label: 'Connect With Dr. Shivani', href: '/contact' },
-        ];
-      } else if (lower.includes('workshop') || lower.includes('corporate') || lower.includes('team')) {
-        replyText = "We deliver tailored corporate workshops and leadership programs on Emotional Intelligence, Mindfulness at Work, and High-Performance Team Dynamics for organizations across India.";
-        replyLinks = [
-          { label: 'View Workshops', href: '/workshops' },
-          { label: 'Corporate Enquiry', href: '/contact' },
-        ];
-      } else if (lower.includes('book') || lower.includes('call') || lower.includes('appointment') || lower.includes('contact') || lower.includes('shivani')) {
-        replyText = "You can schedule a complimentary discovery call with Dr. Shivani to discuss your goals and choose the coaching path that best fits your needs.";
-        replyLinks = [
-          { label: 'Book Your Discovery Call', href: '/contact' },
-          { label: 'About Dr. Shivani', href: '/about' },
-        ];
-      } else if (lower.includes('who are you') || lower.includes('name') || lower.includes('shivi')) {
-        replyText = "I'm Shivi, your LifeBloom AI assistant! I'm here 24/7 to guide you through our coaching programs, answer questions, and help you connect directly with Dr. Shivani.";
-        replyLinks = [
-          { label: 'Explore Services', href: '/services' },
-          { label: 'Start Your Journey', href: '/contact' },
-        ];
-      } else {
-        replyText = "Dr. Shivani Koccher Dhand is a certified Life Coach & NLP Practitioner with 15+ years of experience in human potential development. Would you like to explore our programs or start a conversation?";
-        replyLinks = [
-          { label: 'Explore All Services', href: '/services' },
-          { label: 'Contact Us', href: '/contact' },
-        ];
+      if (payloadMessages.length === 0) {
+        payloadMessages.push({ role: 'user', content: query });
       }
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: payloadMessages }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Server returned status ${res.status}`);
+      }
+
+      const data = await res.json();
+      const replyText = data.reply || "Dr. Shivani Koccher Dhand provides personalized, evidence-informed coaching tailored to your specific goals.";
+      const replyLinks = Array.isArray(data.links) && data.links.length > 0 ? data.links : undefined;
 
       const botMsg: Message = {
         id: `bot-${Date.now()}`,
@@ -129,8 +107,22 @@ export function ChatbotWidget() {
       };
 
       setMessages((prev) => [...prev, botMsg]);
+    } catch (err) {
+      console.error('Chatbot API request error:', err);
+      const fallbackMsg: Message = {
+        id: `bot-${Date.now()}`,
+        sender: 'assistant',
+        text: "I'm here to guide you through LifeBloom's life coaching, NLP, and mindfulness programs with Dr. Shivani Koccher Dhand! You can also book a discovery call directly on our Contact page.",
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        links: [
+          { label: 'Explore Services', href: '/services' },
+          { label: 'Book Discovery Call', href: '/contact' },
+        ],
+      };
+      setMessages((prev) => [...prev, fallbackMsg]);
+    } finally {
       setIsTyping(false);
-    }, 650);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -264,7 +256,7 @@ export function ChatbotWidget() {
                       : 'bg-[#FCF8FB] text-[#25222A] rounded-tl-sm border border-[#EDE7EE]'
                   }`}
                 >
-                  <p>{msg.text}</p>
+                  <p className="whitespace-pre-line">{msg.text}</p>
 
                   {/* Links / CTAs if returned by bot */}
                   {msg.links && msg.links.length > 0 && (
