@@ -256,7 +256,9 @@ export function ChatbotWidget() {
                       : 'bg-[#FCF8FB] text-[#25222A] rounded-tl-sm border border-[#EDE7EE]'
                   }`}
                 >
-                  <p className="whitespace-pre-line">{msg.text}</p>
+                  <div className="text-sm leading-relaxed space-y-1">
+                    {formatMessageContent(msg.text)}
+                  </div>
 
                   {/* Links / CTAs if returned by bot */}
                   {msg.links && msg.links.length > 0 && (
@@ -398,4 +400,28 @@ export function ChatbotWidget() {
       </button>
     </>
   );
+}
+
+function formatMessageContent(text: string) {
+  const paragraphs = text.split('\n');
+  return paragraphs.map((para, pIdx) => {
+    if (!para.trim()) {
+      return <div key={pIdx} className="h-1.5" />;
+    }
+    const parts = para.split(/(\*\*.*?\*\*)/g);
+    return (
+      <p key={pIdx} className={pIdx > 0 ? 'mt-1' : ''}>
+        {parts.map((part, partIdx) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return (
+              <strong key={partIdx} className="font-semibold text-[#25222A]">
+                {part.slice(2, -2)}
+              </strong>
+            );
+          }
+          return <span key={partIdx}>{part}</span>;
+        })}
+      </p>
+    );
+  });
 }
