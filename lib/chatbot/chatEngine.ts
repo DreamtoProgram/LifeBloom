@@ -211,18 +211,23 @@ async function callLLMProvider(
 ): Promise<string | null> {
   try {
     if (provider === 'gemini') {
-      // Use Gemini REST API (gemini-2.5-flash)
+      // Use Gemini REST API (gemini-2.5-flash) with streamlined context for speed
       const geminiContents = messages
+        .slice(-4)
         .filter((m) => m.role !== 'system')
         .map((m) => ({
           role: m.role === 'assistant' ? 'model' : 'user',
           parts: [{ text: m.content }],
         }));
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+
       const res = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
         {
           method: 'POST',
+          signal: controller.signal,
           headers: {
             'Content-Type': 'application/json',
             'x-goog-api-key': apiKey,
@@ -233,12 +238,12 @@ async function callLLMProvider(
             },
             contents: geminiContents,
             generationConfig: {
-              temperature: 0.7,
-              maxOutputTokens: 600,
+              temperature: 0.4,
+              maxOutputTokens: 300,
             },
           }),
         }
-      );
+      ).finally(() => clearTimeout(timeoutId));
 
       if (!res.ok) {
         console.warn('Gemini API returned error status:', res.status);
