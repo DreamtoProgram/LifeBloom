@@ -95,11 +95,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right — Form */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#EDE7EE] shadow-sm shadow-[rgba(74,52,80,0.05)]">
-              <h2 className="font-serif text-2xl text-[#25222A] mb-2">Send Us a Message</h2>
-              <p className="font-sans text-sm text-[#6E6872] mb-8">
-                All enquiries are confidential and non-committal.
-              </p>
+            <div>
               <ContactForm />
             </div>
 
