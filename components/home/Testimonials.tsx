@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import { testimonials } from '@/lib/data/testimonials';
-import { Container } from '@/components/ui';
+import { Container, FadeInStagger } from '@/components/ui';
 
 // ============================================================
-// Testimonials + Impact Stats section
+// Testimonials + Impact Stats section with smooth animations
 // Design: Blush/lavender background, lavender testimonial card
-// IMPORTANT: Only verified stats are shown (15+ years, 1000+ target)
 // ============================================================
 
 // Only verified, publicly stated figures
@@ -29,16 +28,20 @@ export function Testimonials() {
       id="testimonials"
     >
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
+        <FadeInStagger
+          staggerDelay={140}
+          direction="up"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch"
+        >
 
           {/* LEFT — Testimonial card */}
           <div className="lg:col-span-1">
             <div
-              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between"
+              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[rgba(155,112,199,0.2)] hover:shadow-xl hover:shadow-[rgba(155,112,199,0.3)] transition-shadow duration-300"
               style={{ background: 'linear-gradient(135deg, #9B70C7 0%, #C9A5E8 100%)' }}
             >
               {/* Large quote mark */}
-              <div className="absolute top-6 right-8 font-serif text-[120px] leading-none text-white/10 select-none" aria-hidden="true">
+              <div className="absolute top-6 right-8 font-serif text-[120px] leading-none text-white/10 select-none pointer-events-none" aria-hidden="true">
                 &ldquo;
               </div>
 
@@ -51,8 +54,11 @@ export function Testimonials() {
                   ))}
                 </div>
 
-                {/* Quote */}
-                <blockquote className="font-serif text-lg md:text-xl text-white leading-relaxed mb-6 relative z-10">
+                {/* Quote with smooth key change transition */}
+                <blockquote
+                  key={activeIdx}
+                  className="font-serif text-lg md:text-xl text-white leading-relaxed mb-6 relative z-10 animate-fade-in-up"
+                >
                   &ldquo;{active.quote}&rdquo;
                 </blockquote>
               </div>
@@ -76,8 +82,8 @@ export function Testimonials() {
                         role="tab"
                         aria-selected={idx === activeIdx}
                         aria-label={`View testimonial ${idx + 1}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40'
+                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                          idx === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
                         }`}
                       />
                     ))}
@@ -89,7 +95,7 @@ export function Testimonials() {
 
           {/* CENTER — Impact stats */}
           <div className="lg:col-span-1">
-            <div className="h-full bg-white rounded-3xl p-8 md:p-10 flex flex-col border border-[#EDE7EE]">
+            <div className="h-full bg-white rounded-3xl p-8 md:p-10 flex flex-col border border-[#EDE7EE] shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="mb-8">
                 <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-3">
                   Making an Impact
@@ -101,8 +107,11 @@ export function Testimonials() {
 
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {impactStats.map((stat) => (
-                  <div key={stat.label} className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCF8FB] border border-[#EDE7EE]">
-                    <div className="font-serif text-2xl md:text-3xl text-[#9B70C7] mb-2">{stat.number}</div>
+                  <div
+                    key={stat.label}
+                    className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCF8FB] border border-[#EDE7EE] hover:border-[#C9A5E8]/60 hover:bg-[#FAF2F8] hover:-translate-y-0.5 transition-all duration-300 cursor-default group"
+                  >
+                    <div className="font-serif text-2xl md:text-3xl text-[#9B70C7] mb-2 group-hover:scale-105 transition-transform duration-200">{stat.number}</div>
                     <div className="font-sans text-xs text-[#6E6872] leading-snug">{stat.label}</div>
                   </div>
                 ))}
@@ -113,12 +122,12 @@ export function Testimonials() {
           {/* RIGHT — CTA panel */}
           <div className="lg:col-span-1">
             <div
-              className="h-full rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden"
+              className="h-full rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-[#EDE7EE]"
               style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
             >
-              {/* Decorative blob */}
+              {/* Decorative blob with gentle float */}
               <div
-                className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-40"
+                className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-50 animate-float-slow pointer-events-none"
                 style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)' }}
                 aria-hidden="true"
               />
@@ -142,7 +151,7 @@ export function Testimonials() {
               <div className="relative z-10">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold hover:bg-[#865CB5] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold hover:bg-[#865CB5] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#9B70C7]/25 active:scale-[0.98] transition-all duration-300 cursor-pointer"
                   aria-label="Book a free discovery call with LifeBloom"
                 >
                   <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -154,7 +163,7 @@ export function Testimonials() {
             </div>
           </div>
 
-        </div>
+        </FadeInStagger>
       </Container>
     </section>
   );

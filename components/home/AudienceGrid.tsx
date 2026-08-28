@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import { audiences } from '@/lib/data/audiences';
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 // ============================================================
-// AudienceGrid — "Who We Help" section on homepage
+// AudienceGrid — "Who We Help" section on homepage with animation
 // Design: White section, reduced dark overlay, lavender accents
 // ============================================================
 
@@ -50,49 +50,52 @@ export function AudienceGrid() {
     >
       <Container>
         {/* Section header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
-              Who We Help
-            </p>
+        <AnimatedSection direction="up" delay={50}>
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
+                Who We Help
+              </p>
+            </div>
+            <h2
+              id="who-we-help-heading"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15]"
+            >
+              Guidance for Every Journey
+            </h2>
           </div>
-          <h2
-            id="who-we-help-heading"
-            className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15]"
-          >
-            Guidance for Every Journey
-          </h2>
-        </div>
+        </AnimatedSection>
 
-        {/* Audience cards */}
-        <div
+        {/* Audience cards with Staggered Scroll Reveal */}
+        <FadeInStagger
+          staggerDelay={90}
+          direction="up"
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
-          role="list"
         >
           {audiences.map((audience) => (
             <article
               key={audience.id}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-xs hover:shadow-xl hover:shadow-[rgba(155,112,199,0.2)] hover:-translate-y-1.5 transition-all duration-300"
               role="listitem"
             >
-              {/* Image */}
+              {/* Image with zoom on hover */}
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
                   src={audience.image}
                   alt={`${audience.title} — who LifeBloom helps`}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 17vw"
                 />
                 {/* Softer overlay — lavender/pink tinted instead of hard green */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#25222A]/60 via-[#25222A]/10 to-transparent transition-opacity duration-300 group-hover:from-[#9B70C7]/65" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#25222A]/60 via-[#25222A]/10 to-transparent transition-opacity duration-300 group-hover:from-[#9B70C7]/70" />
               </div>
 
               {/* Caption */}
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <div className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-white/90">
+                  <div className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white/30 transition-colors">
                     {audienceIcons[audience.icon] || audienceIcons['star']}
                   </div>
                 </div>
@@ -101,18 +104,18 @@ export function AudienceGrid() {
                 </h3>
               </div>
 
-              {/* Hover: arrow */}
-              <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[#C9A5E8]">
+              {/* Hover: arrow button */}
+              <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-[#C9A5E8] group-hover:scale-105">
                 <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
             </article>
           ))}
-        </div>
+        </FadeInStagger>
 
         {/* CTA */}
-        <div className="mt-10 text-center">
+        <AnimatedSection direction="up" delay={250} className="mt-10 text-center">
           <a
             href="/who-we-help"
             className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 group"
@@ -122,7 +125,7 @@ export function AudienceGrid() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );

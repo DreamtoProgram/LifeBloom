@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { services } from '@/lib/data/services';
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 // ============================================================
-// ServicesPreview — 6 service cards on homepage
+// ServicesPreview — 6 service cards on homepage with staggered animation
 // Design: White cards with lavender/blush icon palette
 // ============================================================
 
@@ -62,59 +62,60 @@ export function ServicesPreview() {
     >
       <Container>
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <div className="max-w-xl">
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-4">
-              What We Offer
-            </p>
-            <h2
-              id="services-heading"
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
+        <AnimatedSection direction="up" delay={50}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div className="max-w-xl">
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-4">
+                What We Offer
+              </p>
+              <h2
+                id="services-heading"
+                className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
+              >
+                Coaching &amp; Development
+                <br />
+                <span className="text-[#9B70C7] italic">Programs for Every Stage of Life</span>
+              </h2>
+              <p className="font-sans text-base text-[#6E6872] leading-relaxed">
+                LifeBloom offers a range of coaching and development programs designed to help you grow in every area of life.
+              </p>
+            </div>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 shrink-0 group"
+              aria-label="View all services"
             >
-              Coaching &amp; Development
-              <br />
-              <span className="text-[#9B70C7] italic">Programs for Every Stage of Life</span>
-            </h2>
-            <p className="font-sans text-base text-[#6E6872] leading-relaxed">
-              LifeBloom offers a range of coaching and development programs designed to help you grow in every area of life.
-            </p>
+              View All Services
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="transition-transform duration-200 group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 shrink-0 group"
-            aria-label="View all services"
-          >
-            View All Services
-            <svg
-              width="16"
-              height="16"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="transition-transform duration-200 group-hover:translate-x-1"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
+        </AnimatedSection>
 
-        {/* Service cards grid */}
-        <div
+        {/* Service cards grid with Staggered Scroll Reveal */}
+        <FadeInStagger
+          staggerDelay={110}
+          direction="up"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          role="list"
         >
           {previewServices.map((service, idx) => (
             <article
               key={service.slug}
-              className="group relative rounded-2xl p-7 bg-white border border-[#EDE7EE]
-                hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)]
-                hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              className="group relative rounded-2xl p-7 bg-white border border-[#EDE7EE] card-elevate cursor-pointer overflow-hidden"
               role="listitem"
             >
-              {/* Icon */}
-              <div className={`w-12 h-12 rounded-full ${iconStyles[idx].bg} ${iconStyles[idx].color} flex items-center justify-center mb-5`}>
+              {/* Icon with smooth hover animation */}
+              <div className={`w-12 h-12 rounded-full ${iconStyles[idx].bg} ${iconStyles[idx].color} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-[rgba(155,112,199,0.18)] transition-all duration-300`}>
                 {serviceIcons[service.icon] || serviceIcons.leaf}
               </div>
 
@@ -151,12 +152,12 @@ export function ServicesPreview() {
 
               {/* Lavender top accent bar on hover */}
               <div
-                className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8] rounded-b-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8] rounded-b-full scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"
                 aria-hidden="true"
               />
             </article>
           ))}
-        </div>
+        </FadeInStagger>
       </Container>
     </section>
   );

@@ -43,7 +43,7 @@ export function Button({
 }: ButtonProps) {
   const baseStyles = `
     inline-flex items-center justify-center gap-2 font-sans font-semibold
-    transition-all duration-300 ease-out cursor-pointer
+    transition-all duration-300 ease-out cursor-pointer active:scale-[0.97]
     focus-visible:outline-2 focus-visible:outline-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed
     ${fullWidth ? 'w-full' : ''}

@@ -4,23 +4,28 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // ============================================================
 // AnimatedSection — Scroll-reveal animation wrapper
-// Smooth fade-in-up transition respecting prefers-reduced-motion
+// Smooth hardware-accelerated Apple/Linear-style transition
+// Respects prefers-reduced-motion
 // ============================================================
 
-interface AnimatedSectionProps {
+export interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number; // Delay in milliseconds
-  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  duration?: number; // Duration in milliseconds
+  direction?: 'up' | 'down' | 'left' | 'right' | 'fade' | 'scale' | 'none';
   as?: keyof React.JSX.IntrinsicElements;
+  threshold?: number;
 }
 
 export function AnimatedSection({
   children,
   className = '',
   delay = 0,
+  duration = 750,
   direction = 'up',
   as: Tag = 'div',
+  threshold = 0.12,
 }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -41,8 +46,8 @@ export function AnimatedSection({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
@@ -54,15 +59,26 @@ export function AnimatedSection({
     return () => {
       if (currentRef) observer.unobserve(currentRef);
     };
-  }, []);
+  }, [threshold]);
 
-  // Direction transform styles
-  const initialTransforms = {
-    up: 'translate-y-8',
-    down: '-translate-y-8',
-    left: 'translate-x-8',
-    right: '-translate-x-8',
-    none: 'translate-y-0',
+  // Initial hidden transform styles
+  const getInitialTransform = () => {
+    switch (direction) {
+      case 'up':
+        return 'translateY(28px)';
+      case 'down':
+        return 'translateY(-28px)';
+      case 'left':
+        return 'translateX(28px)';
+      case 'right':
+        return 'translateX(-28px)';
+      case 'scale':
+        return 'scale(0.94) translateY(14px)';
+      case 'fade':
+      case 'none':
+      default:
+        return 'none';
+    }
   };
 
   const Component = Tag as React.ElementType;
@@ -70,12 +86,16 @@ export function AnimatedSection({
   return (
     <Component
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        isVisible
-          ? 'opacity-100 translate-x-0 translate-y-0'
-          : `opacity-0 ${initialTransforms[direction]}`
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'none' : getInitialTransform(),
+        transitionProperty: 'opacity, transform',
+        transitionDuration: `${duration}ms`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        transitionDelay: `${delay}ms`,
+        willChange: isVisible ? 'auto' : 'opacity, transform',
+      }}
     >
       {children}
     </Component>

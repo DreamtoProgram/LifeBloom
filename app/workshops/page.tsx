@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Button, ArrowIcon } from '@/components/ui/Button';
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Workshops & Corporate Programs | LifeBloom',
@@ -56,7 +56,7 @@ export default function WorkshopsPage() {
       {/* Hero */}
       <section className="pb-20 pt-16">
         <Container>
-          <div className="max-w-2xl">
+          <AnimatedSection direction="up" delay={50} className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
               <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
@@ -73,18 +73,18 @@ export default function WorkshopsPage() {
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
               Enquire About Workshops
             </Button>
-          </div>
+          </AnimatedSection>
         </Container>
       </section>
 
       {/* Workshops grid */}
       <section className="py-20 bg-[#FCF8FB]">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <FadeInStagger staggerDelay={120} direction="up" className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {workshops.map((workshop) => (
               <article
                 key={workshop.title}
-                className="group bg-white rounded-3xl p-8 border border-[#EDE7EE] hover:border-[#C9A5E8]/50 hover:shadow-lg hover:shadow-[rgba(74,52,80,0.08)] hover:-translate-y-1 transition-all duration-300"
+                className="group bg-white rounded-3xl p-8 border border-[#EDE7EE] card-elevate cursor-pointer"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <span className="font-sans text-xs font-semibold text-[#9B70C7] bg-[#EEE7FA] px-3 py-1 rounded-full">
@@ -100,37 +100,39 @@ export default function WorkshopsPage() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {workshop.topics.map((t, idx) => (
-                    <span key={t} className={`font-sans text-xs px-3 py-1 rounded-full ${topicColors[idx % 2]}`}>
+                    <span key={t} className={`font-sans text-xs px-3 py-1 rounded-full ${topicColors[idx % 2]} group-hover:scale-105 transition-transform`}>
                       {t}
                     </span>
                   ))}
                 </div>
               </article>
             ))}
-          </div>
+          </FadeInStagger>
         </Container>
       </section>
 
-      {/* CTA — blush/lavender gradient replaces dark green */}
+      {/* CTA */}
       <section
         className="py-20 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
       >
         <div
-          className="absolute inset-0 opacity-30 pointer-events-none"
+          className="absolute inset-0 opacity-30 pointer-events-none animate-pulse-soft"
           style={{ background: 'radial-gradient(circle at 80% 50%, #FFFFFF 0%, transparent 60%)' }}
           aria-hidden="true"
         />
         <Container className="text-center relative z-10">
-          <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
-            Let's Design the Right Program for Your Organization
-          </h2>
-          <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">
-            All LifeBloom workshops can be customized to suit your organization's goals, culture and team size.
-          </p>
-          <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
-            Get in Touch
-          </Button>
+          <AnimatedSection direction="up" delay={50}>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
+              Let's Design the Right Program for Your Organization
+            </h2>
+            <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">
+              All LifeBloom workshops can be customized to suit your organization's goals, culture and team size.
+            </p>
+            <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
+              Get in Touch
+            </Button>
+          </AnimatedSection>
         </Container>
       </section>
     </div>

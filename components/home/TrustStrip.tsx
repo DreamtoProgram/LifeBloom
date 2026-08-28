@@ -1,8 +1,10 @@
 'use client';
 
+import { FadeInStagger } from '@/components/ui';
+
 // ============================================================
 // TrustStrip — Horizontal credibility bar below hero
-// Design: White + lavender/pink icon palette
+// Design: White + lavender/pink icon palette with staggered motion
 // ============================================================
 
 const trustItems = [
@@ -65,19 +67,23 @@ export function TrustStrip() {
       aria-label="LifeBloom credibility highlights"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-start justify-between gap-6 overflow-x-auto pb-2">
+        <FadeInStagger
+          staggerDelay={100}
+          direction="up"
+          className="flex items-start justify-between gap-6 overflow-x-auto pb-2 no-scrollbar"
+        >
           {trustItems.map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center gap-3 min-w-[120px] flex-1">
-              <div className={`w-14 h-14 rounded-full ${item.iconBg} flex items-center justify-center shrink-0`}>
+            <div key={idx} className="group flex flex-col items-center text-center gap-3 min-w-[120px] flex-1 cursor-default">
+              <div className={`w-14 h-14 rounded-full ${item.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-[rgba(155,112,199,0.15)] transition-all duration-300`}>
                 {item.icon}
               </div>
               <div>
-                <div className="font-serif text-lg text-[#25222A] leading-tight">{item.stat}</div>
+                <div className="font-serif text-lg text-[#25222A] leading-tight group-hover:text-[#9B70C7] transition-colors duration-200">{item.stat}</div>
                 <div className="font-sans text-xs text-[#6E6872] leading-snug mt-0.5">{item.label}</div>
               </div>
             </div>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </section>
   );

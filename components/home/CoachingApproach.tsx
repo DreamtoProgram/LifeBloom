@@ -1,10 +1,10 @@
 'use client';
 
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 // ============================================================
-// CoachingApproach — 5-stage journey section
-// Design: Soft blush → lavender gradient (replaces dark green)
+// CoachingApproach — 5-stage journey section with staggered animation
+// Design: Soft blush → lavender gradient with fluid motion
 // ============================================================
 
 const stages = [
@@ -83,38 +83,40 @@ export function CoachingApproach() {
       aria-labelledby="approach-heading"
       style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #F7DCE8 30%, #EEE7FA 100%)' }}
     >
-      {/* Subtle decorative blobs */}
+      {/* Subtle organic decorative blobs */}
       <div
-        className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-40 pointer-events-none"
+        className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-40 pointer-events-none animate-float-slow"
         style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)' }}
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full opacity-30 pointer-events-none"
+        className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full opacity-30 pointer-events-none animate-float-reverse"
         style={{ background: 'radial-gradient(circle, #FFFFFF 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
       <Container className="relative z-10">
         {/* Header */}
-        <div className="mb-16 max-w-2xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-[1px] w-10 bg-[#C9A5E8]" aria-hidden="true" />
-            <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
-              Our Method
+        <AnimatedSection direction="up" delay={50}>
+          <div className="mb-16 max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-[1px] w-10 bg-[#C9A5E8]" aria-hidden="true" />
+              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
+                Our Method
+              </p>
+            </div>
+            <h2
+              id="approach-heading"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
+            >
+              Our Coaching Approach{' '}
+              <span className="text-[#C9A5E8]">✦</span>
+            </h2>
+            <p className="font-sans text-base md:text-lg text-[#6E6872] leading-relaxed">
+              A transformative journey designed around you.
             </p>
           </div>
-          <h2
-            id="approach-heading"
-            className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
-          >
-            Our Coaching Approach{' '}
-            <span className="text-[#C9A5E8]">✦</span>
-          </h2>
-          <p className="font-sans text-base md:text-lg text-[#6E6872] leading-relaxed">
-            A transformative journey designed around you.
-          </p>
-        </div>
+        </AnimatedSection>
 
         {/* Journey stages */}
         <div className="relative">
@@ -124,29 +126,34 @@ export function CoachingApproach() {
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+          <FadeInStagger
+            staggerDelay={110}
+            direction="up"
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4"
+          >
             {stages.map((stage, idx) => (
               <div
                 key={stage.number}
-                className="group flex flex-col items-center text-center"
+                className="group flex flex-col items-center text-center cursor-default"
               >
-                {/* Icon circle */}
+                {/* Icon circle with interactive hover */}
                 <div className="relative mb-5 z-10">
-                  <div className={`w-[104px] h-[104px] rounded-full border-2 border-white/60 ${stage.iconBg} flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[rgba(74,52,80,0.15)] transition-all duration-300`}
+                  <div
+                    className={`w-[104px] h-[104px] rounded-full border-2 border-white/60 ${stage.iconBg} flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[rgba(74,52,80,0.15)] transition-all duration-300`}
                     style={{ color: stage.iconColor }}
                   >
-                    <div className="w-16 h-16 rounded-full bg-white/50 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                       {stage.icon}
                     </div>
                   </div>
                   {/* Stage number badge */}
-                  <span className={`absolute -top-2 -right-2 w-6 h-6 rounded-full ${stage.badgeBg} text-white font-sans text-[10px] font-bold flex items-center justify-center`}>
+                  <span className={`absolute -top-2 -right-2 w-6 h-6 rounded-full ${stage.badgeBg} text-white font-sans text-[10px] font-bold flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110`}>
                     {idx + 1}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-serif text-lg font-semibold text-[#25222A] mb-2">
+                <h3 className="font-serif text-lg font-semibold text-[#25222A] mb-2 group-hover:text-[#9B70C7] transition-colors duration-200">
                   {stage.title}
                 </h3>
                 <p className="font-sans text-sm text-[#6E6872] leading-relaxed max-w-[140px]">
@@ -154,13 +161,13 @@ export function CoachingApproach() {
                 </p>
               </div>
             ))}
-          </div>
+          </FadeInStagger>
         </div>
 
         {/* Video CTA */}
-        <div className="mt-16 flex justify-end">
+        <AnimatedSection direction="up" delay={450} className="mt-16 flex justify-end">
           <button
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-4 group cursor-pointer"
             type="button"
             aria-label="Watch how coaching transforms lives"
           >
@@ -169,13 +176,13 @@ export function CoachingApproach() {
               <div className="font-sans text-sm font-semibold text-[#25222A] group-hover:text-[#9B70C7] transition-colors duration-200">Transforms Lives</div>
               <div className="font-sans text-xs text-[#9B70C7]">Watch Video</div>
             </div>
-            <div className="w-14 h-14 rounded-full bg-white/70 border-2 border-[#C9A5E8]/50 flex items-center justify-center text-[#9B70C7] group-hover:bg-[#9B70C7] group-hover:text-white group-hover:border-[#9B70C7] transition-all duration-300">
+            <div className="w-14 h-14 rounded-full bg-white/70 border-2 border-[#C9A5E8]/50 flex items-center justify-center text-[#9B70C7] group-hover:bg-[#9B70C7] group-hover:text-white group-hover:border-[#9B70C7] group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </div>
           </button>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );

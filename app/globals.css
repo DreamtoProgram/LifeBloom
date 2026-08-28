@@ -150,10 +150,76 @@ textarea:focus-visible {
   }
 }
 
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-1.5deg);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes glowBreathe {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(24px);
+  }
+  50% {
+    opacity: 0.85;
+    filter: blur(32px);
+  }
+}
+
 .animate-bounce-subtle {
   animation: bounceSubtle 3s ease-in-out infinite;
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 10s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 5s ease-in-out infinite;
+}
+
+.animate-glow-breathe {
+  animation: glowBreathe 6s ease-in-out infinite;
+}
+
+.card-elevate {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.card-elevate:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(155, 112, 199, 0.16);
+  border-color: rgba(201, 165, 232, 0.6);
 }

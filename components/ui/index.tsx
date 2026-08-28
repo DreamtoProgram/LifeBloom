@@ -151,3 +151,7 @@ export function StatCard({ number, label, theme = 'light' }: StatCardProps) {
     </div>
   );
 }
+
+export { AnimatedSection } from './AnimatedSection';
+export { FadeInStagger } from './FadeInStagger';
+export { Button, ArrowIcon } from './Button';
