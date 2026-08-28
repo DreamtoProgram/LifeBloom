@@ -143,37 +143,40 @@ export function Hero() {
             <div className="order-2 relative flex justify-center lg:justify-end mt-4 lg:mt-0">
               <AnimatedSection direction="scale" delay={200} className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px]">
 
-                {/* Soft blush/lavender shape behind image with breathing pulse */}
-                <div
-                  className="absolute inset-4 rounded-[2rem] opacity-50 pointer-events-none animate-pulse-soft"
-                  style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
-                  aria-hidden="true"
-                />
-
-                {/* Portrait image with subtle elevation */}
-                <div className="relative rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
-                  <Image
-                    src="/founder.jpg"
-                    alt="Dr. Shivani Koccher Dhand — Life Coach, NLP Practitioner, and Founder of LifeBloom"
-                    fill
-                    className="object-cover object-top transition-transform duration-700 hover:scale-105"
-                    priority
-                    sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 480px"
-                  />
-                  {/* Very soft blush vignette at bottom only */}
+                {/* Photo wrapper */}
+                <div className="relative">
+                  {/* Soft blush/lavender shape behind image with breathing pulse */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#FBE8F0]/20 via-transparent to-transparent pointer-events-none"
+                    className="absolute -inset-2 sm:inset-2 rounded-[2rem] opacity-60 pointer-events-none animate-pulse-soft"
+                    style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
                     aria-hidden="true"
                   />
+
+                  {/* Portrait image with subtle elevation */}
+                  <div className="relative rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
+                    <Image
+                      src="/founder.jpg"
+                      alt="Dr. Shivani Koccher Dhand — Life Coach, NLP Practitioner, and Founder of LifeBloom"
+                      fill
+                      className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                      priority
+                      sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 480px"
+                    />
+                    {/* Very soft blush vignette at bottom only */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-[#FBE8F0]/20 via-transparent to-transparent pointer-events-none"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
 
-                {/* Profile card — BELOW photo on Mobile (< md), FLOATING on Desktop (>= md) */}
+                {/* Profile card — Crisp, high contrast, pure white background */}
                 <div
                   className="mt-4 md:mt-0 md:absolute md:top-6 md:-right-8 bg-white text-[#25222A] rounded-2xl p-5 shadow-xl md:shadow-2xl md:max-w-[210px] z-10 border border-[#EDE7EE] transition-all duration-300 md:hover:-translate-y-1"
-                  style={{ boxShadow: '0 8px 32px rgba(74, 52, 80, 0.12)' }}
+                  style={{ boxShadow: '0 10px 30px rgba(74, 52, 80, 0.12)' }}
                 >
-                  <p className="font-serif text-xs sm:text-sm italic text-[#C9A5E8] mb-1">Meet</p>
-                  <h2 className="font-serif text-base sm:text-lg font-semibold leading-tight mb-3 text-[#25222A]">
+                  <p className="font-serif text-xs font-semibold italic text-[#865CB5] mb-1 tracking-wide">Meet</p>
+                  <h2 className="font-serif text-base sm:text-lg font-bold leading-tight mb-3 text-[#25222A]">
                     Dr. Shivani<br />Dhand Koccher
                   </h2>
                   <ul className="space-y-1.5">
@@ -183,16 +186,16 @@ export function Hero() {
                       'HR & Human Capital Expert',
                       'Educator | 15+ Years Experience',
                     ].map((item) => (
-                      <li key={item} className="flex items-start gap-1.5">
-                        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-[#C9A5E8]" aria-hidden="true" />
-                        <span className="font-sans text-xs md:text-[11px] text-[#6E6872] leading-snug">{item}</span>
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-[#9B70C7]" aria-hidden="true" />
+                        <span className="font-sans text-xs md:text-[11px] font-medium text-[#4A4452] leading-snug">{item}</span>
                       </li>
                     ))}
                   </ul>
                   {/* Accent bottom */}
                   <div className="mt-3 pt-3 border-t border-[#EDE7EE] flex items-center justify-between">
-                    <p className="font-serif text-sm italic text-[#C9A5E8]">Dr. Shivani</p>
-                    <span className="font-sans text-[10px] text-[#6E6872] uppercase tracking-widest md:hidden">Founder</span>
+                    <p className="font-serif text-sm font-semibold italic text-[#865CB5]">Dr. Shivani</p>
+                    <span className="font-sans text-[10px] font-bold text-[#6E6872] uppercase tracking-widest md:hidden">Founder</span>
                   </div>
                 </div>
 
