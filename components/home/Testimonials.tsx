@@ -19,17 +19,25 @@ const impactStats = [
 
 export function Testimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const active = testimonials[activeIdx];
 
-  // Auto-rotate testimonials every 6.5s if not hovered
+  // Continuous auto-rotation every 4.5s with instant cycle
   useEffect(() => {
-    if (isPaused || testimonials.length <= 1) return;
-    const interval = setInterval(() => {
+    if (testimonials.length <= 1) return;
+    const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % testimonials.length);
-    }, 6500);
-    return () => clearInterval(interval);
-  }, [isPaused]);
+    }, 4800);
+    return () => clearInterval(timer);
+  }, [activeIdx]);
+
+  const handlePrev = () => {
+    setActiveIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleNext = () => {
+    setActiveIdx((prev) => (prev + 1) % testimonials.length);
+  };
+
   return (
     <section
       className="py-24 bg-[#FCF8FB]"
@@ -43,12 +51,10 @@ export function Testimonials() {
           className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch"
         >
 
-          {/* LEFT — Testimonial card */}
+          {/* LEFT — Testimonial card with automatic continuous display */}
           <div className="lg:col-span-1">
             <div
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[rgba(155,112,199,0.2)] hover:shadow-xl hover:shadow-[rgba(155,112,199,0.3)] transition-shadow duration-300 min-h-[380px]"
+              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[rgba(155,112,199,0.2)] hover:shadow-xl hover:shadow-[rgba(155,112,199,0.3)] transition-shadow duration-300 min-h-[390px]"
               style={{ background: 'linear-gradient(135deg, #9B70C7 0%, #B88BDC 50%, #C9A5E8 100%)' }}
             >
               {/* Large quote mark */}
@@ -57,48 +63,90 @@ export function Testimonials() {
               </div>
 
               <div>
-                <div className="flex items-center gap-1 mb-6" aria-label="5 star rating" role="img">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="16" height="16" fill="#FBE8F0" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                    </svg>
-                  ))}
-                  <span className="ml-2 font-sans text-xs text-white/80 font-medium tracking-wider uppercase">Verified Feedback</span>
+                {/* Header with stars, verified badge, and slide counter */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-1" aria-label="5 star rating" role="img">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} width="16" height="16" fill="#FBE8F0" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                      </svg>
+                    ))}
+                    <span className="ml-2 font-sans text-[11px] text-white/85 font-medium tracking-wider uppercase">Verified</span>
+                  </div>
+
+                  <span className="font-sans text-xs text-white/70 font-mono">
+                    0{activeIdx + 1} / 0{testimonials.length}
+                  </span>
                 </div>
 
-                {/* Quote with smooth key change transition */}
-                <blockquote
-                  key={activeIdx}
-                  className="font-serif text-base sm:text-lg text-white leading-relaxed mb-6 relative z-10 animate-fade-in-up"
-                >
-                  &ldquo;{active.quote}&rdquo;
-                </blockquote>
+                {/* Quote with smooth cross-fade animation */}
+                <div className="relative min-h-[140px] sm:min-h-[130px] flex items-center">
+                  <blockquote
+                    key={activeIdx}
+                    className="font-serif text-base sm:text-lg text-white leading-relaxed mb-6 relative z-10 animate-fade-in-up"
+                  >
+                    &ldquo;{active.quote}&rdquo;
+                  </blockquote>
+                </div>
               </div>
 
               <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-[1px] bg-white/40" aria-hidden="true" />
-                  <p className="font-sans text-sm text-white font-semibold tracking-wide">{active.clientLabel}</p>
+                <div key={`meta-${activeIdx}`} className="animate-fade-in-up">
+                  <div className="flex items-center gap-3 mb-1.5">
+                    <div className="w-8 h-[1px] bg-white/40" aria-hidden="true" />
+                    <p className="font-sans text-sm text-white font-semibold tracking-wide">{active.clientLabel}</p>
+                  </div>
+                  {active.context && (
+                    <p className="font-sans text-xs text-white/80 pl-11">{active.context}</p>
+                  )}
                 </div>
-                {active.context && (
-                  <p className="font-sans text-xs text-white/80 pl-11">{active.context}</p>
-                )}
 
-                {/* Dot navigation */}
+                {/* Interactive Dot navigation with arrows */}
                 {testimonials.length > 1 && (
-                  <div className="flex items-center gap-2 mt-6" role="tablist" aria-label="Testimonial navigation">
-                    {testimonials.map((_, idx) => (
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/15">
+                    <div className="flex items-center gap-2" role="tablist" aria-label="Testimonial navigation">
+                      {testimonials.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveIdx(idx)}
+                          role="tab"
+                          aria-selected={idx === activeIdx}
+                          aria-label={`View testimonial ${idx + 1}`}
+                          className={`relative h-2 rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
+                            idx === activeIdx ? 'w-8 bg-white/30' : 'w-2 bg-white/40 hover:bg-white/70'
+                          }`}
+                        >
+                          {idx === activeIdx && (
+                            <span
+                              key={`progress-${activeIdx}`}
+                              className="absolute inset-0 bg-white rounded-full animate-progress"
+                              style={{ animationDuration: '4800ms', animationTimingFunction: 'linear' }}
+                            />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
                       <button
-                        key={idx}
-                        onClick={() => setActiveIdx(idx)}
-                        role="tab"
-                        aria-selected={idx === activeIdx}
-                        aria-label={`View testimonial ${idx + 1}`}
-                        className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                          idx === activeIdx ? 'w-7 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'
-                        }`}
-                      />
-                    ))}
+                        onClick={handlePrev}
+                        aria-label="Previous testimonial"
+                        className="w-7 h-7 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+                      >
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={handleNext}
+                        aria-label="Next testimonial"
+                        className="w-7 h-7 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+                      >
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
