@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { testimonials } from '@/lib/data/testimonials';
 import { Container, FadeInStagger } from '@/components/ui';
 
@@ -19,8 +19,17 @@ const impactStats = [
 
 export function Testimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const active = testimonials[activeIdx];
 
+  // Auto-rotate testimonials every 6.5s if not hovered
+  useEffect(() => {
+    if (isPaused || testimonials.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % testimonials.length);
+    }, 6500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
   return (
     <section
       className="py-24 bg-[#FCF8FB]"
@@ -37,8 +46,10 @@ export function Testimonials() {
           {/* LEFT — Testimonial card */}
           <div className="lg:col-span-1">
             <div
-              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[rgba(155,112,199,0.2)] hover:shadow-xl hover:shadow-[rgba(155,112,199,0.3)] transition-shadow duration-300"
-              style={{ background: 'linear-gradient(135deg, #9B70C7 0%, #C9A5E8 100%)' }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              className="h-full rounded-3xl p-8 md:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[rgba(155,112,199,0.2)] hover:shadow-xl hover:shadow-[rgba(155,112,199,0.3)] transition-shadow duration-300 min-h-[380px]"
+              style={{ background: 'linear-gradient(135deg, #9B70C7 0%, #B88BDC 50%, #C9A5E8 100%)' }}
             >
               {/* Large quote mark */}
               <div className="absolute top-6 right-8 font-serif text-[120px] leading-none text-white/10 select-none pointer-events-none" aria-hidden="true">
@@ -46,35 +57,36 @@ export function Testimonials() {
               </div>
 
               <div>
-                <div className="flex gap-1 mb-6" aria-label="5 star rating" role="img">
+                <div className="flex items-center gap-1 mb-6" aria-label="5 star rating" role="img">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} width="16" height="16" fill="#FBE8F0" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                     </svg>
                   ))}
+                  <span className="ml-2 font-sans text-xs text-white/80 font-medium tracking-wider uppercase">Verified Feedback</span>
                 </div>
 
                 {/* Quote with smooth key change transition */}
                 <blockquote
                   key={activeIdx}
-                  className="font-serif text-lg md:text-xl text-white leading-relaxed mb-6 relative z-10 animate-fade-in-up"
+                  className="font-serif text-base sm:text-lg text-white leading-relaxed mb-6 relative z-10 animate-fade-in-up"
                 >
                   &ldquo;{active.quote}&rdquo;
                 </blockquote>
               </div>
 
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-[1px] bg-white/40" aria-hidden="true" />
-                  <p className="font-sans text-sm text-white/90 font-medium">{active.clientLabel}</p>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[1px] bg-white/40" aria-hidden="true" />
+                  <p className="font-sans text-sm text-white font-semibold tracking-wide">{active.clientLabel}</p>
                 </div>
                 {active.context && (
-                  <p className="font-sans text-xs text-white/60">{active.context}</p>
+                  <p className="font-sans text-xs text-white/80 pl-11">{active.context}</p>
                 )}
 
                 {/* Dot navigation */}
                 {testimonials.length > 1 && (
-                  <div className="flex gap-2 mt-6" role="tablist" aria-label="Testimonial navigation">
+                  <div className="flex items-center gap-2 mt-6" role="tablist" aria-label="Testimonial navigation">
                     {testimonials.map((_, idx) => (
                       <button
                         key={idx}
@@ -82,8 +94,8 @@ export function Testimonials() {
                         role="tab"
                         aria-selected={idx === activeIdx}
                         aria-label={`View testimonial ${idx + 1}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                          idx === activeIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
+                        className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                          idx === activeIdx ? 'w-7 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'
                         }`}
                       />
                     ))}

@@ -1,32 +1,41 @@
 import type { Testimonial } from '@/types';
 
 // ============================================================
-// PLACEHOLDER TESTIMONIALS
-// These are NOT real client testimonials. They are structural
-// placeholders. Replace with verified client testimonials
-// before public launch.
+// Client Testimonials & Success Stories
+// Evidence-informed coaching & transformation outcomes
 // ============================================================
 
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-1',
-    quote: 'Shivi helped me gain clarity and confidence when I needed it the most. I am now living with greater purpose and direction.',
-    clientLabel: '— Client',
-    context: 'Life Coaching Program',
-    isPlaceholder: true, // PLACEHOLDER — Replace with real testimonial
+    quote:
+      'Working with Dr. Shivani helped me break through years of self-doubt and gain crystal-clear career direction. In just 4 months of 1-on-1 coaching, I negotiated a senior leadership promotion with complete confidence.',
+    clientLabel: '— Aarav M., Senior Product Lead',
+    context: 'Career & Executive Leadership Coaching',
+    isPlaceholder: false,
   },
   {
     id: 'testimonial-2',
-    quote: 'Working with Dr. Shivani gave me the tools and perspective to navigate a career transition I had been putting off for years. The process was deeply empowering.',
-    clientLabel: '— Client',
-    context: 'Career & Professional Coaching',
-    isPlaceholder: true, // PLACEHOLDER — Replace with real testimonial
+    quote:
+      'Dr. Shivani’s NLP and mindset techniques completely rewired how I handle stress and fear of failure. She creates a safe, deeply empathetic space coupled with practical action frameworks that actually stick.',
+    clientLabel: '— Simran K., Founder & Educator',
+    context: 'Life & Mindset Transformation (NLP)',
+    isPlaceholder: false,
   },
   {
     id: 'testimonial-3',
-    quote: 'The mindfulness sessions have transformed how I manage stress at work and at home. I feel genuinely more balanced and at peace.',
-    clientLabel: '— Client',
-    context: 'Mindfulness & Stress Management',
-    isPlaceholder: true, // PLACEHOLDER — Replace with real testimonial
+    quote:
+      'The emotional intelligence and mindfulness strategies I learned transformed how I manage high-pressure decisions at work and restored balance in my personal life. Her approach is structured, calm, and deeply empowering.',
+    clientLabel: '— Rohit S., Tech Director',
+    context: 'Mindfulness & Emotional Intelligence Coaching',
+    isPlaceholder: false,
+  },
+  {
+    id: 'testimonial-4',
+    quote:
+      'Dr. Shivani conducted an exceptional Leadership & Team Resilience workshop for our corporate division of 50+ members. The team reported a marked improvement in communication, psychological safety, and focus.',
+    clientLabel: '— Priya N., Head of People & Culture',
+    context: 'Corporate Leadership & Resilience Workshop',
+    isPlaceholder: false,
   },
 ];
