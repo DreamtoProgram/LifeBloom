@@ -4,9 +4,9 @@ import { services } from '@/lib/data/services';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Coaching & Development Services | LifeBloom',
+  title: 'Coaching & Development Services | Shivi',
   description:
-    "Explore LifeBloom's range of coaching and development services including life coaching, career coaching, NLP, mindfulness, emotional intelligence and corporate workshops.",
+    "Explore Shivi's range of coaching and development services including life coaching, career coaching, NLP, mindfulness, emotional intelligence and corporate workshops.",
 };
 
 const categories = [
@@ -41,7 +41,7 @@ export default function ServicesPage() {
               <span className="text-[#9B70C7] italic">Programs</span>
             </h1>
             <p className="font-sans text-base text-[#6E6872] leading-relaxed">
-              LifeBloom offers a thoughtfully curated range of coaching and development programs designed to support growth at every stage of life and career.
+              Shivi offers a thoughtfully curated range of coaching and development programs designed to support growth at every stage of life and career.
             </p>
           </AnimatedSection>
         </Container>

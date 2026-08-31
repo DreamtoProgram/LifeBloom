@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       className="relative overflow-hidden bg-white"
-      aria-label="LifeBloom hero — Empower. Transform. Grow."
+      aria-label="Shivi hero — Empower. Transform. Grow."
     >
       {/* Organic floating background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -55,7 +55,7 @@ export function Hero() {
                 <div className="flex items-center gap-3 mb-5 sm:mb-6">
                   <div className="h-[1px] w-8 sm:w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
                   <p className="font-sans text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-[#9B70C7] uppercase">
-                    LIFEBLOOM | PERSONAL &amp; PROFESSIONAL TRANSFORMATION
+                    SHIVI | PERSONAL &amp; PROFESSIONAL TRANSFORMATION
                   </p>
                 </div>
               </AnimatedSection>
@@ -156,7 +156,7 @@ export function Hero() {
                   <div className="relative rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
                     <Image
                       src="/founder.jpg"
-                      alt="Dr. Shivani Koccher Dhand — Life Coach, NLP Practitioner, and Founder of LifeBloom"
+                      alt="Dr. Shivani Koccher Dhand — Life Coach, NLP Practitioner, and Founder of Shivi"
                       fill
                       className="object-cover object-top transition-transform duration-700 hover:scale-105"
                       priority

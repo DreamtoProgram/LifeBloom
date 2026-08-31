@@ -3,9 +3,9 @@ import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Workshops & Corporate Programs | LifeBloom',
+  title: 'Workshops & Corporate Programs | Shivi',
   description:
-    'LifeBloom delivers workshops and corporate development programs covering leadership, emotional intelligence, mindfulness, stress management and employee development for organizations and educational institutions.',
+    'Shivi delivers workshops and corporate development programs covering leadership, emotional intelligence, mindfulness, stress management and employee development for organizations and educational institutions.',
 };
 
 const workshops = [
@@ -68,7 +68,7 @@ export default function WorkshopsPage() {
               <span className="text-[#9B70C7] italic">Development Programs</span>
             </h1>
             <p className="font-sans text-base text-[#6E6872] leading-relaxed mb-8">
-              LifeBloom partners with organizations and educational institutions to design and deliver impactful workshops and development programs.
+              Shivi partners with organizations and educational institutions to design and deliver impactful workshops and development programs.
             </p>
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
               Enquire About Workshops
@@ -127,7 +127,7 @@ export default function WorkshopsPage() {
               Let's Design the Right Program for Your Organization
             </h2>
             <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">
-              All LifeBloom workshops can be customized to suit your organization's goals, culture and team size.
+              All Shivi workshops can be customized to suit your organization's goals, culture and team size.
             </p>
             <Button href="/contact" variant="primary" size="lg" icon={<ArrowIcon />}>
               Get in Touch

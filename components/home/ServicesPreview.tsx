@@ -77,7 +77,7 @@ export function ServicesPreview() {
                 <span className="text-[#9B70C7] italic">Programs for Every Stage of Life</span>
               </h2>
               <p className="font-sans text-base text-[#6E6872] leading-relaxed">
-                LifeBloom offers a range of coaching and development programs designed to help you grow in every area of life.
+                Shivi offers a range of coaching and development programs designed to help you grow in every area of life.
               </p>
             </div>
             <Link

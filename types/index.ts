@@ -1,5 +1,5 @@
 // ============================================================
-// LifeBloom — Type Definitions
+// Shivi — Type Definitions
 // These types mirror the expected FastAPI response shapes.
 // When the backend is integrated, replace static mock data
 // with API responses using these same types.

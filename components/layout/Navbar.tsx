@@ -79,11 +79,11 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2.5 shrink-0"
-            aria-label="LifeBloom — Home"
+            aria-label="Shivi — Home"
           >
             <LogoMark />
             <div>
-              <div className="font-serif text-xl font-semibold leading-none tracking-tight text-[#25222A]">LifeBloom</div>
+              <div className="font-serif text-xl font-semibold leading-none tracking-tight text-[#25222A]">Shivi</div>
               <div className="text-[10px] font-sans text-[#6E6872] tracking-[0.12em] uppercase leading-none mt-0.5">
                 Empower. Transform. Grow.
               </div>
@@ -194,7 +194,7 @@ export function Navbar() {
             <div className="flex items-center justify-between px-5 py-4 border-b border-[#EDE7EE] bg-[#FCF8FB]">
               <div className="flex items-center gap-2">
                 <LogoMark size="sm" />
-                <span className="font-serif text-lg font-semibold text-[#25222A]">LifeBloom</span>
+                <span className="font-serif text-lg font-semibold text-[#25222A]">Shivi</span>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}

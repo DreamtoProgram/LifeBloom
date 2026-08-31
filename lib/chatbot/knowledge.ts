@@ -1,6 +1,6 @@
 // ============================================================
-// LifeBloom Chatbot Knowledge Base & Domain Guardrails
-// Persona: Shivi — LifeBloom AI Coaching Assistant
+// Shivi Chatbot Knowledge Base & Domain Guardrails
+// Persona: Shivi — Shivi AI Coaching Assistant
 // ============================================================
 
 export interface QuickLink {
@@ -21,24 +21,24 @@ export interface DomainTopic {
   };
 }
 
-export const SYSTEM_PROMPT = `You are "Shivi", the official warm, empathetic, and intelligent AI Coaching Assistant for LifeBloom (founded by Dr. Shivani Koccher Dhand, based in Phagwara, Punjab, India).
+export const SYSTEM_PROMPT = `You are "Shivi", the official warm, empathetic, and intelligent AI Coaching Assistant for Shivi (founded by Dr. Shivani Koccher Dhand, based in Phagwara, Punjab, India).
 
 YOUR CORE MISSION:
-Help website visitors understand LifeBloom's life coaching programs, career & leadership coaching, NLP (Neuro-Linguistic Programming), mindfulness & stress management, emotional intelligence, and corporate workshops. Guide them on booking discovery calls and navigating the website.
+Help website visitors understand Shivi's life coaching programs, career & leadership coaching, NLP (Neuro-Linguistic Programming), mindfulness & stress management, emotional intelligence, and corporate workshops. Guide them on booking discovery calls and navigating the website.
 
 STRICT DOMAIN GUARDRAILS (CRITICAL):
 1. You MUST ONLY answer questions related to:
-   - LifeBloom services, coaching methodology, programs, and workshops
+   - Shivi services, coaching methodology, programs, and workshops
    - Dr. Shivani Koccher Dhand (Founder, Lead Coach, NLP Practitioner, HR & Human Capital Expert, Educator with 15+ years experience)
    - Personal development, life coaching, career coaching, mindfulness, stress relief, emotional intelligence (EQ), and NLP
    - Booking a discovery call, fees/process, location (Phagwara, Punjab & Online globally), contact information, and website navigation.
 
 2. OUT-OF-FIELD RESTRICTION:
-   - You MUST REFUSE any question unrelated to personal development, coaching, wellness, or LifeBloom (such as programming/coding, mathematics, politics, cryptocurrency/stocks, medical diagnoses/prescriptions, sports scores, weather, general trivia, gaming, etc.).
-   - When refusing out-of-domain questions, be polite, empathetic, and gently steer the user back to LifeBloom's personal and professional growth coaching.
-   - Example refusal in English: "I specialize exclusively in personal development, life coaching, and wellness programs at LifeBloom with Dr. Shivani Koccher Dhand. While I can't assist with that topic, I would love to help you explore our coaching programs or book a discovery call!"
-   - Example refusal in Hindi: "मैं केवल LifeBloom के लाइफ कोचिंग, एनएलपी और व्यक्तिगत विकास कार्यक्रमों में सहायता कर सकती हूँ। इस विषय पर मैं उत्तर नहीं दे सकती, लेकिन क्या आप अपने जीवन या करियर के विकास के बारे में जानना चाहते हैं?"
-   - Example refusal in Punjabi: "ਮੈਂ ਸਿਰਫ਼ LifeBloom ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਆਓ ਗੱਲ ਕਰੀਏ ਕਿ ਅਸੀਂ ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਜਾਂ ਕਰੀਅਰ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਾਂ!"
+   - You MUST REFUSE any question unrelated to personal development, coaching, wellness, or Shivi (such as programming/coding, mathematics, politics, cryptocurrency/stocks, medical diagnoses/prescriptions, sports scores, weather, general trivia, gaming, etc.).
+   - When refusing out-of-domain questions, be polite, empathetic, and gently steer the user back to Shivi's personal and professional growth coaching.
+   - Example refusal in English: "I specialize exclusively in personal development, life coaching, and wellness programs at Shivi with Dr. Shivani Koccher Dhand. While I can't assist with that topic, I would love to help you explore our coaching programs or book a discovery call!"
+   - Example refusal in Hindi: "मैं केवल Shivi के लाइफ कोचिंग, एनएलपी और व्यक्तिगत विकास कार्यक्रमों में सहायता कर सकती हूँ। इस विषय पर मैं उत्तर नहीं दे सकती, लेकिन क्या आप अपने जीवन या करियर के विकास के बारे में जानना चाहते हैं?"
+   - Example refusal in Punjabi: "ਮੈਂ ਸਿਰਫ਼ Shivi ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਆਓ ਗੱਲ ਕਰੀਏ ਕਿ ਅਸੀਂ ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਜਾਂ ਕਰੀਅਰ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਾਂ!"
 
 3. MULTILINGUAL INSTRUCTION:
    - Always reply in the EXACT SAME LANGUAGE that the user wrote in (English, Hindi, Punjabi, Hinglish, Spanish, French, German, etc.).
@@ -71,11 +71,11 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
       { label: 'Book Discovery Call', href: '/contact' },
     ],
     responses: {
-      en: "Hello! 👋 I'm Shivi, your LifeBloom AI coaching assistant. I'm here to help you discover clarity, build confidence, and explore our personalized coaching programs with Dr. Shivani Koccher Dhand. How can I support your journey today?",
-      hi: "नमस्ते! 👋 मैं शिवी हूँ, LifeBloom की AI कोचिंग असिस्टेंट। मैं डॉ. शिवानी कोचर ढांड के साथ आपके व्यक्तिगत और व्यावसायिक विकास, लाइफ कोचिंग और एनएलपी सेशंस की जानकारी देने के लिए यहाँ हूँ। आज मैं आपकी क्या मदद कर सकती हूँ?",
-      pa: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! 👋 ਮੈਂ ਸ਼ਿਵੀ ਹਾਂ, LifeBloom ਦੀ AI ਕੋਚਿੰਗ ਅਸਿਸਟੈਂਟ। ਮੈਂ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਨਾਲ ਤੁਹਾਡੇ ਜੀਵਨ, ਕਰੀਅਰ ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਕੋਚਿੰਗ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਾਰਗਦਰਸ਼ਨ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ?",
-      es: "¡Hola! 👋 Soy Shivi, tu asistente de coaching de LifeBloom. Estoy aquí para guiarte en tu camino de crecimiento personal y profesional con la Dra. Shivani Koccher Dhand. ¿En qué puedo ayudarte hoy?",
-      fr: "Bonjour! 👋 Je suis Shivi, votre assistante IA chez LifeBloom. Je suis ravie de vous accompagner dans votre parcours de développement personnel et professionnel avec le Dr. Shivani Koccher Dhand. Comment puis-je vous aider aujourd'hui?",
+      en: "Hello! 👋 I'm Shivi, your Shivi AI coaching assistant. I'm here to help you discover clarity, build confidence, and explore our personalized coaching programs with Dr. Shivani Koccher Dhand. How can I support your journey today?",
+      hi: "नमस्ते! 👋 मैं शिवी हूँ, Shivi की AI कोचिंग असिस्टेंट। मैं डॉ. शिवानी कोचर ढांड के साथ आपके व्यक्तिगत और व्यावसायिक विकास, लाइफ कोचिंग और एनएलपी सेशंस की जानकारी देने के लिए यहाँ हूँ। आज मैं आपकी क्या मदद कर सकती हूँ?",
+      pa: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! 👋 ਮੈਂ ਸ਼ਿਵੀ ਹਾਂ, Shivi ਦੀ AI ਕੋਚਿੰਗ ਅਸਿਸਟੈਂਟ। ਮੈਂ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਨਾਲ ਤੁਹਾਡੇ ਜੀਵਨ, ਕਰੀਅਰ ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਕੋਚਿੰਗ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਾਰਗਦਰਸ਼ਨ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ?",
+      es: "¡Hola! 👋 Soy Shivi, tu asistente de coaching de Shivi. Estoy aquí para guiarte en tu camino de crecimiento personal y profesional con la Dra. Shivani Koccher Dhand. ¿En qué puedo ayudarte hoy?",
+      fr: "Bonjour! 👋 Je suis Shivi, votre assistante IA chez Shivi. Je suis ravie de vous accompagner dans votre parcours de développement personnel et professionnel avec le Dr. Shivani Koccher Dhand. Comment puis-je vous aider aujourd'hui?",
     },
   },
   {
@@ -86,11 +86,11 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
       { label: 'Connect With Dr. Shivani', href: '/contact' },
     ],
     responses: {
-      en: "Dr. Shivani Koccher Dhand is the Founder & Lead Coach at LifeBloom, based in Phagwara, Punjab, India. She brings 15+ years of rich experience as a Life Coach, certified NLP Practitioner, Human Capital Expert, and Educator.\n\nHer mission is to empower individuals and organizations to unlock their highest potential through evidence-informed coaching, emotional intelligence, and mindful transformation.",
-      hi: "डॉ. शिवानी कोचर ढांड LifeBloom की संस्थापक और लीड कोच हैं (फगवाड़ा, पंजाब, भारत)। उनके पास लाइफ कोच, सर्टिफाइड एनएलपी (NLP) प्रैक्टिशनर, ह्यूमन कैपिटल एक्सपर्ट और शिक्षाविद के रूप में 15+ वर्षों का समृद्ध अनुभव है।\n\nउनका उद्देश्य लोगों और संस्थाओं को उनकी आंतरिक क्षमता को पहचानने और जीवन में सकारात्मक बदलाव लाने के लिए सशक्त बनाना है।",
-      pa: "ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ LifeBloom ਦੇ ਸੰਸਥਾਪਕ ਅਤੇ ਲੀਡ ਕੋਚ ਹਨ (ਫਗਵਾੜਾ, ਪੰਜਾਬ)। ਉਹਨਾਂ ਕੋਲ ਲਾਈਫ ਕੋਚ, ਸਰਟੀਫਾਈਡ ਐਨਐਲਪੀ (NLP) ਪ੍ਰੈਕਟੀਸ਼ਨਰ, ਹਿਊਮਨ ਕੈਪੀਟਲ ਮਾਹਿਰ ਅਤੇ ਸਿੱਖਿਅਕ ਵਜੋਂ 15+ ਸਾਲਾਂ ਦਾ ਵਿਸ਼ਾਲ ਤਜਰਬਾ ਹੈ। ਉਹ ਵਿਅਕਤੀਆਂ ਅਤੇ ਸੰਸਥਾਵਾਂ ਨੂੰ ਨਿੱਜੀ ਤੇ ਪੇਸ਼ੇਵਰ ਵਿਕਾਸ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹਨ।",
-      es: "La Dra. Shivani Koccher Dhand es la fundadora y coach principal de LifeBloom, con más de 15 años de experiencia como Life Coach, practicante certificada de PNL (NLP) y experta en Capital Humano en Phagwara, India.",
-      fr: "Le Dr. Shivani Koccher Dhand est la fondatrice et coach principale de LifeBloom, forte de plus de 15 ans d'expérience en tant que coach de vie, praticienne certifiée en PNL et experte en capital humain.",
+      en: "Dr. Shivani Koccher Dhand is the Founder & Lead Coach at Shivi, based in Phagwara, Punjab, India. She brings 15+ years of rich experience as a Life Coach, certified NLP Practitioner, Human Capital Expert, and Educator.\n\nHer mission is to empower individuals and organizations to unlock their highest potential through evidence-informed coaching, emotional intelligence, and mindful transformation.",
+      hi: "डॉ. शिवानी कोचर ढांड Shivi की संस्थापक और लीड कोच हैं (फगवाड़ा, पंजाब, भारत)। उनके पास लाइफ कोच, सर्टिफाइड एनएलपी (NLP) प्रैक्टिशनर, ह्यूमन कैपिटल एक्सपर्ट और शिक्षाविद के रूप में 15+ वर्षों का समृद्ध अनुभव है।\n\nउनका उद्देश्य लोगों और संस्थाओं को उनकी आंतरिक क्षमता को पहचानने और जीवन में सकारात्मक बदलाव लाने के लिए सशक्त बनाना है।",
+      pa: "ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ Shivi ਦੇ ਸੰਸਥਾਪਕ ਅਤੇ ਲੀਡ ਕੋਚ ਹਨ (ਫਗਵਾੜਾ, ਪੰਜਾਬ)। ਉਹਨਾਂ ਕੋਲ ਲਾਈਫ ਕੋਚ, ਸਰਟੀਫਾਈਡ ਐਨਐਲਪੀ (NLP) ਪ੍ਰੈਕਟੀਸ਼ਨਰ, ਹਿਊਮਨ ਕੈਪੀਟਲ ਮਾਹਿਰ ਅਤੇ ਸਿੱਖਿਅਕ ਵਜੋਂ 15+ ਸਾਲਾਂ ਦਾ ਵਿਸ਼ਾਲ ਤਜਰਬਾ ਹੈ। ਉਹ ਵਿਅਕਤੀਆਂ ਅਤੇ ਸੰਸਥਾਵਾਂ ਨੂੰ ਨਿੱਜੀ ਤੇ ਪੇਸ਼ੇਵਰ ਵਿਕਾਸ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹਨ।",
+      es: "La Dra. Shivani Koccher Dhand es la fundadora y coach principal de Shivi, con más de 15 años de experiencia como Life Coach, practicante certificada de PNL (NLP) y experta en Capital Humano en Phagwara, India.",
+      fr: "Le Dr. Shivani Koccher Dhand est la fondatrice et coach principale de Shivi, forte de plus de 15 ans d'expérience en tant que coach de vie, praticienne certifiée en PNL et experte en capital humain.",
     },
   },
   {
@@ -101,9 +101,9 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
       { label: 'Schedule Discovery Call', href: '/contact' },
     ],
     responses: {
-      en: "LifeBloom's Life Coaching program is tailored to help you gain deep clarity, dissolve limiting mental patterns, cultivate unshakable self-confidence, and align your everyday actions with your authentic purpose.\n\nSessions are conducted 1-on-1 both online (globally via video) and in-person in Phagwara.",
-      hi: "LifeBloom का लाइफ कोचिंग कार्यक्रम आपको मानसिक स्पष्टता पाने, सीमित सोच के पैटर्न्स को तोड़ने, आत्म-विश्वास बढ़ाने और उद्देश्यपूर्ण जीवन जीने में मदद करता है।\n\nयह सेशंस ऑनलाइन (वीडियो कॉल) और फगवाड़ा में व्यक्तिगत रूप से 1-ऑन-1 उपलब्ध हैं।",
-      pa: "LifeBloom ਦਾ ਲਾਈਫ ਕੋਚਿੰਗ ਪ੍ਰੋਗਰਾਮ ਤੁਹਾਡੇ ਵਿੱਚ ਸਵੈ-ਵਿਸ਼ਵਾਸ ਪੈਦਾ ਕਰਨ, ਜੀਵਨ ਦੇ ਟੀਚੇ ਸਪੱਸ਼ਟ ਕਰਨ ਅਤੇ ਰੁਕਾਵਟਾਂ ਨੂੰ ਦੂਰ ਕਰਕੇ ਇੱਕ ਖੁਸ਼ਹਾਲ ਜੀਵਨ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ। ਇਹ ਸੈਸ਼ਨ ਆਨਲਾਈਨ ਅਤੇ ਫਗਵਾੜਾ ਵਿਖੇ ਆਹਮੋ-ਸਾਹਮਣੇ ਉਪਲਬਧ ਹਨ।",
+      en: "Shivi's Life Coaching program is tailored to help you gain deep clarity, dissolve limiting mental patterns, cultivate unshakable self-confidence, and align your everyday actions with your authentic purpose.\n\nSessions are conducted 1-on-1 both online (globally via video) and in-person in Phagwara.",
+      hi: "Shivi का लाइफ कोचिंग कार्यक्रम आपको मानसिक स्पष्टता पाने, सीमित सोच के पैटर्न्स को तोड़ने, आत्म-विश्वास बढ़ाने और उद्देश्यपूर्ण जीवन जीने में मदद करता है।\n\nयह सेशंस ऑनलाइन (वीडियो कॉल) और फगवाड़ा में व्यक्तिगत रूप से 1-ऑन-1 उपलब्ध हैं।",
+      pa: "Shivi ਦਾ ਲਾਈਫ ਕੋਚਿੰਗ ਪ੍ਰੋਗਰਾਮ ਤੁਹਾਡੇ ਵਿੱਚ ਸਵੈ-ਵਿਸ਼ਵਾਸ ਪੈਦਾ ਕਰਨ, ਜੀਵਨ ਦੇ ਟੀਚੇ ਸਪੱਸ਼ਟ ਕਰਨ ਅਤੇ ਰੁਕਾਵਟਾਂ ਨੂੰ ਦੂਰ ਕਰਕੇ ਇੱਕ ਖੁਸ਼ਹਾਲ ਜੀਵਨ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ। ਇਹ ਸੈਸ਼ਨ ਆਨਲਾਈਨ ਅਤੇ ਫਗਵਾੜਾ ਵਿਖੇ ਆਹਮੋ-ਸਾਹਮਣੇ ਉਪਲਬਧ ਹਨ।",
       es: "Nuestro programa de Life Coaching te ayuda a ganar claridad, superar creencias limitantes, construir autoconfianza y vivir una vida con propósito.",
       fr: "Notre programme de coaching de vie vous aide à clarifier vos objectifs, à surmonter vos blocages et à développer une confiance inébranlable.",
     },
@@ -131,11 +131,11 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
       { label: 'Book NLP Session', href: '/contact' },
     ],
     responses: {
-      en: "Neuro-Linguistic Programming (NLP) at LifeBloom focuses on understanding how your mind processes thoughts and language. Dr. Shivani uses NLP techniques to help you rewire negative thought habits, conquer self-doubt, and rapidly adopt empowering behaviors.",
-      hi: "LifeBloom में एनएलपी (NLP - न्यूरो-लिंग्विस्टिक प्रोग्रामिंग) आपके अवचेतन मन (subconscious mind) के पैटर्न्स को सकारात्मक रूप से बदलने में मदद करता है, जिससे नकारात्मक विचार दूर होते हैं और आत्मविश्वास बढ़ता है।",
-      pa: "LifeBloom ਵਿਖੇ ਐਨਐਲਪੀ (NLP) ਤਕਨੀਕਾਂ ਨਾਲ ਤੁਹਾਡੇ ਮਨ ਦੀਆਂ ਨਕਾਰਾਤਮਕ ਸੋਚਾਂ ਨੂੰ ਬਦਲਿਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਨਵੇਂ ਵਿਸ਼ਵਾਸ ਅਤੇ ਸਕਾਰਾਤਮਕ ਆਦਤਾਂ ਬਣਾ ਸਕੋ।",
-      es: "La PNL (Programación Neurolingüística) en LifeBloom te ayuda a reprogramar patrones mentales subconscientes para superar dudas y potenciar tus talentos.",
-      fr: "La PNL chez LifeBloom permet de reprogrammer les schémas mentaux limitants pour libérer votre plein potentiel.",
+      en: "Neuro-Linguistic Programming (NLP) at Shivi focuses on understanding how your mind processes thoughts and language. Dr. Shivani uses NLP techniques to help you rewire negative thought habits, conquer self-doubt, and rapidly adopt empowering behaviors.",
+      hi: "Shivi में एनएलपी (NLP - न्यूरो-लिंग्विस्टिक प्रोग्रामिंग) आपके अवचेतन मन (subconscious mind) के पैटर्न्स को सकारात्मक रूप से बदलने में मदद करता है, जिससे नकारात्मक विचार दूर होते हैं और आत्मविश्वास बढ़ता है।",
+      pa: "Shivi ਵਿਖੇ ਐਨਐਲਪੀ (NLP) ਤਕਨੀਕਾਂ ਨਾਲ ਤੁਹਾਡੇ ਮਨ ਦੀਆਂ ਨਕਾਰਾਤਮਕ ਸੋਚਾਂ ਨੂੰ ਬਦਲਿਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਨਵੇਂ ਵਿਸ਼ਵਾਸ ਅਤੇ ਸਕਾਰਾਤਮਕ ਆਦਤਾਂ ਬਣਾ ਸਕੋ।",
+      es: "La PNL (Programación Neurolingüística) en Shivi te ayuda a reprogramar patrones mentales subconscientes para superar dudas y potenciar tus talentos.",
+      fr: "La PNL chez Shivi permet de reprogrammer les schémas mentaux limitants pour libérer votre plein potentiel.",
     },
   },
   {
@@ -176,11 +176,11 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
       { label: 'Corporate Enquiry', href: '/contact' },
     ],
     responses: {
-      en: "LifeBloom conducts high-impact corporate workshops and experiential training for organizations across India. Popular topics include Emotional Intelligence in Leadership, Mindfulness & Peak Performance, and Collaborative Team Cultures.",
-      hi: "LifeBloom कंपनियों और संस्थाओं के लिए कस्टमाइज्ड कॉर्पोरेट वर्कशॉप्स आयोजित करता है, जैसे लीडरशिप में इमोशनल इंटेलिजेंस, स्ट्रेस मैनेजमेंट और टीम बॉन्डिंग।",
-      pa: "LifeBloom ਕੰਪਨੀਆਂ ਅਤੇ ਸੰਸਥਾਵਾਂ ਲਈ ਵਿਸ਼ੇਸ਼ ਕਾਰਪੋਰੇਟ ਵਰਕਸ਼ਾਪਾਂ ਕਰਵਾਉਂਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਲੀਡਰਸ਼ਿਪ, ਤਣਾਅ ਪ੍ਰਬੰਧਨ ਅਤੇ ਟੀਮ ਵਰਕ।",
+      en: "Shivi conducts high-impact corporate workshops and experiential training for organizations across India. Popular topics include Emotional Intelligence in Leadership, Mindfulness & Peak Performance, and Collaborative Team Cultures.",
+      hi: "Shivi कंपनियों और संस्थाओं के लिए कस्टमाइज्ड कॉर्पोरेट वर्कशॉप्स आयोजित करता है, जैसे लीडरशिप में इमोशनल इंटेलिजेंस, स्ट्रेस मैनेजमेंट और टीम बॉन्डिंग।",
+      pa: "Shivi ਕੰਪਨੀਆਂ ਅਤੇ ਸੰਸਥਾਵਾਂ ਲਈ ਵਿਸ਼ੇਸ਼ ਕਾਰਪੋਰੇਟ ਵਰਕਸ਼ਾਪਾਂ ਕਰਵਾਉਂਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਲੀਡਰਸ਼ਿਪ, ਤਣਾਅ ਪ੍ਰਬੰਧਨ ਅਤੇ ਟੀਮ ਵਰਕ।",
       es: "Realizamos talleres corporativos de alto impacto sobre Inteligencia Emocional, Liderazgo y Mindfulness para empresas.",
-      fr: "LifeBloom anime des ateliers d'entreprise sur le leadership conscient, l'intelligence émotionnelle et la cohésion d'équipe.",
+      fr: "Shivi anime des ateliers d'entreprise sur le leadership conscient, l'intelligence émotionnelle et la cohésion d'équipe.",
     },
   },
   {
@@ -203,14 +203,14 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
     keywords: ['where are you located', 'location', 'address', 'phagwara', 'punjab', 'online', 'virtual', 'zoom', 'where is clinic', 'ऑफिस', 'ਪਤਾ', 'ਫਗਵਾੜਾ'],
     links: [
       { label: 'Contact & Location Info', href: '/contact' },
-      { label: 'About LifeBloom', href: '/about' },
+      { label: 'About Shivi', href: '/about' },
     ],
     responses: {
-      en: "LifeBloom is headquartered in Phagwara, Punjab, India. We offer in-person coaching sessions locally, as well as worldwide 1-on-1 virtual sessions via secure video calls (Zoom/Google Meet) for clients across India and globally.",
-      hi: "LifeBloom का मुख्य कार्यालय फगवाड़ा, पंजाब, भारत में है। हम स्थानीय रूप से व्यक्तिगत सेशंस और पूरे भारत तथा विदेशों में वीडियो कॉल (Zoom/Google Meet) के माध्यम से ऑनलाइन कोचिंग प्रदान करते हैं।",
-      pa: "LifeBloom ਦਾ ਮੁੱਖ ਦਫ਼ਤਰ ਫਗਵਾੜਾ (ਪੰਜਾਬ, ਭਾਰਤ) ਵਿਖੇ ਹੈ। ਅਸੀਂ ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਆਹਮੋ-ਸਾਹਮਣੇ ਅਤੇ ਦੁਨੀਆ ਭਰ ਦੇ ਕਲਾਇੰਟਾਂ ਲਈ ਆਨਲਾਈਨ ਵੀਡੀਓ ਕਾਲ ਰਾਹੀਂ ਕੋਚਿੰਗ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ।",
-      es: "LifeBloom tiene su sede en Phagwara, Punjab, India. Ofrecemos sesiones presenciales locales y sesiones virtuales en línea para clientes de todo el mundo.",
-      fr: "LifeBloom est basé à Phagwara, Punjab, Inde. Nous proposons des séances en présentiel ainsi que des séances en ligne dans le monde entier.",
+      en: "Shivi is headquartered in Phagwara, Punjab, India. We offer in-person coaching sessions locally, as well as worldwide 1-on-1 virtual sessions via secure video calls (Zoom/Google Meet) for clients across India and globally.",
+      hi: "Shivi का मुख्य कार्यालय फगवाड़ा, पंजाब, भारत में है। हम स्थानीय रूप से व्यक्तिगत सेशंस और पूरे भारत तथा विदेशों में वीडियो कॉल (Zoom/Google Meet) के माध्यम से ऑनलाइन कोचिंग प्रदान करते हैं।",
+      pa: "Shivi ਦਾ ਮੁੱਖ ਦਫ਼ਤਰ ਫਗਵਾੜਾ (ਪੰਜਾਬ, ਭਾਰਤ) ਵਿਖੇ ਹੈ। ਅਸੀਂ ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਆਹਮੋ-ਸਾਹਮਣੇ ਅਤੇ ਦੁਨੀਆ ਭਰ ਦੇ ਕਲਾਇੰਟਾਂ ਲਈ ਆਨਲਾਈਨ ਵੀਡੀਓ ਕਾਲ ਰਾਹੀਂ ਕੋਚਿੰਗ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ।",
+      es: "Shivi tiene su sede en Phagwara, Punjab, India. Ofrecemos sesiones presenciales locales y sesiones virtuales en línea para clientes de todo el mundo.",
+      fr: "Shivi est basé à Phagwara, Punjab, Inde. Nous proposons des séances en présentiel ainsi que des séances en ligne dans le monde entier.",
     },
   },
 ];

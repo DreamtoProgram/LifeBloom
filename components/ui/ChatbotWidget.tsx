@@ -16,7 +16,7 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: 'welcome-1',
     sender: 'assistant',
-    text: "Hello! 👋 I'm Shivi, your LifeBloom AI coaching assistant.",
+    text: "Hello! 👋 I'm Shivi, your personal AI coaching assistant.",
     timestamp: 'Just now',
   },
   {
@@ -30,7 +30,7 @@ const INITIAL_MESSAGES: Message[] = [
 const SUGGESTED_TOPICS = [
   { label: '🌿 Life Coaching', query: 'Tell me about Life Coaching' },
   { label: '💼 Career & Leadership', query: 'What career and leadership programs do you offer?' },
-  { label: '🧠 NLP Sessions', query: 'How does NLP coaching work at LifeBloom?' },
+  { label: '🧠 NLP Sessions', query: 'How does NLP coaching work at Shivi?' },
   { label: '🏢 Corporate Workshops', query: 'Tell me about corporate workshops' },
   { label: '📅 Book Discovery Call', query: 'How can I book a discovery call with Dr. Shivani?' },
 ];
@@ -112,7 +112,7 @@ export function ChatbotWidget() {
       const fallbackMsg: Message = {
         id: `bot-${Date.now()}`,
         sender: 'assistant',
-        text: "I'm here to guide you through LifeBloom's life coaching, NLP, and mindfulness programs with Dr. Shivani Koccher Dhand! You can also book a discovery call directly on our Contact page.",
+        text: "I'm here to guide you through Shivi's life coaching, NLP, and mindfulness programs with Dr. Shivani Koccher Dhand! You can also book a discovery call directly on our Contact page.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         links: [
           { label: 'Explore Services', href: '/services' },
@@ -143,7 +143,7 @@ export function ChatbotWidget() {
           <div className="relative w-7 h-7 shrink-0 rounded-full overflow-hidden">
             <Image
               src="/chatbot-icon.png"
-              alt="Shivi — LifeBloom Assistant"
+              alt="Shivi — Shivi Assistant"
               fill
               sizes="28px"
               className="object-contain"
@@ -173,7 +173,7 @@ export function ChatbotWidget() {
         <div
           role="dialog"
           aria-modal="false"
-          aria-label="Shivi — LifeBloom AI Chat Assistant"
+          aria-label="Shivi — Shivi AI Chat Assistant"
           className="fixed z-50 bg-white border border-[#EDE7EE] rounded-[24px] shadow-2xl flex flex-col overflow-hidden animate-fade-in-up
             right-[10px] left-[10px] sm:left-auto sm:right-[24px] bottom-[84px] sm:bottom-[108px]
             w-auto sm:w-[390px] md:w-[410px]
@@ -188,7 +188,7 @@ export function ChatbotWidget() {
               <div className="relative w-10 h-10 shrink-0">
                 <Image
                   src="/chatbot-icon.png"
-                  alt="Shivi — LifeBloom Assistant Icon"
+                  alt="Shivi — Shivi Assistant Icon"
                   fill
                   sizes="40px"
                   className="object-contain"
@@ -227,7 +227,7 @@ export function ChatbotWidget() {
                   </span>
                 </div>
                 <p className="font-sans text-xs text-[#6E6872] leading-tight mt-0.5">
-                  LifeBloom • Here to help you grow
+                  Shivi • Here to help you grow
                 </p>
               </div>
             </div>
@@ -365,7 +365,7 @@ export function ChatbotWidget() {
         <div className="relative w-full h-full">
           <Image
             src="/chatbot-icon.png"
-            alt="Shivi — LifeBloom AI Assistant"
+            alt="Shivi — Shivi AI Assistant"
             fill
             sizes="(max-width: 640px) 62px, 72px"
             className="object-contain pointer-events-none"

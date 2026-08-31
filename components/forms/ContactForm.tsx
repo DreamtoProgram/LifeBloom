@@ -5,7 +5,7 @@ import { submitInquiry } from '@/lib/api/inquiries';
 
 // ============================================================
 // ContactForm — Redesigned "Send Us a Message" Card
-// Matches LifeBloom aesthetic and reference design
+// Matches Shivi aesthetic and reference design
 // ============================================================
 
 const interestOptions = [

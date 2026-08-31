@@ -2,7 +2,7 @@ import { services, getServiceBySlug as getMockServiceBySlug } from '@/lib/data/s
 import type { Service } from '@/types';
 
 // ============================================================
-// LifeBloom — Services API Client
+// Shivi — Services API Client
 // When FastAPI backend is active, switch USE_MOCK to false
 // or set NEXT_PUBLIC_API_URL environment variable.
 // ============================================================

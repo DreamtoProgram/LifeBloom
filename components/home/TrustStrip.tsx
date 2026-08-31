@@ -64,7 +64,7 @@ export function TrustStrip() {
   return (
     <section
       className="bg-white border-y border-[#EDE7EE] py-8"
-      aria-label="LifeBloom credibility highlights"
+      aria-label="Shivi credibility highlights"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInStagger

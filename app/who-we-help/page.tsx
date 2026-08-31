@@ -4,9 +4,9 @@ import { Container, AnimatedSection } from '@/components/ui';
 import { AudienceGrid } from '@/components/home/AudienceGrid';
 
 export const metadata: Metadata = {
-  title: 'Who We Help | LifeBloom Coaching',
+  title: 'Who We Help | Shivi Coaching',
   description:
-    'LifeBloom works with students, working professionals, people in life transitions, aspiring leaders, women seeking growth, and organizations. Discover the guidance we offer for your journey.',
+    'Shivi works with students, working professionals, people in life transitions, aspiring leaders, women seeking growth, and organizations. Discover the guidance we offer for your journey.',
 };
 
 export default function WhoWeHelpPage() {
@@ -33,7 +33,7 @@ export default function WhoWeHelpPage() {
               <span className="text-[#9B70C7] italic">Every Journey</span>
             </h1>
             <p className="font-sans text-base text-[#6E6872] leading-relaxed">
-              Whether you are navigating a career change, seeking more from life, building your leadership, or developing your organization — LifeBloom is here to support you.
+              Whether you are navigating a career change, seeking more from life, building your leadership, or developing your organization — Shivi is here to support you.
             </p>
           </AnimatedSection>
         </Container>

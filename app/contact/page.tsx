@@ -3,9 +3,9 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { Container, AnimatedSection } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Contact | Start Your Journey with LifeBloom',
+  title: 'Contact | Start Your Journey with Shivi',
   description:
-    'Get in touch with LifeBloom to start your coaching journey. Whether you are looking for life coaching, career guidance, corporate workshops or NLP — we are here to help.',
+    'Get in touch with Shivi to start your coaching journey. Whether you are looking for life coaching, career guidance, corporate workshops or NLP — we are here to help.',
 };
 
 export default function ContactPage() {

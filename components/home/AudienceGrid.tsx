@@ -83,7 +83,7 @@ export function AudienceGrid() {
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
                   src={audience.image}
-                  alt={`${audience.title} — who LifeBloom helps`}
+                  alt={`${audience.title} — who Shivi helps`}
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 17vw"

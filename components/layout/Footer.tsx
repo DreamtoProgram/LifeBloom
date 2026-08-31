@@ -52,17 +52,17 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 mb-4" aria-label="LifeBloom — Home">
+            <Link href="/" className="flex items-center gap-2.5 mb-4" aria-label="Shivi — Home">
               <FooterLogoMark />
               <div>
-                <div className="font-serif text-xl font-semibold leading-none text-[#25222A]">LifeBloom</div>
+                <div className="font-serif text-xl font-semibold leading-none text-[#25222A]">Shivi</div>
                 <div className="text-[10px] font-sans text-[#6E6872] tracking-[0.12em] uppercase mt-0.5">
                   Empower. Transform. Grow.
                 </div>
               </div>
             </Link>
             <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6 max-w-xs">
-              LifeBloom is a life coaching and personal development platform dedicated to helping individuals and organizations unlock their potential and create meaningful change.
+              Shivi is a life coaching and personal development platform dedicated to helping individuals and organizations unlock their potential and create meaningful change.
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
-                aria-label="LifeBloom on Instagram"
+                aria-label="Shivi on Instagram"
               >
                 <InstagramIcon />
               </a>
@@ -80,7 +80,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
-                aria-label="LifeBloom on LinkedIn"
+                aria-label="Shivi on LinkedIn"
               >
                 <LinkedInIcon />
               </a>
@@ -89,7 +89,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
-                aria-label="LifeBloom on Facebook"
+                aria-label="Shivi on Facebook"
               >
                 <FacebookIcon />
               </a>
@@ -98,7 +98,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
-                aria-label="LifeBloom on YouTube"
+                aria-label="Shivi on YouTube"
               >
                 <YoutubeIcon />
               </a>
@@ -202,7 +202,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-[#6E6872] text-center sm:text-left">
-            © {new Date().getFullYear()} LifeBloom. All Rights Reserved.
+            © {new Date().getFullYear()} Shivi. All Rights Reserved.
           </p>
           <nav aria-label="Legal navigation">
             <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 justify-center sm:justify-end" role="list">

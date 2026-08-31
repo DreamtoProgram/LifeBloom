@@ -21,7 +21,7 @@ export default function AboutPage() {
               <div className="rounded-3xl overflow-hidden aspect-[4/5] relative shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
                 <Image
                   src="/founder.jpg"
-                  alt="Dr. Shivani Koccher Dhand — Life Coach and Founder of LifeBloom"
+                  alt="Dr. Shivani Koccher Dhand — Life Coach and Founder of Shivi"
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
                   priority
@@ -49,13 +49,13 @@ export default function AboutPage() {
               <LavenderDivider className="mb-6" />
               <div className="space-y-4 text-[#6E6872] font-sans text-base leading-relaxed mb-8">
                 <p>
-                  Dr. Shivani Koccher Dhand is the founder of LifeBloom and a dedicated Life Coach, NLP Practitioner, HR & Human Capital Expert, and Educator based in Phagwara, India.
+                  Dr. Shivani Koccher Dhand is the founder of Shivi and a dedicated Life Coach, NLP Practitioner, HR & Human Capital Expert, and Educator based in Phagwara, India.
                 </p>
                 <p>
                   With over 15 years of experience across education, human capital development and personal coaching, Dr. Shivani brings a deeply human, practical and evidence-informed approach to her work.
                 </p>
                 <p>
-                  She founded LifeBloom with a clear mission: to help individuals and organizations unlock their potential, overcome challenges, and create lives and cultures of greater clarity, confidence and purpose.
+                  She founded Shivi with a clear mission: to help individuals and organizations unlock their potential, overcome challenges, and create lives and cultures of greater clarity, confidence and purpose.
                 </p>
               </div>
 
@@ -114,14 +114,14 @@ export default function AboutPage() {
                 She integrates principles from NLP, emotional intelligence development, mindfulness and human capital theory to create a holistic, personalized approach for each client.
               </p>
               <p>
-                LifeBloom's coaching is a collaborative, forward-focused process — not a prescription, but a partnership. Dr. Shivani works alongside her clients to help them clarify what truly matters, identify what stands in the way, and take consistent, courageous steps towards the life they want to create.
+                Shivi's coaching is a collaborative, forward-focused process — not a prescription, but a partnership. Dr. Shivani works alongside her clients to help them clarify what truly matters, identify what stands in the way, and take consistent, courageous steps towards the life they want to create.
               </p>
             </div>
           </AnimatedSection>
         </Container>
       </section>
 
-      {/* Why LifeBloom */}
+      {/* Why Shivi */}
       <section
         className="py-24 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #FBE8F0 0%, #EEE7FA 100%)' }}
@@ -136,10 +136,10 @@ export default function AboutPage() {
             <AnimatedSection direction="up" delay={50} className="md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-[1px] w-8 bg-[#C9A5E8]" aria-hidden="true" />
-                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Why LifeBloom</p>
+                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Why Shivi</p>
               </div>
               <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] leading-[1.2]">
-                What Makes LifeBloom Different
+                What Makes Shivi Different
               </h2>
             </AnimatedSection>
 

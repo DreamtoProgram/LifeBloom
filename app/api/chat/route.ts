@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Process chat through LifeBloom domain engine & guardrails
+    // Process chat through Shivi domain engine & guardrails
     const result = await processChatMessage(cleanMessages);
 
     return NextResponse.json(
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       {
         success: false,
         reply:
-          "I'm here to support your personal growth journey with LifeBloom. You can also explore our programs at /services or connect with Dr. Shivani directly at /contact.",
+          "I'm here to support your personal growth journey with Shivi. You can also explore our programs at /services or connect with Dr. Shivani directly at /contact.",
         links: [
           { label: 'Explore Services', href: '/services' },
           { label: 'Book Discovery Call', href: '/contact' },

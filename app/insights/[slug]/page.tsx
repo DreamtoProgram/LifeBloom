@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const insight = getInsightBySlug(slug);
   if (!insight) return { title: 'Article Not Found' };
   return {
-    title: `${insight.title} | LifeBloom Insights`,
+    title: `${insight.title} | Shivi Insights`,
     description: insight.excerpt,
   };
 }

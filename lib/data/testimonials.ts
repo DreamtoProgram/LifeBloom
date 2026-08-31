@@ -10,7 +10,7 @@ import type { Testimonial } from '@/types';
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-1',
-    quote: 'LifeBloom helped me gain clarity and confidence when I needed it the most. I am now living with greater purpose and direction.',
+    quote: 'Shivi helped me gain clarity and confidence when I needed it the most. I am now living with greater purpose and direction.',
     clientLabel: '— Client',
     context: 'Life Coaching Program',
     isPlaceholder: true, // PLACEHOLDER — Replace with real testimonial

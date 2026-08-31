@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Service Not Found' };
   return {
-    title: `${service.title} | LifeBloom`,
+    title: `${service.title} | Shivi`,
     description: service.shortDescription,
   };
 }

@@ -1,5 +1,5 @@
 // ============================================================
-// LifeBloom Chatbot Engine
+// Shivi Chatbot Engine
 // Handles multilingual chat, domain classification, and LLM/fallback
 // ============================================================
 
@@ -119,32 +119,32 @@ function getOutOfFieldRefusal(lang: string): { reply: string; links: QuickLink[]
   switch (lang) {
     case 'hi':
       return {
-        reply: "मैं केवल LifeBloom और डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, करियर मार्गदर्शन, एनएलपी (NLP), माइंडफुलनेस और व्यक्तिगत विकास से जुड़े विषयों में सहायता कर सकती हूँ।\n\nमैं इस विषय पर उत्तर देने में असमर्थ हूँ, लेकिन यदि आप अपने जीवन के लक्ष्यों, आत्मविश्वास, या कोचिंग सेशंस के बारे में जानना चाहते हैं, तो मुझे आपकी सहायता करने में बेहद खुशी होगी! 🌱",
+        reply: "मैं केवल Shivi और डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, करियर मार्गदर्शन, एनएलपी (NLP), माइंडफुलनेस और व्यक्तिगत विकास से जुड़े विषयों में सहायता कर सकती हूँ।\n\nमैं इस विषय पर उत्तर देने में असमर्थ हूँ, लेकिन यदि आप अपने जीवन के लक्ष्यों, आत्मविश्वास, या कोचिंग सेशंस के बारे में जानना चाहते हैं, तो मुझे आपकी सहायता करने में बेहद खुशी होगी! 🌱",
         links: defaultLinks,
       };
     case 'pa':
       return {
-        reply: "ਮੈਂ ਸਿਰਫ਼ LifeBloom ਅਤੇ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ, ਐਨਐਲਪੀ (NLP), ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰ ਸਕਦੀ ਹਾਂ।\n\nਮੈਂ ਇਸ ਸਵਾਲ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦੀ। ਪਰ ਜੇਕਰ ਤੁਸੀਂ ਆਪਣੇ ਜੀਵਨ, ਤਣਾਅ ਪ੍ਰਬੰਧਨ ਜਾਂ ਕੋਚਿੰਗ ਸੈਸ਼ਨਾਂ ਬਾਰੇ ਗੱਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਮੈਂ ਖੁਸ਼ੀ ਨਾਲ ਤੁਹਾਡੀ ਮਦਦ ਕਰਾਂਗੀ! 🌱",
+        reply: "ਮੈਂ ਸਿਰਫ਼ Shivi ਅਤੇ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ, ਐਨਐਲਪੀ (NLP), ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰ ਸਕਦੀ ਹਾਂ।\n\nਮੈਂ ਇਸ ਸਵਾਲ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦੀ। ਪਰ ਜੇਕਰ ਤੁਸੀਂ ਆਪਣੇ ਜੀਵਨ, ਤਣਾਅ ਪ੍ਰਬੰਧਨ ਜਾਂ ਕੋਚਿੰਗ ਸੈਸ਼ਨਾਂ ਬਾਰੇ ਗੱਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਮੈਂ ਖੁਸ਼ੀ ਨਾਲ ਤੁਹਾਡੀ ਮਦਦ ਕਰਾਂਗੀ! 🌱",
         links: defaultLinks,
       };
     case 'es':
       return {
-        reply: "Me especializo exclusivamente en desarrollo personal, coaching de vida, PNL y bienestar en LifeBloom con la Dra. Shivani Koccher Dhand.\n\nNo puedo responder sobre este tema no relacionado, ¡pero me encantaría ayudarte a explorar nuestros programas de coaching o agendar una llamada de descubrimiento!",
+        reply: "Me especializo exclusivamente en desarrollo personal, coaching de vida, PNL y bienestar en Shivi con la Dra. Shivani Koccher Dhand.\n\nNo puedo responder sobre este tema no relacionado, ¡pero me encantaría ayudarte a explorar nuestros programas de coaching o agendar una llamada de descubrimiento!",
         links: defaultLinks,
       };
     case 'fr':
       return {
-        reply: "Je suis spécialisée exclusivement dans le développement personnel, le coaching de vie, la PNL et le bien-être chez LifeBloom avec le Dr. Shivani Koccher Dhand.\n\nJe ne peux pas répondre à des questions hors de ce domaine, mais je serais ravie de vous guider dans nos programmes de coaching!",
+        reply: "Je suis spécialisée exclusivement dans le développement personnel, le coaching de vie, la PNL et le bien-être chez Shivi avec le Dr. Shivani Koccher Dhand.\n\nJe ne peux pas répondre à des questions hors de ce domaine, mais je serais ravie de vous guider dans nos programmes de coaching!",
         links: defaultLinks,
       };
     case 'de':
       return {
-        reply: "Ich bin ausschließlich auf persönliche Entwicklung, Life Coaching, NLP und Wohlbefinden bei LifeBloom mit Dr. Shivani Koccher Dhand spezialisiert.\n\nIch kann diese Frage leider nicht beantworten, helfe Ihnen jedoch sehr gerne bei Fragen zu unseren Coaching-Programmen!",
+        reply: "Ich bin ausschließlich auf persönliche Entwicklung, Life Coaching, NLP und Wohlbefinden bei Shivi mit Dr. Shivani Koccher Dhand spezialisiert.\n\nIch kann diese Frage leider nicht beantworten, helfe Ihnen jedoch sehr gerne bei Fragen zu unseren Coaching-Programmen!",
         links: defaultLinks,
       };
     default:
       return {
-        reply: "I specialize exclusively in personal development, life coaching, NLP, mindfulness, and corporate workshops at LifeBloom with Dr. Shivani Koccher Dhand.\n\nI'm unable to answer queries outside this field, but I would love to help you explore our coaching roadmaps, workshops, or book a discovery call! How may I assist your growth journey? 🌱",
+        reply: "I specialize exclusively in personal development, life coaching, NLP, mindfulness, and corporate workshops at Shivi with Dr. Shivani Koccher Dhand.\n\nI'm unable to answer queries outside this field, but I would love to help you explore our coaching roadmaps, workshops, or book a discovery call! How may I assist your growth journey? 🌱",
         links: defaultLinks,
       };
   }
@@ -312,7 +312,7 @@ function matchFallbackTopic(
 
     // Generic simple clarification
     return {
-      reply: "Let me simplify it for you!\n\nAt LifeBloom, Dr. Shivani Koccher Dhand helps individuals overcome stress, gain career clarity, and build confidence through personalized 1-on-1 coaching sessions.\n\nWould you like to know how a 1-on-1 session works, or would you prefer booking a quick discovery call?",
+      reply: "Let me simplify it for you!\n\nAt Shivi, Dr. Shivani Koccher Dhand helps individuals overcome stress, gain career clarity, and build confidence through personalized 1-on-1 coaching sessions.\n\nWould you like to know how a 1-on-1 session works, or would you prefer booking a quick discovery call?",
       links: [
         { label: 'Explore Services', href: '/services' },
         { label: 'Book Discovery Call', href: '/contact' },
@@ -323,7 +323,7 @@ function matchFallbackTopic(
   // 2. Language switch requests
   if (/\b(hindi|talk in hindi|speak in hindi|hindi me|hindi mein|hindi bol)\b/.test(lower)) {
     return {
-      reply: "हाँ बिल्कुल! हम हिंदी में बात कर सकते हैं। LifeBloom में आपका स्वागत है।\n\nमैं डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, एनएलपी, और माइंडफुलनेस कार्यक्रमों के बारे में आपकी सहायता कर सकती हूँ। बताइए आज आप किस विषय पर बात करना चाहते हैं? 🌱",
+      reply: "हाँ बिल्कुल! हम हिंदी में बात कर सकते हैं। Shivi में आपका स्वागत है।\n\nमैं डॉ. शिवानी कोचर ढांड के लाइफ कोचिंग, एनएलपी, और माइंडफुलनेस कार्यक्रमों के बारे में आपकी सहायता कर सकती हूँ। बताइए आज आप किस विषय पर बात करना चाहते हैं? 🌱",
       links: [
         { label: 'सेवाएँ देखें', href: '/services' },
         { label: 'डिस्कवरी कॉल बुक करें', href: '/contact' },
@@ -333,7 +333,7 @@ function matchFallbackTopic(
 
   if (/\b(punjabi|talk in punjabi|speak in punjabi|punjabi vich|punjabi ch)\b/.test(lower)) {
     return {
-      reply: "ਹਾਂਜੀ ਬਿਲਕੁਲ! ਅਸੀਂ ਪੰਜਾਬੀ ਵਿੱਚ ਗੱਲ ਕਰ ਸਕਦੇ ਹਾਂ। LifeBloom ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।\n\nਮੈਂ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਕੋਚਿੰਗ ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਦੱਸੋ ਅੱਜ ਤੁਸੀਂ ਕੀ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ? 🌱",
+      reply: "ਹਾਂਜੀ ਬਿਲਕੁਲ! ਅਸੀਂ ਪੰਜਾਬੀ ਵਿੱਚ ਗੱਲ ਕਰ ਸਕਦੇ ਹਾਂ। Shivi ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।\n\nਮੈਂ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਕੋਚਿੰਗ ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਦੱਸੋ ਅੱਜ ਤੁਸੀਂ ਕੀ ਜਾਣਨਾ ਚਾਹੁੰਦੇ ਹੋ? 🌱",
       links: [
         { label: 'ਸੇਵਾਵਾਂ ਵੇਖੋ', href: '/services' },
         { label: 'ਡਿਸਕਵਰੀ ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
@@ -345,7 +345,7 @@ function matchFallbackTopic(
   if (/\b(mera naam|my name is|i am|main|mein|im)\b/.test(lower)) {
     if (lang === 'hi') {
       return {
-        reply: "नमस्ते! आपसे बात करके बहुत खुशी हुई। मैं शिवी हूँ, LifeBloom की AI कोचिंग असिस्टेंट।\n\nमैं डॉ. शिवानी कोचर ढांड के साथ आपके व्यक्तिगत और व्यावसायिक विकास के लिए सही कोचिंग प्रोग्राम चुनने में मदद कर सकती हूँ। आप क्या जानना चाहते हैं?",
+        reply: "नमस्ते! आपसे बात करके बहुत खुशी हुई। मैं शिवी हूँ, Shivi की AI कोचिंग असिस्टेंट।\n\nमैं डॉ. शिवानी कोचर ढांड के साथ आपके व्यक्तिगत और व्यावसायिक विकास के लिए सही कोचिंग प्रोग्राम चुनने में मदद कर सकती हूँ। आप क्या जानना चाहते हैं?",
         links: [
           { label: 'Explore Services', href: '/services' },
           { label: 'Book Discovery Call', href: '/contact' },
@@ -354,7 +354,7 @@ function matchFallbackTopic(
     }
     if (lang === 'pa') {
       return {
-        reply: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਤੁਹਾਡੇ ਨਾਲ ਗੱਲ ਕਰਕੇ ਬਹੁਤ ਖੁਸ਼ੀ ਹੋਈ। ਮੈਂ ਸ਼ਿਵੀ ਹਾਂ, LifeBloom ਦੀ AI ਕੋਚਿੰਗ ਅਸਿਸਟੈਂਟ।\n\nਮੈਂ ਤੁਹਾਡੀ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਜਾਂ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਯਾਤਰਾ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰਾਂ?",
+        reply: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਤੁਹਾਡੇ ਨਾਲ ਗੱਲ ਕਰਕੇ ਬਹੁਤ ਖੁਸ਼ੀ ਹੋਈ। ਮੈਂ ਸ਼ਿਵੀ ਹਾਂ, Shivi ਦੀ AI ਕੋਚਿੰਗ ਅਸਿਸਟੈਂਟ।\n\nਮੈਂ ਤੁਹਾਡੀ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਜਾਂ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਯਾਤਰਾ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ। ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰਾਂ?",
         links: [
           { label: 'ਸੇਵਾਵਾਂ ਵੇਖੋ', href: '/services' },
           { label: 'ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
@@ -362,7 +362,7 @@ function matchFallbackTopic(
       };
     }
     return {
-      reply: "Hello! It's a pleasure to connect with you. I'm Shivi, your LifeBloom AI coaching assistant.\n\nI'm here to help guide you through our personalized coaching programs with Dr. Shivani Koccher Dhand. How can I support your growth journey today?",
+      reply: "Hello! It's a pleasure to connect with you. I'm Shivi, your Shivi AI coaching assistant.\n\nI'm here to help guide you through our personalized coaching programs with Dr. Shivani Koccher Dhand. How can I support your growth journey today?",
       links: [
         { label: 'Explore Services', href: '/services' },
         { label: 'Book Discovery Call', href: '/contact' },
@@ -400,7 +400,7 @@ function matchFallbackTopic(
   switch (lang) {
     case 'hi':
       return {
-        reply: "LifeBloom में डॉ. शिवानी कोचर ढांड (15+ वर्ष अनुभव) आपको जीवन में स्पष्टता, आत्मविश्वास और उद्देश्य पाने में मदद करती हैं।\n\nहम 1-ऑन-1 लाइफ कोचिंग, करियर कोचिंग, एनएलपी (NLP), माइंडफुलनेस और कॉर्पोरेट वर्कशॉप्स प्रदान करते हैं। आप हमारे Contact पेज पर जाकर एक डिस्कवरी कॉल बुक कर सकते हैं।",
+        reply: "Shivi में डॉ. शिवानी कोचर ढांड (15+ वर्ष अनुभव) आपको जीवन में स्पष्टता, आत्मविश्वास और उद्देश्य पाने में मदद करती हैं।\n\nहम 1-ऑन-1 लाइफ कोचिंग, करियर कोचिंग, एनएलपी (NLP), माइंडफुलनेस और कॉर्पोरेट वर्कशॉप्स प्रदान करते हैं। आप हमारे Contact पेज पर जाकर एक डिस्कवरी कॉल बुक कर सकते हैं।",
         links: [
           { label: 'सभी सेवाएँ देखें', href: '/services' },
           { label: 'डिस्कवरी कॉल बुक करें', href: '/contact' },
@@ -408,7 +408,7 @@ function matchFallbackTopic(
       };
     case 'pa':
       return {
-        reply: "LifeBloom ਵਿਖੇ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ (15+ ਸਾਲਾਂ ਦਾ ਤਜਰਬਾ) ਤੁਹਾਡੇ ਜੀਵਨ ਅਤੇ ਕਰੀਅਰ ਵਿੱਚ ਸਪੱਸ਼ਟਤਾ ਅਤੇ ਵਿਸ਼ਵਾਸ ਲਿਆਉਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹਨ।\n\nਅਸੀਂ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਸੈਸ਼ਨ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ। ਤੁਸੀਂ Contact ਪੰਨੇ ਰਾਹੀਂ ਸਾਡੇ ਨਾਲ ਮੁਲਾਕਾਤ ਤੈਅ ਕਰ ਸਕਦੇ ਹੋ।",
+        reply: "Shivi ਵਿਖੇ ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ (15+ ਸਾਲਾਂ ਦਾ ਤਜਰਬਾ) ਤੁਹਾਡੇ ਜੀਵਨ ਅਤੇ ਕਰੀਅਰ ਵਿੱਚ ਸਪੱਸ਼ਟਤਾ ਅਤੇ ਵਿਸ਼ਵਾਸ ਲਿਆਉਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹਨ।\n\nਅਸੀਂ ਲਾਈਫ ਕੋਚਿੰਗ, ਕਰੀਅਰ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਮਾਈਂਡਫੁੱਲਨੈੱਸ ਸੈਸ਼ਨ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ। ਤੁਸੀਂ Contact ਪੰਨੇ ਰਾਹੀਂ ਸਾਡੇ ਨਾਲ ਮੁਲਾਕਾਤ ਤੈਅ ਕਰ ਸਕਦੇ ਹੋ।",
         links: [
           { label: 'ਸੇਵਾਵਾਂ ਵੇਖੋ', href: '/services' },
           { label: 'ਡਿਸਕਵਰੀ ਕਾਲ ਬੁੱਕ ਕਰੋ', href: '/contact' },
@@ -416,7 +416,7 @@ function matchFallbackTopic(
       };
     default:
       return {
-        reply: "LifeBloom is dedicated to empowering individuals and organizations through evidence-informed Life Coaching, NLP, Career Transformation, and Mindfulness with Dr. Shivani Koccher Dhand (15+ years experience, Phagwara, India).\n\nWould you like to explore a specific coaching program, learn about corporate workshops, or schedule a discovery call?",
+        reply: "Shivi is dedicated to empowering individuals and organizations through evidence-informed Life Coaching, NLP, Career Transformation, and Mindfulness with Dr. Shivani Koccher Dhand (15+ years experience, Phagwara, India).\n\nWould you like to explore a specific coaching program, learn about corporate workshops, or schedule a discovery call?",
         links: [
           { label: 'Explore All Coaching Programs', href: '/services' },
           { label: 'Book Discovery Call', href: '/contact' },

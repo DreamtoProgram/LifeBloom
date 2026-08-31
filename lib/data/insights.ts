@@ -1,7 +1,7 @@
 import type { Insight } from '@/types';
 
 // ============================================================
-// LifeBloom — Insights Mock Data
+// Shivi — Insights Mock Data
 // Source: Client brief. Replace with GET /api/insights when backend is ready.
 // ============================================================
 

@@ -13,24 +13,24 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'LifeBloom | Life Coaching & Personal Development',
-    template: '%s | LifeBloom',
+    default: 'Shivi | Life Coaching & Personal Development',
+    template: '%s | Shivi',
   },
   description:
-    'LifeBloom offers premium life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand.',
+    'Shivi offers premium life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand.',
   keywords: [
     'life coaching', 'personal development', 'career coaching', 'NLP coaching',
     'mindfulness', 'emotional intelligence', 'leadership development', 'Dr Shivani',
-    'LifeBloom', 'Phagwara', 'India', 'life coach India',
+    'Shivi', 'Phagwara', 'India', 'life coach India',
   ],
   authors: [{ name: 'Dr. Shivani Koccher Dhand' }],
-  creator: 'LifeBloom',
+  creator: 'Shivi',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://lifebloom.in',
-    siteName: 'LifeBloom',
-    title: 'LifeBloom | Life Coaching & Personal Development',
+    url: 'https://shivi.in',
+    siteName: 'Shivi',
+    title: 'Shivi | Life Coaching & Personal Development',
     description:
       'Empowering individuals and organizations through personalized life coaching, career guidance, NLP, and mindfulness programs.',
     images: [
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
         url: '/founder.jpg',
         width: 1200,
         height: 630,
-        alt: 'LifeBloom — Empower. Transform. Grow.',
+        alt: 'Shivi — Empower. Transform. Grow.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LifeBloom | Life Coaching & Personal Development',
+    title: 'Shivi | Life Coaching & Personal Development',
     description: 'Discover clarity, build confidence, find purpose. Life coaching with Dr. Shivani Koccher Dhand.',
   },
   icons: {

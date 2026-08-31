@@ -4,7 +4,7 @@ import { insights } from '@/lib/data/insights';
 import { Badge, Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Insights & Thought Leadership | LifeBloom',
+  title: 'Insights & Thought Leadership | Shivi',
   description:
     'Explore articles, perspectives and thought leadership from Dr. Shivani Koccher Dhand on life coaching, emotional intelligence, leadership, mindfulness and human potential.',
 };

@@ -1,7 +1,7 @@
 import type { AudienceCard } from '@/types';
 
 // ============================================================
-// LifeBloom — Audience Data
+// Shivi — Audience Data
 // Source: Client brief. Replace with GET /api/audiences when backend is ready.
 // ============================================================
 

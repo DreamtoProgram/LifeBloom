@@ -3,7 +3,7 @@ import { services } from '@/lib/data/services';
 import { insights } from '@/lib/data/insights';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lifebloom.in';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
   const staticRoutes = [
     '',

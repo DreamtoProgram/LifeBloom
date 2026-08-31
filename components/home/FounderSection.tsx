@@ -35,7 +35,7 @@ export function FounderSection() {
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.10)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
                 <Image
                   src="/founder.jpg"
-                  alt="Dr. Shivani Koccher Dhand — Founder & Lead Coach at LifeBloom"
+                  alt="Dr. Shivani Koccher Dhand — Founder & Lead Coach at Shivi"
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 1024px) 90vw, 40vw"

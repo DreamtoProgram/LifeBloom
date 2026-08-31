@@ -10,18 +10,18 @@ import { InsightsPreview } from '@/components/home/InsightsPreview';
 import { FinalCTA } from '@/components/home/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'LifeBloom | Life Coaching & Personal Development',
+  title: 'Shivi | Life Coaching & Personal Development',
   description:
-    'LifeBloom offers personalized life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, India.',
+    'Shivi offers personalized life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, India.',
   openGraph: {
-    title: 'LifeBloom | Life Coaching & Personal Development',
+    title: 'Shivi | Life Coaching & Personal Development',
     description:
       'Empower. Transform. Grow. Personalized coaching and development programs for individuals and organizations by Dr. Shivani Koccher Dhand.',
-    url: 'https://lifebloom.in',
+    url: 'https://shivi.in',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://lifebloom.in',
+    canonical: 'https://shivi.in',
   },
 };
 

@@ -1,7 +1,7 @@
 import type { Service } from '@/types';
 
 // ============================================================
-// LifeBloom — Services Mock Data
+// Shivi — Services Mock Data
 // Source: Client brief. Replace with GET /api/services when backend is ready.
 // ============================================================
 
@@ -10,7 +10,7 @@ export const services: Service[] = [
     slug: 'life-coaching',
     title: 'Life Coaching',
     shortDescription: 'Personalized one-to-one coaching to help you gain clarity, build confidence, overcome limiting beliefs, set meaningful goals, and create actionable life plans.',
-    fullDescription: 'Life coaching at LifeBloom is a deeply personal, collaborative process. Through structured conversations, reflective exercises, and goal-oriented frameworks, we help you uncover what truly matters to you and take consistent steps towards a more fulfilling life.',
+    fullDescription: 'Life coaching at Shivi is a deeply personal, collaborative process. Through structured conversations, reflective exercises, and goal-oriented frameworks, we help you uncover what truly matters to you and take consistent steps towards a more fulfilling life.',
     icon: 'leaf',
     category: 'personal-growth',
     highlights: [
@@ -48,7 +48,7 @@ export const services: Service[] = [
     slug: 'career-professional-coaching',
     title: 'Career & Professional Coaching',
     shortDescription: 'Support with career planning, transitions, workplace effectiveness, employability and professional growth.',
-    fullDescription: "Whether you are navigating a career transition, seeking a promotion, or looking to enhance your professional effectiveness, LifeBloom's career coaching provides practical guidance, honest reflection, and a structured roadmap for growth.",
+    fullDescription: "Whether you are navigating a career transition, seeking a promotion, or looking to enhance your professional effectiveness, Shivi's career coaching provides practical guidance, honest reflection, and a structured roadmap for growth.",
     icon: 'briefcase',
     category: 'career',
     highlights: [
@@ -76,7 +76,7 @@ export const services: Service[] = [
     slug: 'mindfulness-stress-management',
     title: 'Mindfulness & Stress Management',
     shortDescription: 'Support for self-awareness, stress management, emotional balance and healthier habits.',
-    fullDescription: "In a fast-paced world, learning to pause, breathe, and respond rather than react is a powerful life skill. LifeBloom's mindfulness programs help you develop greater self-awareness, manage stress effectively, and build sustainable wellbeing habits.",
+    fullDescription: "In a fast-paced world, learning to pause, breathe, and respond rather than react is a powerful life skill. Shivi's mindfulness programs help you develop greater self-awareness, manage stress effectively, and build sustainable wellbeing habits.",
     icon: 'heart',
     category: 'well-being',
     highlights: [
@@ -104,7 +104,7 @@ export const services: Service[] = [
     slug: 'emotional-intelligence',
     title: 'Emotional Intelligence Development',
     shortDescription: 'Develop self-awareness, empathy, emotional regulation, interpersonal relationships and communication.',
-    fullDescription: "Emotional intelligence is one of the most powerful predictors of personal and professional success. LifeBloom's EI development programs help you understand your emotions, empathize with others, and navigate relationships with greater skill and authenticity.",
+    fullDescription: "Emotional intelligence is one of the most powerful predictors of personal and professional success. Shivi's EI development programs help you understand your emotions, empathize with others, and navigate relationships with greater skill and authenticity.",
     icon: 'sparkles',
     category: 'well-being',
     highlights: [
@@ -132,7 +132,7 @@ export const services: Service[] = [
     slug: 'corporate-workshops',
     title: 'Corporate Workshops & Leadership',
     shortDescription: 'Programs for organizations covering leadership, communication, emotional intelligence, mindfulness, stress management and employee development.',
-    fullDescription: 'LifeBloom works with organizations and educational institutions to design and deliver impactful workshops and development programs that help teams perform at their best, communicate effectively, and lead with purpose.',
+    fullDescription: 'Shivi works with organizations and educational institutions to design and deliver impactful workshops and development programs that help teams perform at their best, communicate effectively, and lead with purpose.',
     icon: 'users',
     category: 'organizations',
     highlights: [
@@ -161,7 +161,7 @@ export const services: Service[] = [
     slug: 'nlp-transformation',
     title: 'NLP',
     shortDescription: 'Mindset development, communication, behavioral change and confidence building using NLP principles.',
-    fullDescription: 'Neuro-Linguistic Programming (NLP) offers powerful tools for understanding and shifting the patterns of thought, language, and behavior that shape our lives. LifeBloom integrates NLP techniques into personal transformation coaching to help you create meaningful and lasting change.',
+    fullDescription: 'Neuro-Linguistic Programming (NLP) offers powerful tools for understanding and shifting the patterns of thought, language, and behavior that shape our lives. Shivi integrates NLP techniques into personal transformation coaching to help you create meaningful and lasting change.',
     icon: 'brain',
     category: 'transformation',
     highlights: [
