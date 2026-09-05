@@ -199,8 +199,11 @@ export function ReportView({ analysis }: ReportViewProps) {
               Visual Profile
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal">
-              Response Pattern Overview
+              Personal Preference Overview
             </h2>
+            <p className="font-sans text-xs sm:text-sm text-[#6E6872] mt-1">
+              This visualization reflects patterns from your selected responses and is intended for personal reflection.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FCF8FB] p-6 sm:p-8 rounded-3xl border border-[#EDE7EE]">
@@ -218,7 +221,9 @@ export function ReportView({ analysis }: ReportViewProps) {
                 <div key={dim.key} className="bg-white p-3.5 rounded-xl border border-[#EDE7EE]">
                   <div className="flex items-center justify-between mb-1 text-xs">
                     <span className="font-sans font-semibold text-[#25222A]">{dim.label}</span>
-                    <span className="font-mono font-bold text-[#865CB5]">{dim.score}% ({dim.badge})</span>
+                    <span className="font-mono font-bold text-[#865CB5]">
+                      {dim.score}% • {dim.badge}
+                    </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#EDE7EE] rounded-full overflow-hidden mb-1.5">
                     <div
@@ -373,8 +378,11 @@ export function ReportView({ analysis }: ReportViewProps) {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal mb-4">
             Your Reflection Summary
           </h2>
-          <p className="font-sans text-sm sm:text-base text-[#4A4452] leading-relaxed mb-6">
+          <p className="font-sans text-sm sm:text-base text-[#4A4452] leading-relaxed mb-4">
             {analysis.reflectionSummary}
+          </p>
+          <p className="font-sans text-sm text-[#865CB5] font-medium leading-relaxed mb-6">
+            {analysis.coachingConversationPrompt}
           </p>
           <div className="p-4 bg-white/80 rounded-2xl border border-[#EDE7EE]">
             <p className="font-sans text-xs text-[#6E6872]">

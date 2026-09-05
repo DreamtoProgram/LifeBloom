@@ -155,8 +155,8 @@ export function RadarChart({ dimensions }: RadarChartProps) {
       </div>
 
       {/* Helper Legend / Subtitle */}
-      <p className="font-sans text-xs text-[#6E6872] mt-4 text-center italic">
-        Polygon vertices reflect your relative preference intensity (0–100%) across key lifestyle and coaching dimensions.
+      <p className="font-sans text-xs text-[#6E6872] mt-4 text-center">
+        This visualization reflects patterns from your selected responses and is intended for personal reflection.
       </p>
     </div>
   );

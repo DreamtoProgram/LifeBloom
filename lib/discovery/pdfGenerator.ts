@@ -97,17 +97,17 @@ export async function generateReportPDF(analysis: ReportAnalysis): Promise<Blob>
 
   y += 31;
 
-  // Section Heading: Response Pattern Overview
+  // Section Heading: Personal Preference Overview
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.setTextColor(colorPurpleDark[0], colorPurpleDark[1], colorPurpleDark[2]);
-  doc.text('1. Response Pattern Overview (Personal Preference Dimensions)', margin, y);
+  doc.text('1. Personal Preference Overview', margin, y);
   y += 5;
 
   doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8.5);
+  doc.setFontSize(8);
   doc.setTextColor(colorTextMuted[0], colorTextMuted[1], colorTextMuted[2]);
-  doc.text('Calculated based on transparent, rule-based mappings from your 20 selections.', margin, y);
+  doc.text('This visualization reflects patterns from your selected responses and is intended for personal reflection.', margin, y);
   y += 6;
 
   // Render 6 Dimension Bars
@@ -239,20 +239,27 @@ export async function generateReportPDF(analysis: ReportAnalysis): Promise<Blob>
 
   // Final Summary Box for Coaching Call
   doc.setFillColor(colorLavenderSoft[0], colorLavenderSoft[1], colorLavenderSoft[2]);
-  doc.roundedRect(margin, y, contentWidth, 36, 3, 3, 'F');
+  doc.roundedRect(margin, y, contentWidth, 38, 3, 3, 'F');
   doc.setDrawColor(colorPurple[0], colorPurple[1], colorPurple[2]);
-  doc.roundedRect(margin, y, contentWidth, 36, 3, 3, 'S');
+  doc.roundedRect(margin, y, contentWidth, 38, 3, 3, 'S');
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9.5);
   doc.setTextColor(colorPurpleDark[0], colorPurpleDark[1], colorPurpleDark[2]);
-  doc.text('Coach Preparation Summary', margin + 5, y + 7);
+  doc.text('Coach Preparation Summary', margin + 5, y + 6.5);
 
   doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8);
+  doc.setFontSize(7.5);
   doc.setTextColor(colorTextDark[0], colorTextDark[1], colorTextDark[2]);
   const finalLines = doc.splitTextToSize(analysis.reflectionSummary, contentWidth - 10);
-  doc.text(finalLines, margin + 5, y + 13);
+  doc.text(finalLines, margin + 5, y + 11.5);
+
+  const promptY = y + 12 + finalLines.length * 3.1;
+  doc.setFont('helvetica', 'italic');
+  doc.setFontSize(7.2);
+  doc.setTextColor(colorPurpleDark[0], colorPurpleDark[1], colorPurpleDark[2]);
+  const promptLines = doc.splitTextToSize(analysis.coachingConversationPrompt, contentWidth - 10);
+  doc.text(promptLines, margin + 5, promptY);
 
   addFooter(2, 3);
 
