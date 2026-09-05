@@ -1,8 +1,26 @@
 import type { Metadata, Viewport } from 'next';
+import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ChatbotWidget } from '@/components/ui/ChatbotWidget';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  fallback: ['Arial', 'Helvetica', 'sans-serif'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -70,12 +88,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-white text-[#25222A] antialiased">
+      <body className={`${inter.className} font-sans bg-white text-[#25222A] antialiased`}>
         <Navbar />
         <main id="main-content" tabIndex={-1}>
           {children}

@@ -75,7 +75,7 @@ export function FounderSection() {
 
               <h2
                 id="founder-heading"
-                className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-6"
+                className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-[#25222A] leading-[1.15] mb-6"
               >
                 Helping People Unlock
                 <br />

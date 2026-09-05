@@ -62,7 +62,7 @@ export function Hero() {
 
               {/* Main heading */}
               <AnimatedSection direction="up" delay={150}>
-                <h1 className="font-serif text-[clamp(3rem,8.5vw,5.5rem)] font-normal leading-[1.05] mb-6 sm:mb-8">
+                <h1 className="font-serif text-[clamp(3rem,8.5vw,5.5rem)] font-bold leading-[1.05] mb-6 sm:mb-8">
                   <span className="block text-[#25222A]">Empower.</span>
                   <span className="block text-[#C9A5E8]">Transform.</span>
                   <span className="block text-[#E99AB8]">Grow.</span>

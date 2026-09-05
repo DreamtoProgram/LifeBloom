@@ -28,7 +28,7 @@ export default function WhoWeHelpPage() {
               <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
               <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Who We Help</p>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#25222A] leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-[#25222A] leading-[1.1] mb-6">
               Guidance for<br />
               <span className="text-[#9B70C7] italic">Every Journey</span>
             </h1>
@@ -46,7 +46,7 @@ export default function WhoWeHelpPage() {
       <section className="py-20 bg-white">
         <Container className="text-center">
           <AnimatedSection direction="up" delay={50}>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] mb-6">
               Find the Right Coaching for You
             </h2>
             <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">

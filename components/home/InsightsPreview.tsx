@@ -28,7 +28,7 @@ export function InsightsPreview() {
               </p>
               <h2
                 id="insights-heading"
-                className="font-serif text-3xl md:text-4xl font-normal text-[#25222A] leading-[1.15]"
+                className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] leading-[1.15]"
               >
                 Ideas That Inspire Growth
               </h2>

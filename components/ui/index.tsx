@@ -53,7 +53,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className={`font-serif ${headingColor} text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.15] mb-4`}>
+      <h2 className={`font-serif ${headingColor} text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] mb-4`}>
         {renderHeading()}
       </h2>
       {subheading && (

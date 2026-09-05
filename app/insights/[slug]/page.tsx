@@ -49,7 +49,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
                 <Badge key={t} variant="lavender">{t}</Badge>
               ))}
             </div>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#25222A] leading-[1.15] mb-6">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-[#25222A] leading-[1.15] mb-6">
               {insight.title}
             </h1>
             <div className="flex items-center gap-4 text-sm text-[#6E6872] font-sans border-y border-[#EDE7EE] py-3">

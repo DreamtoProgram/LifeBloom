@@ -42,7 +42,7 @@ export default function AboutPage() {
                   Meet Your Coach
                 </p>
               </div>
-              <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
+              <h1 className="font-serif text-4xl md:text-5xl font-semibold text-[#25222A] leading-[1.1] mb-6">
                 Helping People Unlock<br />
                 <span className="text-[#9B70C7] italic">Their Human Potential</span>
               </h1>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Coaching Philosophy</p>
               <div className="h-[1px] w-10 bg-gradient-to-l from-transparent to-[#C9A5E8]" aria-hidden="true" />
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] leading-[1.2] mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] leading-[1.2] mb-8">
               A Human-Centered Approach to Growth
             </h2>
             <div className="space-y-4 text-[#6E6872] font-sans text-base leading-relaxed text-left bg-white p-8 md:p-10 rounded-3xl border border-[#EDE7EE] shadow-sm">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 <div className="h-[1px] w-8 bg-[#C9A5E8]" aria-hidden="true" />
                 <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Why Shivi</p>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] leading-[1.2]">
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] leading-[1.2]">
                 What Makes Shivi Different
               </h2>
             </AnimatedSection>
@@ -164,7 +164,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white text-center">
         <Container>
           <AnimatedSection direction="up" delay={50}>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] mb-6">
               Ready to Begin Your Journey?
             </h2>
             <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">

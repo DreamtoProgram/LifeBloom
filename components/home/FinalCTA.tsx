@@ -71,7 +71,7 @@ export function FinalCTA() {
             {/* Heading */}
             <h2
               id="final-cta-heading"
-              className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#25222A] leading-[1.1] mb-6"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-[#25222A] leading-[1.1] mb-6"
             >
               Ready to Discover
               <br />

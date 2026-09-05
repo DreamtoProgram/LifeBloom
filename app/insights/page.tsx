@@ -28,7 +28,7 @@ export default function InsightsPage() {
               <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
               <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Insights</p>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-semibold text-[#25222A] leading-[1.1] mb-6">
               Ideas That Inspire Growth
             </h1>
             <p className="font-sans text-base text-[#6E6872] leading-relaxed">

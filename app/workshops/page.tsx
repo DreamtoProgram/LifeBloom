@@ -63,7 +63,7 @@ export default function WorkshopsPage() {
                 Workshops & Programs
               </p>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#25222A] leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-[#25222A] leading-[1.1] mb-6">
               Corporate Workshops &<br />
               <span className="text-[#9B70C7] italic">Development Programs</span>
             </h1>
@@ -123,7 +123,7 @@ export default function WorkshopsPage() {
         />
         <Container className="text-center relative z-10">
           <AnimatedSection direction="up" delay={50}>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#25222A] mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] mb-6">
               Let's Design the Right Program for Your Organization
             </h2>
             <p className="font-sans text-base text-[#6E6872] mb-8 max-w-lg mx-auto">

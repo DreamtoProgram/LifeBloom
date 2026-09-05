@@ -138,7 +138,7 @@ export function ReportView({ analysis }: ReportViewProps) {
                 Personal Discovery
               </span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl text-[#25222A] font-normal tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl text-[#25222A] font-semibold tracking-tight">
               Your LifeBloom Personal Reflection Report
             </h1>
           </div>
@@ -198,7 +198,7 @@ export function ReportView({ analysis }: ReportViewProps) {
             <span className="font-sans text-xs font-semibold text-[#865CB5] tracking-widest uppercase block mb-1">
               Visual Profile
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal">
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-semibold">
               Personal Preference Overview
             </h2>
             <p className="font-sans text-xs sm:text-sm text-[#6E6872] mt-1">
@@ -247,7 +247,7 @@ export function ReportView({ analysis }: ReportViewProps) {
             <span className="font-sans text-xs font-semibold text-[#865CB5] tracking-widest uppercase block mb-1">
               Core Observations
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal">
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-semibold">
               Key Personal Preferences
             </h2>
           </div>
@@ -278,7 +278,7 @@ export function ReportView({ analysis }: ReportViewProps) {
             <span className="font-sans text-xs font-semibold text-[#865CB5] tracking-widest uppercase block mb-1">
               Deep Dive
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal">
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-semibold">
               Personal Reflection Perspectives
             </h2>
           </div>
@@ -375,7 +375,7 @@ export function ReportView({ analysis }: ReportViewProps) {
           <span className="font-sans text-xs font-semibold text-[#865CB5] tracking-widest uppercase block mb-1">
             Coaching Context
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-normal mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#25222A] font-semibold mb-4">
             Your Reflection Summary
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#4A4452] leading-relaxed mb-4">
@@ -395,7 +395,7 @@ export function ReportView({ analysis }: ReportViewProps) {
         <div className="mb-10 pt-6 border-t border-[#EDE7EE]">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="font-serif text-xl text-[#25222A]">
+              <h2 className="font-serif text-xl font-semibold text-[#25222A]">
                 Your Response Overview
               </h2>
               <p className="font-sans text-xs text-[#6E6872]">

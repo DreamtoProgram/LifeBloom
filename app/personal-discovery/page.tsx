@@ -201,7 +201,7 @@ export default function PersonalDiscoveryPage() {
             </div>
 
             {/* Welcome Greeting with User Name */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#25222A] font-normal tracking-tight mb-3">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#25222A] font-semibold tracking-tight mb-3">
               {firstName ? `Welcome, ${firstName}` : 'Personal Discovery Journey'}
             </h1>
 

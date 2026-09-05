@@ -60,7 +60,7 @@ export function AudienceGrid() {
             </div>
             <h2
               id="who-we-help-heading"
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15]"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-[#25222A] leading-[1.15]"
             >
               Guidance for Every Journey
             </h2>

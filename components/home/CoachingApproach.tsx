@@ -107,7 +107,7 @@ export function CoachingApproach() {
             </div>
             <h2
               id="approach-heading"
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#25222A] leading-[1.15] mb-4"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-[#25222A] leading-[1.15] mb-4"
             >
               Our Coaching Approach{' '}
               <span className="text-[#C9A5E8]">✦</span>

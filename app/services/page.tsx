@@ -36,7 +36,7 @@ export default function ServicesPage() {
               <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
               <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Services</p>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-normal text-[#25222A] leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-semibold text-[#25222A] leading-[1.1] mb-6">
               Coaching & Development<br />
               <span className="text-[#9B70C7] italic">Programs</span>
             </h1>

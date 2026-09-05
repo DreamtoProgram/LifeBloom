@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <Container className="relative z-10">
           <div className="max-w-2xl">
             <Badge variant="lavender" className="mb-6">Coaching Program</Badge>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-[#25222A] leading-[1.1] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-[#25222A] leading-[1.1] mb-6">
               {service.title}
             </h1>
             <p className="font-sans text-base md:text-lg text-[#6E6872] leading-relaxed mb-8">
@@ -76,13 +76,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <div>
-                <h2 className="font-serif text-2xl text-[#25222A] mb-4">About This Program</h2>
+                <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-4">About This Program</h2>
                 <p className="font-sans text-base text-[#6E6872] leading-relaxed">{service.fullDescription}</p>
               </div>
 
               {/* Highlights */}
               <div>
-                <h2 className="font-serif text-2xl text-[#25222A] mb-6">What This Helps With</h2>
+                <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-6">What This Helps With</h2>
                 <ul className="space-y-3">
                   {service.highlights.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -99,7 +99,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
               {/* Who is it for */}
               <div>
-                <h2 className="font-serif text-2xl text-[#25222A] mb-6">Who This Is For</h2>
+                <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-6">Who This Is For</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.whoIsItFor.map((item) => (
                     <div key={item} className="bg-[#FCF8FB] rounded-xl p-4 border border-[#EDE7EE] font-sans text-sm text-[#6E6872]">
@@ -111,7 +111,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
               {/* What to expect */}
               <div>
-                <h2 className="font-serif text-2xl text-[#25222A] mb-6">What You Can Expect</h2>
+                <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-6">What You Can Expect</h2>
                 <div className="space-y-4">
                   {service.whatToExpect.map((item, idx) => (
                     <div key={item} className="flex gap-4 items-start">
@@ -127,7 +127,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               {/* FAQs */}
               {service.faqs.length > 0 && (
                 <div>
-                  <h2 className="font-serif text-2xl text-[#25222A] mb-6">Frequently Asked Questions</h2>
+                  <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {service.faqs.map((faq) => (
                       <div key={faq.question} className="bg-[#FCF8FB] rounded-xl p-6 border border-[#EDE7EE]">

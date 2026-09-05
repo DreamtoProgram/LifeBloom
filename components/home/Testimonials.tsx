@@ -160,7 +160,7 @@ export function Testimonials() {
                 <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase mb-3">
                   Making an Impact
                 </p>
-                <h2 id="testimonials-heading" className="font-serif text-2xl text-[#25222A]">
+                <h2 id="testimonials-heading" className="font-serif text-2xl font-semibold text-[#25222A]">
                   Creating Real, Meaningful Change
                 </h2>
               </div>
