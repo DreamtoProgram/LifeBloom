@@ -1,23 +1,25 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { submitInquiry } from '@/lib/api/inquiries';
 
 // ============================================================
 // ContactForm — Redesigned "Send Us a Message" Card
-// Matches Shivi aesthetic and reference design
+// Navigates directly to internal Personal Discovery Assessment
 // ============================================================
 
 const interestOptions = [
   { value: '', label: 'What are you interested in?' },
-  { value: 'life-coaching', label: 'Life Coaching' },
-  { value: 'career-coaching', label: 'Career Coaching' },
-  { value: 'student-coaching', label: 'Student Coaching' },
-  { value: 'corporate-workshop', label: 'Corporate Workshop' },
-  { value: 'leadership-development', label: 'Leadership Development' },
-  { value: 'mindfulness-stress', label: 'Mindfulness & Stress Management' },
-  { value: 'nlp', label: 'NLP' },
-  { value: 'other', label: 'Other' },
+  { value: 'Life Coaching', label: 'Life Coaching' },
+  { value: 'Career Coaching', label: 'Career Coaching' },
+  { value: 'Student Coaching', label: 'Student Coaching' },
+  { value: 'Corporate Workshop', label: 'Corporate Workshop' },
+  { value: 'Leadership Development', label: 'Leadership Development' },
+  { value: 'Mindfulness & Stress Management', label: 'Mindfulness & Stress Management' },
+  { value: 'NLP Transformation', label: 'NLP Transformation' },
+  { value: 'Personal Discovery', label: 'Personal Discovery' },
+  { value: 'Other', label: 'Other' },
 ];
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
@@ -48,6 +50,7 @@ function validate(data: FormData): FormErrors {
 }
 
 export function ContactForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -56,8 +59,6 @@ export function ContactForm() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [state, setState] = useState<FormState>('idle');
-
-  const GOOGLE_FORM_URL = 'https://forms.gle/S7A2VWbE5J7Bvamv5';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -75,54 +76,51 @@ export function ContactForm() {
       return;
     }
     setState('loading');
+
+    // Save user details temporarily for the assessment & report
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('shivi_discovery_user', JSON.stringify(formData));
+      sessionStorage.removeItem('shivi_discovery_answers');
+      sessionStorage.removeItem('shivi_discovery_step');
+      sessionStorage.removeItem('shivi_discovery_report_generated');
+      sessionStorage.removeItem('shivi_discovery_downloaded');
+    }
+
     try {
       await submitInquiry({
         ...formData,
-        message: `Inquiry for ${formData.interest || 'Coaching'}. Contact request from website form.`,
+        message: `Inquiry for ${formData.interest || 'Coaching'}. Direct progression to Personal Discovery Assessment.`,
       });
     } catch {
-      // Continue even if local logger encounters network warning
+      // Continue even if logging encounters network warning
     }
 
-    // Open the questionnaire form in a new tab
-    if (typeof window !== 'undefined') {
-      window.open(GOOGLE_FORM_URL, '_blank', 'noopener,noreferrer');
-    }
-    setState('success');
+    // Seamlessly navigate to the internal assessment page
+    router.push('/personal-discovery');
   };
 
   if (state === 'success') {
     return (
-      <div className="bg-white rounded-[32px] p-8 sm:p-12 border border-[#EDE7EE] shadow-xl shadow-[rgba(74,52,80,0.06)] text-center py-14">
+      <div className="bg-white rounded-[32px] p-8 sm:p-12 border border-[#EDE7EE] shadow-xl shadow-[rgba(74,52,80,0.06)] text-center py-14 animate-fade-in-up">
         <div className="w-16 h-16 rounded-full bg-[#FBE8F0] flex items-center justify-center mx-auto mb-6 border border-[#EDE7EE]">
           <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#9B70C7" strokeWidth="2.2" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="font-serif text-2xl text-[#25222A] mb-3">Thank You, {formData.name || 'Friend'}!</h3>
+        <h3 className="font-serif text-2xl text-[#25222A] mb-3">Welcome, {formData.name || 'Friend'}!</h3>
         <p className="font-sans text-base text-[#6E6872] max-w-md mx-auto leading-relaxed mb-6">
-          Your details have been submitted. If the questionnaire didn&apos;t open automatically in a new tab, please click the button below to answer our few quick questions.
+          Your initial contact details have been noted. Proceed to your Personal Discovery Assessment to reflect on your journey.
         </p>
         <div className="mb-6">
-          <a
-            href={GOOGLE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold hover:bg-[#865CB5] transition-all shadow-md shadow-[#9B70C7]/25 hover:shadow-lg hover:-translate-y-0.5"
+          <button
+            type="button"
+            onClick={() => router.push('/personal-discovery')}
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#9B70C7] text-white font-sans text-sm font-semibold hover:bg-[#865CB5] transition-all shadow-md shadow-[#9B70C7]/25 hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
           >
-            <span>Open Discovery Questionnaire</span>
+            <span>Start Personal Discovery Assessment</span>
             <span>→</span>
-          </a>
+          </button>
         </div>
-        <button
-          onClick={() => {
-            setState('idle');
-            setFormData({ name: '', email: '', phone: '', interest: '' });
-          }}
-          className="font-sans text-xs font-semibold text-[#9B70C7] hover:text-[#865CB5] underline transition-colors"
-        >
-          Submit another inquiry
-        </button>
       </div>
     );
   }
