@@ -31,8 +31,15 @@ export function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* LEFT — Portrait */}
           <div className="lg:col-span-5 relative">
-            <AnimatedSection direction="scale" delay={50}>
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.10)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
+            <AnimatedSection direction="scale" delay={50} className="relative">
+              {/* Decorative solid lavender circle overlapping behind image */}
+              <div
+                className="absolute -top-5 -left-4 sm:-top-7 sm:-left-7 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#EEE7FA] border-2 border-[#C9A5E8]/60 pointer-events-none animate-pulse-soft z-0 shadow-xs"
+                aria-hidden="true"
+              />
+
+              {/* Foreground Image Card */}
+              <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.10)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01] bg-white">
                 <Image
                   src="/founder.jpg"
                   alt="Dr. Shivani Koccher Dhand — Founder & Lead Coach at Shivi"
@@ -48,18 +55,12 @@ export function FounderSection() {
               </div>
 
               {/* Credential badge (bottom right of image) with subtle float */}
-              <div className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-white text-[#25222A] rounded-2xl p-4 sm:p-5 shadow-xl z-10 max-w-[190px] sm:max-w-[200px] border border-[#EDE7EE] animate-bounce-subtle">
+              <div className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-white text-[#25222A] rounded-2xl p-4 sm:p-5 shadow-xl z-20 max-w-[190px] sm:max-w-[200px] border border-[#EDE7EE] animate-bounce-subtle">
                 <p className="font-serif text-xs italic text-[#C9A5E8] mb-1">Human Capital Expert</p>
                 <p className="font-sans text-xs text-[#6E6872] leading-snug">
                   Integrating NLP &amp; Personal Transformation
                 </p>
               </div>
-
-              {/* Decorative lavender ring with breathing pulse */}
-              <div
-                className="absolute -top-6 -left-6 w-40 h-40 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft"
-                aria-hidden="true"
-              />
             </AnimatedSection>
           </div>
 
