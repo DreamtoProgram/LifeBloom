@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: 'profile',
     images: [
       {
-        url: '/founder.jpg',
+        url: '/about-founder.jpg',
         width: 1200,
         height: 630,
         alt: 'Dr. Shivani Koccher Dhand — Founder of Shivi',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Dr. Shivani Koccher Dhand | Shivi',
     description: 'Life Coach, NLP Practitioner, HR & Human Capital Expert with 15+ years experience.',
-    images: ['/founder.jpg'],
+    images: ['/about-founder.jpg'],
   },
 };
 
@@ -69,7 +69,7 @@ export default function AboutPage() {
               {/* Foreground Image Card */}
               <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01] bg-white">
                 <Image
-                  src="/founder.jpg"
+                  src="/about-founder.jpg"
                   alt="Dr. Shivani Koccher Dhand — Life Coach and Founder of Shivi"
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
