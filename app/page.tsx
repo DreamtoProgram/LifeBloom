@@ -9,19 +9,27 @@ import { Testimonials } from '@/components/home/Testimonials';
 import { InsightsPreview } from '@/components/home/InsightsPreview';
 import { FinalCTA } from '@/components/home/FinalCTA';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+
 export const metadata: Metadata = {
-  title: 'Shivi | Life Coaching & Personal Development',
+  title: 'Shivi | Life Coaching & Personal Transformation | Dr. Shivani Koccher Dhand',
   description:
-    'Shivi offers personalized life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, India.',
+    'Shivi offers personalized life coaching, career guidance, NLP, mindfulness, and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand — Life Coach & NLP Practitioner based in Phagwara, Punjab, India.',
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: 'Shivi | Life Coaching & Personal Development',
+    title: 'Shivi | Life Coaching & Personal Transformation',
     description:
-      'Empower. Transform. Grow. Personalized coaching and development programs for individuals and organizations by Dr. Shivani Koccher Dhand.',
-    url: 'https://shivi.in',
+      'Empower. Transform. Grow. Personalized life coaching, NLP, mindfulness, and leadership development programs with Dr. Shivani Koccher Dhand.',
+    url: SITE_URL,
     type: 'website',
   },
-  alternates: {
-    canonical: 'https://shivi.in',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shivi | Life Coaching & Personal Transformation',
+    description:
+      'Discover clarity, build confidence, and find purpose with personalized coaching and development programs by Dr. Shivani Koccher Dhand.',
   },
 };
 

@@ -1,16 +1,101 @@
 import type { Metadata } from 'next';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Container, AnimatedSection } from '@/components/ui';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
-  title: 'Contact | Start Your Journey with Shivi',
+  title: 'Contact Dr. Shivani Koccher Dhand | Book a Discovery Session | Shivi',
   description:
-    'Get in touch with Shivi to start your coaching journey. Whether you are looking for life coaching, career guidance, corporate workshops or NLP — we are here to help.',
+    'Get in touch with Shivi to start your personal or professional coaching journey. Located in Phagwara, Punjab, India and serving clients globally online.',
+  alternates: {
+    canonical: `${SITE_URL}/contact`,
+  },
+  openGraph: {
+    title: 'Contact Dr. Shivani Koccher Dhand | Shivi',
+    description:
+      'Begin your journey with Shivi. Schedule a discovery session or reach out for inquiries about coaching programs and corporate workshops.',
+    url: `${SITE_URL}/contact`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Dr. Shivani Koccher Dhand | Shivi',
+    description: 'Schedule a discovery session or send an inquiry to Shivi.',
+  },
 };
 
 export default function ContactPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Contact', item: '/contact' },
+  ]);
+
+  const contactPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Shivi',
+    url: `${SITE_URL}/contact`,
+    description: 'Get in touch with Dr. Shivani Koccher Dhand for coaching and workshop inquiries.',
+    mainEntity: {
+      '@type': 'ProfessionalService',
+      name: 'Shivi',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Phagwara',
+        addressRegion: 'Punjab',
+        addressCountry: 'IN',
+      },
+    },
+  };
+
+  const faqs = [
+    {
+      question: 'How do I schedule a discovery call with Dr. Shivani?',
+      answer: 'Simply complete the inquiry form above with your details and area of interest. Our team will get back to you within 1–2 business days to schedule a dedicated discovery conversation.',
+    },
+    {
+      question: 'Are coaching sessions conducted in-person or online?',
+      answer: 'We provide both virtual one-on-one sessions for clients across India and internationally, as well as in-person coaching in Phagwara, Punjab.',
+    },
+    {
+      question: 'How is life coaching different from therapy or counseling?',
+      answer: 'Life coaching is forward-focused and development-oriented. It centers on identifying goals, shifting limiting beliefs, and building actionable plans. It does not replace medical or psychiatric care.',
+    },
+    {
+      question: 'Is my personal information and consultation confidential?',
+      answer: 'Yes, completely. All communications, inquiry submissions, assessment reflections, and coaching conversations are maintained in strict professional confidence.',
+    },
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="pt-[80px] bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -99,6 +184,35 @@ export default function ContactPage() {
               <ContactForm />
             </AnimatedSection>
 
+          </div>
+
+          {/* Frequently Asked Questions Section (#faqs) */}
+          <div id="faqs" className="mt-24 pt-16 border-t border-[#EDE7EE] scroll-mt-24">
+            <AnimatedSection direction="up" delay={50} className="max-w-2xl mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-10 bg-gradient-to-r from-[#C9A5E8] to-[#E99AB8]" aria-hidden="true" />
+                <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">Questions &amp; Clarity</p>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#25222A] leading-tight mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="font-sans text-base text-[#6E6872] leading-relaxed">
+                Find answers to common questions about starting your coaching journey, session formats, and consultations.
+              </p>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {faqs.map((faq, idx) => (
+                <AnimatedSection key={idx} direction="up" delay={50 + idx * 50} className="bg-[#FCF8FB] rounded-2xl p-6 sm:p-8 border border-[#EDE7EE] hover:border-[#C9A5E8]/60 transition-colors">
+                  <h3 className="font-serif text-lg font-semibold text-[#25222A] mb-3 leading-snug">
+                    {faq.question}
+                  </h3>
+                  <p className="font-sans text-sm text-[#6E6872] leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </Container>
       </section>

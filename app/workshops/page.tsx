@@ -1,11 +1,29 @@
 import type { Metadata } from 'next';
 import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
-  title: 'Workshops & Corporate Programs | Shivi',
+  title: 'Workshops & Corporate Programs | Leadership & Wellbeing | Shivi',
   description:
-    'Shivi delivers workshops and corporate development programs covering leadership, emotional intelligence, mindfulness, stress management and employee development for organizations and educational institutions.',
+    'Shivi delivers corporate development programs covering leadership, emotional intelligence, mindfulness, stress management and employee wellbeing for organizations and institutions.',
+  alternates: {
+    canonical: `${SITE_URL}/workshops`,
+  },
+  openGraph: {
+    title: 'Workshops & Corporate Programs | Shivi',
+    description:
+      'Interactive leadership, emotional intelligence, and mindfulness workshops with Dr. Shivani Koccher Dhand.',
+    url: `${SITE_URL}/workshops`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Workshops & Corporate Programs | Shivi',
+    description: 'Empower your teams with high-impact workshops in leadership, emotional intelligence, and mindfulness.',
+  },
 };
 
 const workshops = [
@@ -51,8 +69,32 @@ const topicColors = [
 ];
 
 export default function WorkshopsPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Workshops & Corporate Programs', item: '/workshops' },
+  ]);
+
+  const workshopListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: workshops.map((w, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: w.title,
+      description: w.description,
+    })),
+  };
+
   return (
     <div className="pt-[80px] bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workshopListSchema) }}
+      />
       {/* Hero */}
       <section className="pb-20 pt-16">
         <Container>

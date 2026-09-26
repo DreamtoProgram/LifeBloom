@@ -2,16 +2,66 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { insights } from '@/lib/data/insights';
 import { Badge, Container, AnimatedSection, FadeInStagger } from '@/components/ui';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
-  title: 'Insights & Thought Leadership | Shivi',
+  title: 'Insights & Thought Leadership | Articles by Dr. Shivani Koccher Dhand | Shivi',
   description:
-    'Explore articles, perspectives and thought leadership from Dr. Shivani Koccher Dhand on life coaching, emotional intelligence, leadership, mindfulness and human potential.',
+    'Read perspectives and practical ideas on life coaching, human potential, emotional intelligence, leadership, and mindfulness by Dr. Shivani Koccher Dhand.',
+  alternates: {
+    canonical: `${SITE_URL}/insights`,
+  },
+  openGraph: {
+    title: 'Insights & Thought Leadership | Shivi',
+    description:
+      'Perspectives and thought leadership on life coaching, human potential, and mindfulness by Dr. Shivani Koccher Dhand.',
+    url: `${SITE_URL}/insights`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Insights & Thought Leadership | Shivi',
+    description: 'Articles and insights on emotional intelligence, life coaching, and human development.',
+  },
 };
 
 export default function InsightsPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Insights', item: '/insights' },
+  ]);
+
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Shivi Insights',
+    description: 'Thought leadership and articles on life coaching, leadership, and emotional intelligence.',
+    url: `${SITE_URL}/insights`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Shivi',
+      url: SITE_URL,
+    },
+    blogPost: insights.map((i) => ({
+      '@type': 'BlogPosting',
+      headline: i.title,
+      url: `${SITE_URL}/insights/${i.slug}`,
+      datePublished: i.publishedAt,
+    })),
+  };
+
   return (
     <div className="pt-[80px] pb-24 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <div
         className="py-20 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #FBE8F0 50%, #EEE7FA 100%)' }}

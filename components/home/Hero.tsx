@@ -66,6 +66,7 @@ export function Hero() {
                   <span className="block text-[#25222A]">Empower.</span>
                   <span className="block text-[#C9A5E8]">Transform.</span>
                   <span className="block text-[#E99AB8]">Grow.</span>
+                  <span className="sr-only"> — Life Coaching, NLP &amp; Personal Transformation with Dr. Shivani Koccher Dhand in Phagwara, Punjab</span>
                 </h1>
               </AnimatedSection>
 
@@ -176,9 +177,9 @@ export function Hero() {
                   style={{ boxShadow: '0 10px 30px rgba(74, 52, 80, 0.12)' }}
                 >
                   <p className="font-serif text-xs font-semibold italic text-[#865CB5] mb-1 tracking-wide">Meet</p>
-                  <h2 className="font-serif text-base sm:text-lg font-bold leading-tight mb-3 text-[#25222A]">
+                  <div className="font-serif text-base sm:text-lg font-bold leading-tight mb-3 text-[#25222A]">
                     Dr. Shivani<br />Dhand Koccher
-                  </h2>
+                  </div>
                   <ul className="space-y-1.5">
                     {[
                       'Life Coach',

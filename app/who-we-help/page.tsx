@@ -2,16 +2,43 @@ import type { Metadata } from 'next';
 import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, AnimatedSection } from '@/components/ui';
 import { AudienceGrid } from '@/components/home/AudienceGrid';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
-  title: 'Who We Help | Shivi Coaching',
+  title: 'Who We Help | Personalized Coaching for Students, Leaders & Professionals | Shivi',
   description:
     'Shivi works with students, working professionals, people in life transitions, aspiring leaders, women seeking growth, and organizations. Discover the guidance we offer for your journey.',
+  alternates: {
+    canonical: `${SITE_URL}/who-we-help`,
+  },
+  openGraph: {
+    title: 'Who We Help | Shivi Coaching',
+    description:
+      'Personalized life and leadership coaching tailored for students, professionals, career changers, leaders, and organizations.',
+    url: `${SITE_URL}/who-we-help`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Who We Help | Shivi Coaching',
+    description: 'Guiding individuals and teams through meaningful personal and career transitions.',
+  },
 };
 
 export default function WhoWeHelpPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Who We Help', item: '/who-we-help' },
+  ]);
+
   return (
     <div className="pt-[80px] bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section
         className="pb-20 pt-16 relative overflow-hidden"

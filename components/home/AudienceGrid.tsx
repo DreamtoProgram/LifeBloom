@@ -1,5 +1,4 @@
-'use client';
-
+import Link from 'next/link';
 import Image from 'next/image';
 import { audiences } from '@/lib/data/audiences';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
@@ -74,10 +73,12 @@ export function AudienceGrid() {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
         >
           {audiences.map((audience) => (
-            <article
+            <Link
               key={audience.id}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-xs hover:shadow-xl hover:shadow-[rgba(155,112,199,0.2)] hover:-translate-y-1.5 transition-all duration-300"
+              href="/who-we-help"
+              className="group relative rounded-2xl overflow-hidden block shadow-xs hover:shadow-xl hover:shadow-[rgba(155,112,199,0.2)] hover:-translate-y-1.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#9B70C7]"
               role="listitem"
+              aria-label={`Explore coaching for ${audience.title}`}
             >
               {/* Image with zoom on hover */}
               <div className="aspect-[3/4] relative overflow-hidden">
@@ -110,13 +111,13 @@ export function AudienceGrid() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
-            </article>
+            </Link>
           ))}
         </FadeInStagger>
 
         {/* CTA */}
         <AnimatedSection direction="up" delay={250} className="mt-10 text-center">
-          <a
+          <Link
             href="/who-we-help"
             className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#9B70C7] hover:text-[#865CB5] transition-colors duration-200 group"
           >
@@ -124,7 +125,7 @@ export function AudienceGrid() {
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </AnimatedSection>
       </Container>
     </section>

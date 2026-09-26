@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { getServiceBySlug, services } from '@/lib/data/services';
 import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Badge, Container } from '@/components/ui';
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -12,10 +15,36 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) return { title: 'Service Not Found' };
+  if (!service) return { title: 'Service Not Found | Shivi' };
+  
+  const pageUrl = `${SITE_URL}/services/${slug}`;
+
   return {
-    title: `${service.title} | Shivi`,
+    title: `${service.title} | Shivi Coaching Programs`,
     description: service.shortDescription,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: `${service.title} | Shivi`,
+      description: service.shortDescription,
+      url: pageUrl,
+      type: 'website',
+      images: [
+        {
+          url: '/founder.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${service.title} with Dr. Shivani Koccher Dhand`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.title} | Shivi`,
+      description: service.shortDescription,
+      images: ['/founder.jpg'],
+    },
   };
 }
 
@@ -24,8 +53,32 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Services', item: '/services' },
+    { name: service.title, item: `/services/${service.slug}` },
+  ]);
+
+  const serviceSchema = getServiceSchema(service);
+  const faqSchema = service.faqs && service.faqs.length > 0 ? getFAQSchema(service.faqs) : null;
+
   return (
     <div className="pt-[80px] bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       {/* Breadcrumb */}
       <div className="border-b border-[#EDE7EE] bg-white">
         <Container className="py-3">

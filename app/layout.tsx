@@ -4,6 +4,9 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ChatbotWidget } from '@/components/ui/ChatbotWidget';
+import { getOrganizationSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -30,25 +33,39 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Shivi | Life Coaching & Personal Development',
+    default: 'Shivi | Life Coaching & Personal Transformation | Dr. Shivani Koccher Dhand',
     template: '%s | Shivi',
   },
   description:
-    'Shivi offers premium life coaching, career guidance, NLP, mindfulness and corporate development programs. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand.',
+    'Shivi offers personalized life coaching, career guidance, NLP, mindfulness, emotional intelligence, and leadership workshops. Discover clarity, confidence, and purpose with Dr. Shivani Koccher Dhand in Phagwara, Punjab and online globally.',
   keywords: [
-    'life coaching', 'personal development', 'career coaching', 'NLP coaching',
-    'mindfulness', 'emotional intelligence', 'leadership development', 'Dr Shivani',
-    'Shivi', 'Phagwara', 'India', 'life coach India',
+    'life coaching',
+    'personal development',
+    'career coaching',
+    'NLP coaching',
+    'mindfulness',
+    'emotional intelligence',
+    'leadership development',
+    'Dr Shivani Koccher Dhand',
+    'life coach Punjab',
+    'life coach India',
+    'executive coaching',
+    'Shivi coaching',
   ],
   authors: [{ name: 'Dr. Shivani Koccher Dhand' }],
-  creator: 'Shivi',
+  creator: 'Dr. Shivani Koccher Dhand',
+  publisher: 'Shivi',
+  alternates: {
+    canonical: './',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://shivi.in',
+    url: SITE_URL,
     siteName: 'Shivi',
-    title: 'Shivi | Life Coaching & Personal Development',
+    title: 'Shivi | Life Coaching & Personal Transformation | Dr. Shivani Koccher Dhand',
     description:
       'Empowering individuals and organizations through personalized life coaching, career guidance, NLP, and mindfulness programs.',
     images: [
@@ -56,14 +73,15 @@ export const metadata: Metadata = {
         url: '/founder.jpg',
         width: 1200,
         height: 630,
-        alt: 'Shivi — Empower. Transform. Grow.',
+        alt: 'Dr. Shivani Koccher Dhand — Founder & Lead Coach at Shivi',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shivi | Life Coaching & Personal Development',
-    description: 'Discover clarity, build confidence, find purpose. Life coaching with Dr. Shivani Koccher Dhand.',
+    title: 'Shivi | Life Coaching & Personal Transformation',
+    description: 'Empower. Transform. Grow. Life coaching, NLP, and personal development with Dr. Shivani Koccher Dhand.',
+    images: ['/founder.jpg'],
   },
   icons: {
     icon: [
@@ -76,9 +94,20 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon.ico',
   },
+  manifest: '/manifest.webmanifest',
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
 
@@ -87,11 +116,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = getOrganizationSchema();
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
       <body className={`${inter.className} font-sans bg-white text-[#25222A] antialiased`}>
         <Navbar />

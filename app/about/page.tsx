@@ -2,16 +2,52 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, LavenderDivider, StatCard, AnimatedSection, FadeInStagger } from '@/components/ui';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
   title: 'About Dr. Shivani Koccher Dhand | Life Coach & NLP Practitioner',
   description:
-    'Meet Dr. Shivani Koccher Dhand — Life Coach, NLP Practitioner, HR & Human Capital Expert and Educator with 15+ years of experience helping individuals and organizations unlock their human potential.',
+    'Meet Dr. Shivani Koccher Dhand — Life Coach, certified NLP Practitioner, HR & Human Capital Expert and Educator with 15+ years of experience helping individuals and organizations unlock human potential.',
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
+  openGraph: {
+    title: 'About Dr. Shivani Koccher Dhand | Life Coach & NLP Practitioner',
+    description:
+      'Learn about Dr. Shivani Koccher Dhand, Founder & Lead Coach at Shivi. Certified NLP Practitioner, HR & Human Capital Expert with 15+ years empowering human potential.',
+    url: `${SITE_URL}/about`,
+    type: 'profile',
+    images: [
+      {
+        url: '/founder.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dr. Shivani Koccher Dhand — Founder of Shivi',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Dr. Shivani Koccher Dhand | Shivi',
+    description: 'Life Coach, NLP Practitioner, HR & Human Capital Expert with 15+ years experience.',
+    images: ['/founder.jpg'],
+  },
 };
 
 export default function AboutPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'About Dr. Shivani', item: '/about' },
+  ]);
+
   return (
     <div className="pt-[80px] bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="pb-24 pt-16 overflow-hidden">
         <Container>

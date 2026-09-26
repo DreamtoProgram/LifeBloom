@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import { getInsightBySlug, insights } from '@/lib/data/insights';
 import { Badge, Container } from '@/components/ui';
 import Link from 'next/link';
+import { getBreadcrumbSchema, getArticleSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export async function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -11,10 +14,39 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const insight = getInsightBySlug(slug);
-  if (!insight) return { title: 'Article Not Found' };
+  if (!insight) return { title: 'Article Not Found | Shivi' };
+
+  const pageUrl = `${SITE_URL}/insights/${slug}`;
+  const imageUrl = insight.coverImage ? `${SITE_URL}${insight.coverImage}` : `${SITE_URL}/founder.jpg`;
+
   return {
     title: `${insight.title} | Shivi Insights`,
     description: insight.excerpt,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: insight.title,
+      description: insight.excerpt,
+      url: pageUrl,
+      type: 'article',
+      publishedTime: insight.publishedAt,
+      authors: ['Dr. Shivani Koccher Dhand'],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: insight.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: insight.title,
+      description: insight.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -23,8 +55,25 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
   const insight = getInsightBySlug(slug);
   if (!insight) notFound();
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Insights', item: '/insights' },
+    { name: insight.title, item: `/insights/${insight.slug}` },
+  ]);
+
+  const articleSchema = getArticleSchema(insight);
+
   return (
     <div className="pt-[80px] pb-24 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
       {/* Breadcrumb Header */}
       <div className="border-b border-[#EDE7EE] bg-[#FCF8FB]">
         <Container className="py-4">

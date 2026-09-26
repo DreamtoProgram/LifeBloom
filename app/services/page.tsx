@@ -2,11 +2,29 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { services } from '@/lib/data/services';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
+import { getBreadcrumbSchema } from '@/lib/seo/schema';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
 
 export const metadata: Metadata = {
-  title: 'Coaching & Development Services | Shivi',
+  title: 'Coaching & Development Programs | Life Coaching, NLP & Mindfulness | Shivi',
   description:
-    "Explore Shivi's range of coaching and development services including life coaching, career coaching, NLP, mindfulness, emotional intelligence and corporate workshops.",
+    'Explore Shivi’s personalized coaching and development programs: Life Coaching, Career Coaching, NLP Transformation, Mindfulness, Emotional Intelligence, and Corporate Workshops.',
+  alternates: {
+    canonical: `${SITE_URL}/services`,
+  },
+  openGraph: {
+    title: 'Coaching & Development Programs | Shivi',
+    description:
+      'Personalized life coaching, career coaching, NLP, and mindfulness programs with Dr. Shivani Koccher Dhand.',
+    url: `${SITE_URL}/services`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Coaching & Development Programs | Shivi',
+    description: 'Transform your life and career with personalized coaching programs from Shivi.',
+  },
 };
 
 const categories = [
@@ -18,8 +36,33 @@ const categories = [
 ] as const;
 
 export default function ServicesPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'Services', item: '/services' },
+  ]);
+
+  const serviceListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: services.map((s, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: s.title,
+      url: `${SITE_URL}/services/${s.slug}`,
+      description: s.shortDescription,
+    })),
+  };
+
   return (
     <div className="pt-[80px] pb-24 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }}
+      />
       {/* Page hero header */}
       <div
         className="py-20 relative overflow-hidden"
