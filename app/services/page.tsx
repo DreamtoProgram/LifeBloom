@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
-  title: 'Coaching & Development Programs | Life Coaching, NLP & Mindfulness | Shivi',
+  title: 'Coaching & Development Programs | Life Coaching, NLP & Mindfulness',
   description:
     'Explore Shivi’s personalized coaching and development programs: Life Coaching, Career Coaching, NLP Transformation, Mindfulness, Emotional Intelligence, and Corporate Workshops.',
   alternates: {

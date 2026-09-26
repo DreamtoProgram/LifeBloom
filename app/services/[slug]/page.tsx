@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const pageUrl = `${SITE_URL}/services/${slug}`;
 
   return {
-    title: `${service.title} | Shivi Coaching Programs`,
+    title: `${service.title} | Coaching Programs`,
     description: service.shortDescription,
     alternates: {
       canonical: pageUrl,

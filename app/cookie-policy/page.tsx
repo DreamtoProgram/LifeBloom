@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Shivi',
+  title: 'Cookie Policy',
   description:
     'Information on how Shivi uses cookies and browser storage to maintain website security, preferences, and performance.',
   alternates: {

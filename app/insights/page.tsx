@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
-  title: 'Insights & Thought Leadership | Articles by Dr. Shivani Koccher Dhand | Shivi',
+  title: 'Insights & Thought Leadership | Articles by Dr. Shivani Koccher Dhand',
   description:
     'Read perspectives and practical ideas on life coaching, human potential, emotional intelligence, leadership, and mindfulness by Dr. Shivani Koccher Dhand.',
   alternates: {

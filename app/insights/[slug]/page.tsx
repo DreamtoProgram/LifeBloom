@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const imageUrl = insight.coverImage ? `${SITE_URL}${insight.coverImage}` : `${SITE_URL}/founder.jpg`;
 
   return {
-    title: `${insight.title} | Shivi Insights`,
+    title: `${insight.title} | Insights`,
     description: insight.excerpt,
     alternates: {
       canonical: pageUrl,

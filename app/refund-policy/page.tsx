@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Refund & Cancellation Policy | Shivi',
+  title: 'Refund & Cancellation Policy',
   description:
     'Learn about the cancellation, rescheduling, and refund terms for coaching programs, workshops, and consultations at Shivi.',
   alternates: {

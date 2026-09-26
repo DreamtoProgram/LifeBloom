@@ -6,7 +6,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
-  title: 'Contact Dr. Shivani Koccher Dhand | Book a Discovery Session | Shivi',
+  title: 'Contact Dr. Shivani Koccher Dhand | Book a Discovery Session',
   description:
     'Get in touch with Shivi to start your personal or professional coaching journey. Located in Phagwara, Punjab, India and serving clients globally online.',
   alternates: {

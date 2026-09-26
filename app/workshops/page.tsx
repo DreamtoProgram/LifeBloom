@@ -6,7 +6,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
-  title: 'Workshops & Corporate Programs | Leadership & Wellbeing | Shivi',
+  title: 'Workshops & Corporate Programs | Leadership & Wellbeing',
   description:
     'Shivi delivers corporate development programs covering leadership, emotional intelligence, mindfulness, stress management and employee wellbeing for organizations and institutions.',
   alternates: {

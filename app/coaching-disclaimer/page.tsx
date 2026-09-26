@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Coaching Disclaimer | Shivi',
+  title: 'Coaching Disclaimer',
   description:
     'Important coaching and wellbeing disclaimer from Shivi. Life coaching and NLP practices are forward-focused developmental frameworks, not medical or psychiatric healthcare.',
   alternates: {

@@ -5,6 +5,8 @@ import { Container, LavenderDivider } from '@/components/ui';
 export default function NotFound() {
   return (
     <div className="pt-[100px] pb-24 min-h-[70vh] flex items-center bg-white">
+      <title>404: Page Not Found | Shivi</title>
+      <meta name="robots" content="noindex, nofollow" />
       <Container className="text-center max-w-2xl mx-auto py-12">
         {/* Subtle pill */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEE7FA] border border-[#C9A5E8]/40 text-[#9B70C7] text-xs font-semibold uppercase tracking-wider mb-6">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container, LavenderDivider } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Shivi',
+  title: 'Privacy Policy',
   description:
     'Read Shivi’s Privacy Policy. Learn how we handle, respect, and safeguard your personal information and coaching confidentiality.',
   alternates: {

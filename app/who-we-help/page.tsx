@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
-  title: 'Who We Help | Personalized Coaching for Students, Leaders & Professionals | Shivi',
+  title: 'Who We Help | Personalized Coaching for Students, Leaders & Professionals',
   description:
     'Shivi works with students, working professionals, people in life transitions, aspiring leaders, women seeking growth, and organizations. Discover the guidance we offer for your journey.',
   alternates: {

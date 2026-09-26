@@ -32,11 +32,9 @@ export default function PersonalDiscoveryPage() {
   const [error, setError] = useState<string>('');
   const [viewMode, setViewMode] = useState<ViewMode>('questionnaire');
   const [analysis, setAnalysis] = useState<ReportAnalysis | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
   // 1. Restore state from sessionStorage on mount
   useEffect(() => {
-    setIsMounted(true);
     if (typeof window === 'undefined') return;
 
     // Load User Info
@@ -160,14 +158,6 @@ export default function PersonalDiscoveryPage() {
 
   // Extract first name for greeting
   const firstName = userInfo.name ? userInfo.name.trim().split(' ')[0] : '';
-
-  if (!isMounted) {
-    return (
-      <div className="min-h-screen bg-[#FCF8FB] flex items-center justify-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#9B70C7]" />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#FCF8FB] pt-24 pb-20 relative overflow-hidden">

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Personal Discovery Assessment | Self-Reflection Tool | Shivi',
+  title: 'Personal Discovery Assessment | Self-Reflection Tool',
   description:
     'Take the Shivi 20-question Personal Discovery Assessment. Gain actionable self-reflection insights across clarity, emotional balance, growth orientation, and resilience with Dr. Shivani Koccher Dhand.',
   alternates: {

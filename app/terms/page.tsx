@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | Shivi',
+  title: 'Terms & Conditions',
   description:
     'Read the terms and conditions governing coaching services, website use, workshops, and bookings with Shivi and Dr. Shivani Koccher Dhand.',
   alternates: {

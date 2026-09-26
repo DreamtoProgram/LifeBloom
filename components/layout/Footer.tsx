@@ -82,7 +82,7 @@ export function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-3">
               <a
-                href="[INSTAGRAM URL]"
+                href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
@@ -91,7 +91,7 @@ export function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="[LINKEDIN URL]"
+                href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
@@ -100,7 +100,7 @@ export function Footer() {
                 <LinkedInIcon />
               </a>
               <a
-                href="[FACEBOOK URL]"
+                href={process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
@@ -109,7 +109,7 @@ export function Footer() {
                 <FacebookIcon />
               </a>
               <a
-                href="[YOUTUBE URL]"
+                href={process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://www.youtube.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#EDE7EE] flex items-center justify-center text-[#6E6872] hover:text-[#9B70C7] hover:border-[#C9A5E8] hover:scale-105 transition-all duration-200"
