@@ -18,15 +18,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — Image */}
             <AnimatedSection direction="scale" delay={50} className="relative isolate">
-              {/* Decorative solid lavender circle overlapping behind image */}
+              {/* Decorative solid lavender circle overlapping behind image (top-left) */}
               <div
                 className="absolute -top-5 -left-4 sm:-top-7 sm:-left-7 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#EEE7FA] border-2 border-[#C9A5E8]/60 pointer-events-none animate-pulse-soft z-0 shadow-xs"
                 aria-hidden="true"
               />
 
-              {/* Decorative lavender ring behind image */}
+              {/* Decorative solid lavender circle overlapping behind image (bottom-right) */}
               <div
-                className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft z-0"
+                className="absolute -bottom-5 -right-4 sm:-bottom-7 sm:-right-7 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#EEE7FA] border-2 border-[#C9A5E8]/60 pointer-events-none animate-pulse-soft z-0 shadow-xs"
                 aria-hidden="true"
               />
 
