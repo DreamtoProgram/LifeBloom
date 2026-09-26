@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description:
     'Learn about the cancellation, rescheduling, and refund terms for coaching programs, workshops, and consultations at Shivi.',
   alternates: {
-    canonical: 'https://shivi.sbs/refund-policy',
+    canonical: 'https://www.shivi.sbs/refund-policy',
   },
   openGraph: {
     title: 'Refund & Cancellation Policy | Shivi',
     description: 'Clear information regarding booking cancellations, rescheduling, and refunds at Shivi.',
-    url: 'https://shivi.sbs/refund-policy',
+    url: 'https://www.shivi.sbs/refund-policy',
   },
 };
 

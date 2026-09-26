@@ -4,7 +4,7 @@ import { services } from '@/lib/data/services';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Coaching & Development Programs | Life Coaching, NLP & Mindfulness',

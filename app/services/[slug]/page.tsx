@@ -6,7 +6,7 @@ import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Badge, Container } from '@/components/ui';
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));

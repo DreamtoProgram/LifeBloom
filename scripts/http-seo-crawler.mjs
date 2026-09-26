@@ -82,21 +82,21 @@ async function run() {
         } else if (data.body.includes('localhost') || data.body.includes('127.0.0.1')) {
           console.error('  [FAIL] sitemap.xml contains localhost URLs');
           failCount++;
-        } else if (!data.body.includes('https://shivi.sbs')) {
-          console.error('  [FAIL] sitemap.xml does not contain https://shivi.sbs');
+        } else if (!data.body.includes('https://www.shivi.sbs')) {
+          console.error('  [FAIL] sitemap.xml does not contain https://www.shivi.sbs');
           failCount++;
         } else {
-          console.log('  [PASS] sitemap.xml is valid XML using https://shivi.sbs');
+          console.log('  [PASS] sitemap.xml is valid XML using https://www.shivi.sbs');
         }
       }
 
       // Check robots.txt specific requirements
       if (r === '/robots.txt') {
-        if (!/user-agent:/i.test(data.body) || !data.body.includes('Sitemap: https://shivi.sbs/sitemap.xml')) {
+        if (!/user-agent:/i.test(data.body) || !data.body.includes('Sitemap: https://www.shivi.sbs/sitemap.xml')) {
           console.error('  [FAIL] robots.txt missing standard directives or sitemap reference');
           failCount++;
         } else {
-          console.log('  [PASS] robots.txt correctly references https://shivi.sbs/sitemap.xml');
+          console.log('  [PASS] robots.txt correctly references https://www.shivi.sbs/sitemap.xml');
         }
       }
 

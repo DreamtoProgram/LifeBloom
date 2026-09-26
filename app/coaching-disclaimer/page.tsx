@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description:
     'Important coaching and wellbeing disclaimer from Shivi. Life coaching and NLP practices are forward-focused developmental frameworks, not medical or psychiatric healthcare.',
   alternates: {
-    canonical: 'https://shivi.sbs/coaching-disclaimer',
+    canonical: 'https://www.shivi.sbs/coaching-disclaimer',
   },
   openGraph: {
     title: 'Coaching Disclaimer | Shivi',
     description: 'Understand the scope, purpose, and professional boundaries of coaching services with Shivi.',
-    url: 'https://shivi.sbs/coaching-disclaimer',
+    url: 'https://www.shivi.sbs/coaching-disclaimer',
   },
 };
 

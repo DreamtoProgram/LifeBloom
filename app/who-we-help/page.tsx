@@ -4,7 +4,7 @@ import { Container, AnimatedSection } from '@/components/ui';
 import { AudienceGrid } from '@/components/home/AudienceGrid';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Who We Help | Personalized Coaching for Students, Leaders & Professionals',

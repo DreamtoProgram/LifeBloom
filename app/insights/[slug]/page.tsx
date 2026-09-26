@@ -5,7 +5,7 @@ import { Badge, Container } from '@/components/ui';
 import Link from 'next/link';
 import { getBreadcrumbSchema, getArticleSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export async function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     'Take the Shivi 20-question Personal Discovery Assessment. Gain actionable self-reflection insights across clarity, emotional balance, growth orientation, and resilience with Dr. Shivani Koccher Dhand.',
   alternates: {
-    canonical: 'https://shivi.sbs/personal-discovery',
+    canonical: 'https://www.shivi.sbs/personal-discovery',
   },
   openGraph: {
     title: 'Personal Discovery Assessment | Shivi',
     description:
       'Reflect on your personal and professional journey with the Shivi 20-Question Personal Discovery Assessment.',
-    url: 'https://shivi.sbs/personal-discovery',
+    url: 'https://www.shivi.sbs/personal-discovery',
     type: 'website',
   },
   twitter: {

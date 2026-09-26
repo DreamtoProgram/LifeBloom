@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ChatbotWidget } from '@/components/ui/ChatbotWidget';
 import { getOrganizationSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],

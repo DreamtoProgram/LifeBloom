@@ -3,7 +3,7 @@ import { services } from '@/lib/data/services';
 import { insights } from '@/lib/data/insights';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
   // Primary static indexable routes
   const staticRoutes: MetadataRoute.Sitemap = [

@@ -3,7 +3,7 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { Container, AnimatedSection } from '@/components/ui';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Contact Dr. Shivani Koccher Dhand | Book a Discovery Session',

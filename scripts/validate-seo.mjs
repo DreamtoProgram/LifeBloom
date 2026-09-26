@@ -143,8 +143,8 @@ pages.forEach(p => {
   console.log(`[${p.file}] => ${p.canonical}`);
   if (!p.canonical) {
     console.error(`  FAIL: Missing canonical URL in ${p.file}`);
-  } else if (!p.canonical.startsWith('https://shivi.sbs')) {
-    console.error(`  FAIL: Canonical does not use production domain https://shivi.sbs: ${p.canonical}`);
+  } else if (!p.canonical.startsWith('https://www.shivi.sbs')) {
+    console.error(`  FAIL: Canonical does not use production domain https://www.shivi.sbs: ${p.canonical}`);
   }
   const count = canonicalMap.get(p.canonical) || [];
   count.push(p.file);

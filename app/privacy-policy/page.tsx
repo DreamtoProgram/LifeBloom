@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description:
     'Read Shivi’s Privacy Policy. Learn how we handle, respect, and safeguard your personal information and coaching confidentiality.',
   alternates: {
-    canonical: 'https://shivi.sbs/privacy-policy',
+    canonical: 'https://www.shivi.sbs/privacy-policy',
   },
   openGraph: {
     title: 'Privacy Policy | Shivi',
     description: 'Learn how Shivi collects, protects, and handles personal data and coaching communications.',
-    url: 'https://shivi.sbs/privacy-policy',
+    url: 'https://www.shivi.sbs/privacy-policy',
   },
 };
 
