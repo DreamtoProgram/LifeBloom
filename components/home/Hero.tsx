@@ -141,10 +141,10 @@ export function Hero() {
 
             {/* RIGHT — Portrait + profile card */}
             <div className="order-2 relative flex justify-center lg:justify-end mt-4 lg:mt-0">
-              <AnimatedSection direction="scale" delay={200} className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px]">
+              <AnimatedSection direction="scale" delay={200} className="relative isolate w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px]">
 
                 {/* Photo wrapper */}
-                <div className="relative">
+                <div className="relative z-10">
                   {/* Soft blush/lavender shape behind image with breathing pulse */}
                   <div
                     className="absolute -inset-2 sm:inset-2 rounded-[2rem] opacity-60 pointer-events-none animate-pulse-soft"
@@ -214,7 +214,7 @@ export function Hero() {
 
                 {/* Decorative lavender ring with breathing pulse */}
                 <div
-                  className="hidden md:block absolute -bottom-8 -right-8 w-32 h-32 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft"
+                  className="hidden md:block absolute -bottom-8 -right-8 w-32 h-32 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft z-0"
                   aria-hidden="true"
                 />
               </AnimatedSection>

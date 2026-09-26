@@ -31,7 +31,7 @@ export function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* LEFT — Portrait */}
           <div className="lg:col-span-5 relative">
-            <AnimatedSection direction="scale" delay={50} className="relative">
+            <AnimatedSection direction="scale" delay={50} className="relative isolate">
               {/* Decorative solid lavender circle overlapping behind image */}
               <div
                 className="absolute -top-5 -left-4 sm:-top-7 sm:-left-7 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#EEE7FA] border-2 border-[#C9A5E8]/60 pointer-events-none animate-pulse-soft z-0 shadow-xs"

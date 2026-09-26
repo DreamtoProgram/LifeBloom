@@ -17,8 +17,21 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — Image */}
-            <AnimatedSection direction="scale" delay={50} className="relative">
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] relative shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01]">
+            <AnimatedSection direction="scale" delay={50} className="relative isolate">
+              {/* Decorative solid lavender circle overlapping behind image */}
+              <div
+                className="absolute -top-5 -left-4 sm:-top-7 sm:-left-7 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#EEE7FA] border-2 border-[#C9A5E8]/60 pointer-events-none animate-pulse-soft z-0 shadow-xs"
+                aria-hidden="true"
+              />
+
+              {/* Decorative lavender ring behind image */}
+              <div
+                className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft z-0"
+                aria-hidden="true"
+              />
+
+              {/* Foreground Image Card */}
+              <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.12)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01] bg-white">
                 <Image
                   src="/founder.jpg"
                   alt="Dr. Shivani Koccher Dhand — Life Coach and Founder of Shivi"
@@ -29,9 +42,6 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FBE8F0]/20 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
               </div>
-              {/* Decorative rings */}
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full border border-[#C9A5E8]/30 pointer-events-none animate-pulse-soft" aria-hidden="true" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full border border-[#EDE7EE] pointer-events-none animate-float-slow" aria-hidden="true" />
             </AnimatedSection>
 
             {/* Right — Content */}
