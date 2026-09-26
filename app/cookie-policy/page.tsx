@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description:
     'Information on how Shivi uses cookies and browser storage to maintain website security, preferences, and performance.',
   alternates: {
-    canonical: 'https://shivi.in/cookie-policy',
+    canonical: 'https://shivi.sbs/cookie-policy',
   },
   openGraph: {
     title: 'Cookie Policy | Shivi',
     description: 'Learn about cookies and local storage used across the Shivi coaching platform.',
-    url: 'https://shivi.in/cookie-policy',
+    url: 'https://shivi.sbs/cookie-policy',
   },
 };
 

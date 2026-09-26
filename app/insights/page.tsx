@@ -4,7 +4,7 @@ import { insights } from '@/lib/data/insights';
 import { Badge, Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Insights & Thought Leadership | Articles by Dr. Shivani Koccher Dhand | Shivi',

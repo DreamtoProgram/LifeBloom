@@ -4,7 +4,7 @@ import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, LavenderDivider, StatCard, AnimatedSection, FadeInStagger } from '@/components/ui';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'About Dr. Shivani Koccher Dhand | Life Coach & NLP Practitioner',

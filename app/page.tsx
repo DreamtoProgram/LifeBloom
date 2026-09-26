@@ -9,7 +9,7 @@ import { Testimonials } from '@/components/home/Testimonials';
 import { InsightsPreview } from '@/components/home/InsightsPreview';
 import { FinalCTA } from '@/components/home/FinalCTA';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Shivi | Life Coaching & Personal Transformation | Dr. Shivani Koccher Dhand',

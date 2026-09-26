@@ -3,7 +3,7 @@
 // Generates valid, Google-compliant schema for search engines
 // ============================================================
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export interface BreadcrumbItem {
   name: string;

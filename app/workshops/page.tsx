@@ -3,7 +3,7 @@ import { Button, ArrowIcon } from '@/components/ui/Button';
 import { Container, AnimatedSection, FadeInStagger } from '@/components/ui';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.in';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Workshops & Corporate Programs | Leadership & Wellbeing | Shivi',

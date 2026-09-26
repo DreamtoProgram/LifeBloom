@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description:
     'Read the terms and conditions governing coaching services, website use, workshops, and bookings with Shivi and Dr. Shivani Koccher Dhand.',
   alternates: {
-    canonical: 'https://shivi.in/terms',
+    canonical: 'https://shivi.sbs/terms',
   },
   openGraph: {
     title: 'Terms & Conditions | Shivi',
     description: 'Terms and conditions for coaching sessions, workshops, and website services at Shivi.',
-    url: 'https://shivi.in/terms',
+    url: 'https://shivi.sbs/terms',
   },
 };
 
@@ -37,7 +37,7 @@ export default function TermsPage() {
           <section>
             <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-3">1. Acceptance of Terms</h2>
             <p>
-              By accessing the Shivi website (<a href="https://shivi.in" className="text-[#9B70C7]">shivi.in</a>), scheduling a discovery call, or enrolling in any coaching, workshop, or assessment program with Dr. Shivani Koccher Dhand, you agree to comply with and be bound by these Terms and Conditions.
+              By accessing the Shivi website (<a href="https://shivi.sbs" className="text-[#9B70C7]">shivi.sbs</a>), scheduling a discovery call, or enrolling in any coaching, workshop, or assessment program with Dr. Shivani Koccher Dhand, you agree to comply with and be bound by these Terms and Conditions.
             </p>
           </section>
 
