@@ -61,9 +61,24 @@ export function Footer() {
                 </div>
               </div>
             </Link>
-            <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-6 max-w-xs">
+            <p className="font-sans text-sm text-[#6E6872] leading-relaxed mb-4 max-w-xs">
               Shivi is a life coaching and personal development platform dedicated to helping individuals and organizations unlock their potential and create meaningful change.
             </p>
+            {/* Contact details */}
+            <div className="space-y-1.5 mb-6 text-xs font-sans text-[#6E6872]">
+              <p className="flex items-center gap-2">
+                <span className="font-semibold text-[#25222A]">Email:</span>
+                <a href="mailto:lifebloom.support@gmail.com" className="hover:text-[#9B70C7] transition-colors">
+                  lifebloom.support@gmail.com
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="font-semibold text-[#25222A]">Phone:</span>
+                <a href="tel:+916377135420" className="hover:text-[#9B70C7] transition-colors">
+                  +91 63771 35420
+                </a>
+              </p>
+            </div>
             {/* Social icons */}
             <div className="flex items-center gap-3">
               <a

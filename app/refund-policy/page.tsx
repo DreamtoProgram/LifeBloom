@@ -60,7 +60,7 @@ export default function RefundPolicyPage() {
           <section>
             <h2 className="font-serif text-2xl font-semibold text-[#25222A] mb-3">3. How to Request Assistance</h2>
             <p>
-              To request a cancellation, rescheduling, or refund inquiry, please reach out directly through our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Form</a>. We review all requests promptly, respectfully, and fairly.
+              To request a cancellation, rescheduling, or refund inquiry, please reach out directly through our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Form</a>, email our support team at <a href="mailto:lifebloom.support@gmail.com" className="text-[#9B70C7] hover:underline font-medium">lifebloom.support@gmail.com</a>, or call us at <a href="tel:+916377135420" className="text-[#9B70C7] hover:underline font-medium">+91 63771 35420</a>. We review all requests promptly, respectfully, and fairly.
             </p>
           </section>
         </div>

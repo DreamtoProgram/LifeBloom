@@ -41,6 +41,9 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'ProfessionalService',
       name: 'Shivi',
+      url: SITE_URL,
+      email: 'lifebloom.support@gmail.com',
+      telephone: '+91 63771 35420',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Phagwara',
@@ -124,8 +127,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans text-xs font-semibold text-[#6E6872] uppercase tracking-wider mb-1">Email</p>
-                    <a href="mailto:[CLIENT EMAIL]" className="font-sans text-base text-[#25222A] hover:text-[#9B70C7] transition-colors">
-                      [CLIENT EMAIL]
+                    <a href="mailto:lifebloom.support@gmail.com" className="font-sans text-base text-[#25222A] hover:text-[#9B70C7] transition-colors">
+                      lifebloom.support@gmail.com
                     </a>
                   </div>
                 </div>
@@ -138,8 +141,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans text-xs font-semibold text-[#6E6872] uppercase tracking-wider mb-1">Phone</p>
-                    <a href="tel:[CLIENT PHONE]" className="font-sans text-base text-[#25222A] hover:text-[#9B70C7] transition-colors">
-                      [CLIENT PHONE]
+                    <a href="tel:+916377135420" className="font-sans text-base text-[#25222A] hover:text-[#9B70C7] transition-colors">
+                      +91 63771 35420
                     </a>
                   </div>
                 </div>

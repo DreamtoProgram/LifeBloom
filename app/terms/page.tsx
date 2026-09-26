@@ -82,6 +82,13 @@ export default function TermsPage() {
               These terms are governed by and construed in accordance with the applicable laws of India, with jurisdiction in Punjab, India.
             </p>
           </section>
+
+          <section className="pt-6 border-t border-[#EDE7EE]">
+            <h2 className="font-serif text-xl font-semibold text-[#25222A] mb-2">7. Contact Information</h2>
+            <p>
+              For legal inquiries or questions concerning these Terms, please reach out via our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Form</a>, email <a href="mailto:lifebloom.support@gmail.com" className="text-[#9B70C7] hover:underline font-medium">lifebloom.support@gmail.com</a>, or call <a href="tel:+916377135420" className="text-[#9B70C7] hover:underline font-medium">+91 63771 35420</a>.
+            </p>
+          </section>
         </div>
       </Container>
     </div>

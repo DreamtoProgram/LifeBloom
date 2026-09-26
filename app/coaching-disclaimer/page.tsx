@@ -71,7 +71,7 @@ export default function CoachingDisclaimerPage() {
 
           <section className="pt-6 border-t border-[#EDE7EE]">
             <p className="text-sm text-[#6E6872]">
-              Have questions about whether coaching is the right fit for your situation? We encourage you to reach out via our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Form</a> for an exploratory conversation.
+              Have questions about whether coaching is the right fit for your situation? We encourage you to reach out via our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Form</a>, email <a href="mailto:lifebloom.support@gmail.com" className="text-[#9B70C7] hover:underline font-medium">lifebloom.support@gmail.com</a>, or call <a href="tel:+916377135420" className="text-[#9B70C7] hover:underline font-medium">+91 63771 35420</a> for an exploratory conversation.
             </p>
           </section>
         </div>

@@ -41,6 +41,8 @@ export function getOrganizationSchema() {
           caption: 'Shivi Logo',
         },
         image: `${SITE_URL}/founder.jpg`,
+        email: 'lifebloom.support@gmail.com',
+        telephone: '+91 63771 35420',
         description:
           'Shivi offers personalized life coaching, career coaching, NLP transformation, mindfulness, emotional intelligence, and leadership workshops founded by Dr. Shivani Koccher Dhand.',
         address: {
@@ -82,6 +84,8 @@ export function getOrganizationSchema() {
           '@id': `${SITE_URL}/#organization`,
         },
         image: `${SITE_URL}/founder.jpg`,
+        email: 'lifebloom.support@gmail.com',
+        telephone: '+91 63771 35420',
         description:
           'Dr. Shivani Koccher Dhand is a Life Coach, certified NLP Practitioner, HR & Human Capital Expert, and Educator with over 15 years of experience helping individuals and organizations unlock human potential.',
         address: {

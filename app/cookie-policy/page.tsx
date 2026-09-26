@@ -61,7 +61,7 @@ export default function CookiePolicyPage() {
 
           <section className="pt-6 border-t border-[#EDE7EE]">
             <p className="text-sm text-[#6E6872]">
-              For any questions regarding our use of cookies or digital privacy, please feel free to reach out via our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Page</a>.
+              For any questions regarding our use of cookies or digital privacy, please feel free to reach out via our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Page</a> or write to us at <a href="mailto:lifebloom.support@gmail.com" className="text-[#9B70C7] hover:underline font-medium">lifebloom.support@gmail.com</a>.
             </p>
           </section>
         </div>

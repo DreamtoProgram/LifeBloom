@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
           <section className="pt-6 border-t border-[#EDE7EE]">
             <h2 className="font-serif text-xl font-semibold text-[#25222A] mb-2">7. Contact Information</h2>
             <p>
-              For privacy-related inquiries, please reach out through our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Page</a> or write to our office in Phagwara, Punjab, India.
+              For privacy-related inquiries, please reach out through our <a href="/contact" className="text-[#9B70C7] hover:underline font-medium">Contact Page</a>, email us directly at <a href="mailto:lifebloom.support@gmail.com" className="text-[#9B70C7] hover:underline font-medium">lifebloom.support@gmail.com</a>, or call <a href="tel:+916377135420" className="text-[#9B70C7] hover:underline font-medium">+91 63771 35420</a>.
             </p>
           </section>
         </div>
