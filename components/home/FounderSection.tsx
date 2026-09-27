@@ -85,17 +85,12 @@ export function FounderSection() {
 
               <LavenderDivider className="mb-6" />
 
-              <div className="space-y-4 font-sans text-base text-[#6E6872] leading-relaxed mb-8">
-                <p>
-                  Dr. Shivani Koccher Dhand is a passionate Life Coach, NLP Practitioner, HR &amp; Human Capital Expert, and Educator based in Phagwara, India.
-                </p>
-                <p>
-                  With over 15 years of rich experience in personal growth, professional development, and emotional intelligence training, she guides individuals and teams to navigate life transitions with clarity, confidence, and purpose.
-                </p>
-              </div>
+              <p className="font-sans text-base text-[#6E6872] leading-relaxed mb-6">
+                Dr. Shivani Koccher Dhand is a Life Coach, NLP Practitioner, and Human Capital Expert helping individuals and teams create meaningful personal and professional transformation.
+              </p>
 
               {/* Key Expertise Chips */}
-              <div className="flex flex-wrap gap-2.5 mb-10">
+              <div className="flex flex-wrap gap-2.5 mb-6">
                 {[
                   'Life Coaching',
                   'NLP Practitioner',
@@ -113,7 +108,7 @@ export function FounderSection() {
               </div>
 
               {/* Credibility Stats */}
-              <div className="grid grid-cols-2 gap-6 p-6 bg-white rounded-2xl border border-[#EDE7EE] mb-8 shadow-xs hover:shadow-md transition-shadow duration-300">
+              <div className="grid grid-cols-2 gap-6 p-6 bg-white rounded-2xl border border-[#EDE7EE] mb-6 shadow-xs hover:shadow-md transition-shadow duration-300">
                 <StatCard number="15+" label="Years Experience" />
                 <StatCard number="1000+" label="People Targeted by 2027" />
               </div>
