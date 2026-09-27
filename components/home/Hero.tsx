@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button, ArrowIcon, PlayIcon } from '@/components/ui/Button';
-import { LavenderDivider, AnimatedSection } from '@/components/ui';
+import { LavenderDivider, AnimatedSection, Typewriter } from '@/components/ui';
 
 // ============================================================
 // Hero — Main homepage hero section with smooth fluid motion
@@ -75,13 +75,11 @@ export function Hero() {
                 <LavenderDivider className="mb-6" />
               </AnimatedSection>
 
-              {/* Subheading */}
+              {/* Subheading with dynamic typing effect */}
               <AnimatedSection direction="up" delay={320}>
-                <p className="font-sans text-base sm:text-lg text-[#6E6872] leading-relaxed mb-8 sm:mb-10 max-w-lg">
-                  Discover clarity. Build confidence. Find purpose.{' '}
-                  <br className="hidden sm:block" />
-                  Create a life of fulfilment.
-                </p>
+                <div className="mb-8 sm:mb-10 max-w-lg">
+                  <Typewriter />
+                </div>
               </AnimatedSection>
 
               {/* CTA buttons */}

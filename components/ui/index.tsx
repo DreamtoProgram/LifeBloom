@@ -155,3 +155,4 @@ export function StatCard({ number, label, theme = 'light' }: StatCardProps) {
 export { AnimatedSection } from './AnimatedSection';
 export { FadeInStagger } from './FadeInStagger';
 export { Button, ArrowIcon } from './Button';
+export { Typewriter } from './Typewriter';

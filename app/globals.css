@@ -251,3 +251,17 @@ textarea:focus-visible {
   box-shadow: 0 20px 40px -12px rgba(155, 112, 199, 0.16);
   border-color: rgba(201, 165, 232, 0.6);
 }
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
