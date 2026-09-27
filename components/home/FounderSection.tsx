@@ -41,7 +41,7 @@ export function FounderSection() {
               {/* Foreground Image Card */}
               <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl shadow-[rgba(74,52,80,0.10)] border border-[#EDE7EE] transition-transform duration-700 hover:scale-[1.01] bg-white">
                 <Image
-                  src="/founder.jpg"
+                  src="/coach-portrait.jpg"
                   alt="Dr. Shivani Koccher Dhand — Founder & Lead Coach at Shivi"
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
