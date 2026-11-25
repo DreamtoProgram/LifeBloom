@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { mentors, getMentorBySlug } from '@/lib/data/mentors';
 import { Container, AnimatedSection, LavenderDivider } from '@/components/ui';
 import { MentorBookingForm } from '@/components/mentors/MentorBookingForm';
-import { getBreadcrumbSchema } from '@/lib/seo/schema';
+import { getBreadcrumbSchema, getMentorProfileSchema } from '@/lib/seo/schema';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
@@ -24,11 +24,39 @@ export async function generateMetadata({
 
   const pageUrl = `${SITE_URL}/mentors/${mentor.slug}`;
   const title = `${mentor.name} — ${mentor.title}`;
-  const description = `${mentor.shortBio} Book an appointment with ${mentor.name} at Shivi.`;
+  const description = `${mentor.shortBio} Book a dedicated 1-on-1 mentorship appointment with ${mentor.name} at Shivi.`;
+
+  const isPriyanka = mentor.slug === 'dr-priyanka-chhibber';
+  const keywords = isPriyanka
+    ? [
+        'Dr Priyanka Chhibber',
+        'Priyanka Chhibber',
+        'Dr Priyanka Chhibber LPU',
+        'Lovely Professional University HRM',
+        'COD Human Resource Management LPU',
+        'SHRM certified HR mentor',
+        'HR leadership mentorship India',
+        'Organizational Behavior expert Ludhiana',
+        'Book appointment Dr Priyanka Chhibber',
+        'Shivi mentor',
+      ]
+    : [
+        'Dr Shivani Koccher Dhand',
+        'Shivani Koccher Dhand',
+        'Dr Shivani Life Coach',
+        'Master NLP Practitioner Punjab',
+        'Life Coach Phagwara',
+        'Human Capital Expert India',
+        'Emotional Intelligence Coach',
+        'Book appointment Dr Shivani',
+        'Shivi founder',
+      ];
 
   return {
     title,
     description,
+    keywords,
+    authors: [{ name: mentor.name }],
     alternates: {
       canonical: pageUrl,
     },
@@ -70,20 +98,7 @@ export default async function MentorDetailPage({
     { name: mentor.name, item: `/mentors/${mentor.slug}` },
   ]);
 
-  const personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: mentor.name,
-    jobTitle: mentor.title,
-    description: mentor.shortBio,
-    image: `${SITE_URL}${mentor.image}`,
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Shivi',
-      url: SITE_URL,
-    },
-    knowsAbout: mentor.expertise,
-  };
+  const profileSchema = getMentorProfileSchema(mentor);
 
   return (
     <div className="pt-[80px] bg-white">
@@ -94,7 +109,7 @@ export default async function MentorDetailPage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
       />
 
       {/* Breadcrumbs Navigation */}

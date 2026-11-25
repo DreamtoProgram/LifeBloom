@@ -3,14 +3,26 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { Container, AnimatedSection, LavenderDivider } from '@/components/ui';
 import { mentors } from '@/lib/data/mentors';
 import { MentorCard } from '@/components/mentors/MentorCard';
-import { getBreadcrumbSchema } from '@/lib/seo/schema';
+import { getBreadcrumbSchema, getMentorsListSchema } from '@/lib/seo/schema';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
 
 export const metadata: Metadata = {
   title: 'Meet Our Expert Mentors & Book an Appointment',
   description:
-    'Connect with experienced mentors and life coaches at Shivi. Explore mentor profiles, book dedicated appointments, or send an inquiry to Dr. Shivani Koccher Dhand.',
+    'Connect with experienced mentors and life coaches at Shivi. Explore mentor profiles, book dedicated appointments with Dr. Shivani Koccher Dhand and Dr. Priyanka Chhibber, or send an inquiry.',
+  keywords: [
+    'Shivi mentors',
+    'Meet our mentors',
+    'Dr Shivani Koccher Dhand',
+    'Dr Priyanka Chhibber',
+    'Book mentor appointment',
+    'Life coach mentor Punjab',
+    'HR mentor India',
+    'SHRM certified mentor',
+    'Lovely Professional University HR mentor',
+    'Contact Shivi',
+  ],
   alternates: {
     canonical: `${SITE_URL}/contact`,
   },
@@ -96,12 +108,18 @@ export default function ContactPage() {
     })),
   };
 
+  const mentorsListSchema = getMentorsListSchema(mentors);
+
   return (
     <div className="pt-[80px] bg-white">
       {/* Schema.org JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mentorsListSchema) }}
       />
       <script
         type="application/ld+json"

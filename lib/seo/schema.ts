@@ -54,6 +54,14 @@ export function getOrganizationSchema() {
         founder: {
           '@id': `${SITE_URL}/#founder`,
         },
+        employee: [
+          {
+            '@id': `${SITE_URL}/#founder`,
+          },
+          {
+            '@id': `${SITE_URL}/#mentor-priyanka`,
+          },
+        ],
         areaServed: [
           {
             '@type': 'Country',
@@ -72,6 +80,8 @@ export function getOrganizationSchema() {
           'Career & Professional Coaching',
           'Executive Leadership Development',
           'Human Capital & Organizational Wellbeing',
+          'Human Resource Management',
+          'SHRM Certified HR Strategies',
         ],
         priceRange: '₹₹',
       },
@@ -79,11 +89,12 @@ export function getOrganizationSchema() {
         '@type': 'Person',
         '@id': `${SITE_URL}/#founder`,
         name: 'Dr. Shivani Koccher Dhand',
-        jobTitle: 'Life Coach, NLP Practitioner & Human Capital Expert',
+        jobTitle: 'Founder, Lead Life Coach, NLP Practitioner & Human Capital Expert',
         worksFor: {
           '@id': `${SITE_URL}/#organization`,
         },
         image: `${SITE_URL}/founder.jpg`,
+        url: `${SITE_URL}/mentors/dr-shivani-koccher-dhand`,
         email: 'lifebloom.support@gmail.com',
         telephone: '+91 63771 35420',
         description:
@@ -102,7 +113,123 @@ export function getOrganizationSchema() {
           'Human Capital Development',
         ],
       },
+      {
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#mentor-priyanka`,
+        name: 'Dr. Priyanka Chhibber',
+        jobTitle: 'Professor, COD Human Resource Management | SHRM Certified',
+        worksFor: [
+          {
+            '@type': 'CollegeOrUniversity',
+            name: 'Lovely Professional University',
+            alternateName: 'LPU',
+            url: 'https://www.lpu.in',
+          },
+          {
+            '@id': `${SITE_URL}/#organization`,
+          },
+        ],
+        image: `${SITE_URL}/priyanka-chhibber.jpg`,
+        url: `${SITE_URL}/mentors/dr-priyanka-chhibber`,
+        description:
+          'Professor and Coordinator of Human Resource Management at Lovely Professional University (LPU). SHRM-certified mentor specializing in strategic HR, organizational behavior, talent development, and leadership.',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Ludhiana',
+          addressRegion: 'Punjab',
+          addressCountry: 'IN',
+        },
+        knowsAbout: [
+          'Human Resource Management',
+          'SHRM Certified HR Strategies',
+          'Organizational Behavior & Culture',
+          'Talent & Team Development',
+          'Strategic People Leadership',
+        ],
+      },
     ],
+  };
+}
+
+/**
+ * Detailed Mentor Profile Schema for Google Person & ProfilePage Rich Results
+ */
+export function getMentorProfileSchema(mentor: {
+  slug: string;
+  name: string;
+  title: string;
+  affiliation?: string;
+  location?: string;
+  image: string;
+  shortBio: string;
+  expertise: string[];
+  credentials: string[];
+}) {
+  const isPriyanka = mentor.slug === 'dr-priyanka-chhibber';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/mentors/${mentor.slug}#person`,
+      name: mentor.name,
+      jobTitle: mentor.title,
+      description: mentor.shortBio,
+      image: `${SITE_URL}${mentor.image}`,
+      url: `${SITE_URL}/mentors/${mentor.slug}`,
+      knowsAbout: mentor.expertise,
+      hasCredential: mentor.credentials,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: mentor.location ? mentor.location.split(',')[0].trim() : 'Punjab',
+        addressRegion: 'Punjab',
+        addressCountry: 'IN',
+      },
+      worksFor: isPriyanka
+        ? [
+            {
+              '@type': 'CollegeOrUniversity',
+              name: 'Lovely Professional University',
+              alternateName: 'LPU',
+              url: 'https://www.lpu.in',
+            },
+            {
+              '@type': 'Organization',
+              name: 'Shivi',
+              url: SITE_URL,
+            },
+          ]
+        : {
+            '@type': 'Organization',
+            name: 'Shivi',
+            url: SITE_URL,
+          },
+    },
+  };
+}
+
+/**
+ * ItemList Schema for the Mentor Directory on /contact
+ */
+export function getMentorsListSchema(mentorsList: { name: string; slug: string; title: string; image: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Expert Mentors at Shivi',
+    description: 'Explore experienced mentors and book 1-on-1 personalized guidance appointments.',
+    numberOfItems: mentorsList.length,
+    itemListElement: mentorsList.map((m, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Person',
+        name: m.name,
+        jobTitle: m.title,
+        url: `${SITE_URL}/mentors/${m.slug}`,
+        image: `${SITE_URL}${m.image}`,
+      },
+    })),
   };
 }
 
