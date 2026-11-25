@@ -183,13 +183,13 @@ export default function ContactPage() {
                 </p>
               </div>
               <span className="text-xs font-sans font-medium text-[#9B70C7] bg-[#EEE7FA] px-3.5 py-1.5 rounded-full self-start sm:self-auto border border-[#C9A5E8]/40">
-                {mentors.length} Mentorship Tracks Available
+                2 Expert Mentors Available
               </span>
             </div>
           </AnimatedSection>
 
-          {/* Mentors Responsive Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10">
+          {/* Mentors Responsive Grid — Centered & Scaled Appropriately for 2 Profiles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl lg:max-w-4xl mx-auto">
             {mentors.map((mentor, index) => (
               <AnimatedSection key={mentor.id} direction="up" delay={100 + index * 80}>
                 <MentorCard mentor={mentor} />

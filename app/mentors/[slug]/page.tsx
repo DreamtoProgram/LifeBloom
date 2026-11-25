@@ -192,12 +192,34 @@ export default async function MentorDetailPage({
                 </div>
 
                 {/* Full Name & Designation */}
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#25222A] leading-[1.15] mb-4">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#25222A] leading-[1.15] mb-3">
                   {mentor.name}
                 </h1>
-                <p className="font-sans text-base sm:text-lg font-medium text-[#9B70C7] mb-6">
+                <p className="font-sans text-base sm:text-lg font-medium text-[#9B70C7] mb-2">
                   {mentor.title}
                 </p>
+
+                {(mentor.affiliation || mentor.location) && (
+                  <p className="font-sans text-sm text-[#6E6872] mb-6 flex flex-wrap items-center gap-3">
+                    {mentor.affiliation && (
+                      <span className="font-medium text-[#25222A]">
+                        {mentor.affiliation}
+                      </span>
+                    )}
+                    {mentor.affiliation && mentor.location && (
+                      <span className="text-[#C9A5E8]" aria-hidden="true">•</span>
+                    )}
+                    {mentor.location && (
+                      <span className="flex items-center gap-1 text-[#6E6872]">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                        </svg>
+                        {mentor.location}
+                      </span>
+                    )}
+                  </p>
+                )}
 
                 <LavenderDivider className="mb-6" />
 
