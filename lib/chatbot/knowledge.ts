@@ -24,27 +24,41 @@ export interface DomainTopic {
 export const SYSTEM_PROMPT = `You are "Shivi", the official warm, empathetic, and intelligent AI Coaching Assistant for Shivi (founded by Dr. Shivani Koccher Dhand, based in Phagwara, Punjab, India).
 
 YOUR CORE MISSION:
-Help website visitors understand Shivi's life coaching programs, career & leadership coaching, NLP (Neuro-Linguistic Programming), mindfulness & stress management, emotional intelligence, and corporate workshops. Guide them on booking discovery calls and navigating the website.
+Help website visitors understand Shivi's life coaching programs, career & leadership coaching, NLP (Neuro-Linguistic Programming), mindfulness & stress management, emotional intelligence, corporate workshops, and our expert mentors. Guide visitors on choosing the right mentor, booking 1-on-1 appointments, and navigating the website.
+
+AVAILABLE EXPERT MENTORS AT SHIVI:
+1. Dr. Shivani Koccher Dhand:
+   - Founder & Lead Life Coach at Shivi, Certified Master NLP Practitioner, HR & Human Capital Expert, Educator (15+ years experience, Phagwara, Punjab).
+   - Mentorship Focus: Life Transformation, Master NLP, Emotional Intelligence, Career Clarity, and Mindset Growth.
+   - Dedicated Booking Page: /mentors/dr-shivani-koccher-dhand
+
+2. Dr. Priyanka Chhibber (Our New Expert Mentor):
+   - Professor & Coordinator (COD) of Human Resource Management at Lovely Professional University (LPU), Punjab.
+   - SHRM-Certified HR Professional with 15+ years in academic & professional HR mentorship (Ludhiana, Punjab).
+   - Mentorship Focus: Human Resource Management & SHRM-Certified HR Strategies, Organizational Behavior, Talent & Team Development, and Strategic People Leadership.
+   - Dedicated Booking Page: /mentors/dr-priyanka-chhibber
 
 STRICT DOMAIN GUARDRAILS (CRITICAL):
 1. You MUST ONLY answer questions related to:
    - Shivi services, coaching methodology, programs, and workshops
-   - Dr. Shivani Koccher Dhand (Founder, Lead Coach, NLP Practitioner, HR & Human Capital Expert, Educator with 15+ years experience)
+   - Dr. Shivani Koccher Dhand (Founder, Lead Coach, Master NLP Practitioner, HR & Human Capital Expert)
+   - Dr. Priyanka Chhibber (Expert Mentor, Professor & COD HRM at LPU, SHRM-Certified Professional)
+   - Mentor discovery and booking 1-on-1 appointments with either mentor on the Contact page (/contact) or individual mentor pages (/mentors/dr-shivani-koccher-dhand, /mentors/dr-priyanka-chhibber)
    - Personal development, life coaching, career coaching, mindfulness, stress relief, emotional intelligence (EQ), and NLP
-   - Booking a discovery call, fees/process, location (Phagwara, Punjab & Online globally), contact information, and website navigation.
+   - Booking discovery calls, fees/process, locations (Phagwara & Ludhiana, Punjab & Online globally via video), contact information, and website navigation.
 
 2. OUT-OF-FIELD RESTRICTION:
    - You MUST REFUSE any question unrelated to personal development, coaching, wellness, or Shivi (such as programming/coding, mathematics, politics, cryptocurrency/stocks, medical diagnoses/prescriptions, sports scores, weather, general trivia, gaming, etc.).
    - When refusing out-of-domain questions, be polite, empathetic, and gently steer the user back to Shivi's personal and professional growth coaching.
-   - Example refusal in English: "I specialize exclusively in personal development, life coaching, and wellness programs at Shivi with Dr. Shivani Koccher Dhand. While I can't assist with that topic, I would love to help you explore our coaching programs or book a discovery call!"
-   - Example refusal in Hindi: "मैं केवल Shivi के लाइफ कोचिंग, एनएलपी और व्यक्तिगत विकास कार्यक्रमों में सहायता कर सकती हूँ। इस विषय पर मैं उत्तर नहीं दे सकती, लेकिन क्या आप अपने जीवन या करियर के विकास के बारे में जानना चाहते हैं?"
-   - Example refusal in Punjabi: "ਮੈਂ ਸਿਰਫ਼ Shivi ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਆਓ ਗੱਲ ਕਰੀਏ ਕਿ ਅਸੀਂ ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਜਾਂ ਕਰੀਅਰ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਾਂ!"
+   - Example refusal in English: "I specialize exclusively in personal development, life coaching, and mentor programs at Shivi with Dr. Shivani Koccher Dhand and Dr. Priyanka Chhibber. While I can't assist with that topic, I would love to help you explore our coaching programs or book a mentor appointment!"
+   - Example refusal in Hindi: "मैं केवल Shivi के लाइफ कोचिंग, एनएलपी और मेंटरशिप कार्यक्रमों में सहायता कर सकती हूँ। इस विषय पर मैं उत्तर नहीं दे सकती, लेकिन क्या आप हमारे मेंटर्स या कोचिंग प्रोग्राम्स के बारे में जानना चाहते हैं?"
+   - Example refusal in Punjabi: "ਮੈਂ ਸਿਰਫ਼ Shivi ਦੇ ਲਾਈਫ ਕੋਚਿੰਗ, ਐਨਐਲਪੀ (NLP) ਅਤੇ ਮੈਂਟਰਸ਼ਿਪ ਪ੍ਰੋਗਰਾਮਾਂ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ। ਆਓ ਗੱਲ ਕਰੀਏ ਕਿ ਸਾਡੇ ਮੈਂਟਰ ਤੁਹਾਡੇ ਵਿਕਾਸ ਵਿੱਚ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ!"
 
 3. MULTILINGUAL INSTRUCTION:
    - Always reply in the EXACT SAME LANGUAGE that the user wrote in (English, Hindi, Punjabi, Hinglish, Spanish, French, German, etc.).
    - Maintain a friendly, supportive, respectful, and simple-to-understand tone.
    - Keep answers clear, structured, concise (2-3 paragraphs maximum), and avoid complicated jargon.
-   - Whenever relevant, mention that users can fill out the 'Please Answer Our Few Questions' form on the Contact page (/contact) to schedule a discovery call with Dr. Shivani.
+   - Whenever relevant, mention that visitors can explore our mentors and book dedicated sessions directly on the Contact page (/contact) or at /mentors/dr-priyanka-chhibber and /mentors/dr-shivani-koccher-dhand.
 `;
 
 export const OUT_OF_BOUNDS_KEYWORDS = [
@@ -82,15 +96,56 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
     id: 'about-dr-shivani',
     keywords: ['who is dr shivani', 'about founder', 'dr shivani', 'founder', 'credentials', 'experience', 'background', 'shivani koccher dhand', 'doctor shivani', 'who is coach', 'qualification', 'डॉ शिवानी', 'संस्थापक', 'ਡਾ ਸ਼ਿਵਾਨੀ', 'ਸੰਸਥਾਪਕ'],
     links: [
+      { label: 'Dr. Shivani Profile & Booking', href: '/mentors/dr-shivani-koccher-dhand' },
       { label: 'About Dr. Shivani', href: '/about' },
-      { label: 'Connect With Dr. Shivani', href: '/contact' },
+      { label: 'Meet All Mentors', href: '/contact' },
     ],
     responses: {
-      en: "Dr. Shivani Koccher Dhand is the Founder & Lead Coach at Shivi, based in Phagwara, Punjab, India. She brings 15+ years of rich experience as a Life Coach, certified NLP Practitioner, Human Capital Expert, and Educator.\n\nHer mission is to empower individuals and organizations to unlock their highest potential through evidence-informed coaching, emotional intelligence, and mindful transformation.",
-      hi: "डॉ. शिवानी कोचर ढांड Shivi की संस्थापक और लीड कोच हैं (फगवाड़ा, पंजाब, भारत)। उनके पास लाइफ कोच, सर्टिफाइड एनएलपी (NLP) प्रैक्टिशनर, ह्यूमन कैपिटल एक्सपर्ट और शिक्षाविद के रूप में 15+ वर्षों का समृद्ध अनुभव है।\n\nउनका उद्देश्य लोगों और संस्थाओं को उनकी आंतरिक क्षमता को पहचानने और जीवन में सकारात्मक बदलाव लाने के लिए सशक्त बनाना है।",
-      pa: "ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ Shivi ਦੇ ਸੰਸਥਾਪਕ ਅਤੇ ਲੀਡ ਕੋਚ ਹਨ (ਫਗਵਾੜਾ, ਪੰਜਾਬ)। ਉਹਨਾਂ ਕੋਲ ਲਾਈਫ ਕੋਚ, ਸਰਟੀਫਾਈਡ ਐਨਐਲਪੀ (NLP) ਪ੍ਰੈਕਟੀਸ਼ਨਰ, ਹਿਊਮਨ ਕੈਪੀਟਲ ਮਾਹਿਰ ਅਤੇ ਸਿੱਖਿਅਕ ਵਜੋਂ 15+ ਸਾਲਾਂ ਦਾ ਵਿਸ਼ਾਲ ਤਜਰਬਾ ਹੈ। ਉਹ ਵਿਅਕਤੀਆਂ ਅਤੇ ਸੰਸਥਾਵਾਂ ਨੂੰ ਨਿੱਜੀ ਤੇ ਪੇਸ਼ੇਵਰ ਵਿਕਾਸ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹਨ।",
+      en: "Dr. Shivani Koccher Dhand is the Founder & Lead Coach at Shivi, based in Phagwara, Punjab, India. She brings 15+ years of rich experience as a Life Coach, certified Master NLP Practitioner, Human Capital Expert, and Educator.\n\nHer mission is to empower individuals and organizations to unlock their highest potential through evidence-informed coaching, emotional intelligence, and mindful transformation. You can book an appointment directly on her mentor page (/mentors/dr-shivani-koccher-dhand).",
+      hi: "डॉ. शिवानी कोचर ढांड Shivi की संस्थापक और लीड कोच हैं (फगवाड़ा, पंजाब, भारत)। उनके पास लाइफ कोच, सर्टिफाइड मास्टर एनएलपी (NLP) प्रैक्टिशनर, ह्यूमन कैपिटल एक्सपर्ट और शिक्षाविद के रूप में 15+ वर्षों का समृद्ध अनुभव है।\n\nउनका उद्देश्य लोगों और संस्थाओं को उनकी आंतरिक क्षमता को पहचानने और जीवन में सकारात्मक बदलाव लाने के लिए सशक्त बनाना है। आप उनके मेंटर पेज (/mentors/dr-shivani-koccher-dhand) पर सीधे अपॉइंटमेंट बुक कर सकते हैं।",
+      pa: "ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ Shivi ਦੇ ਸੰਸਥਾਪਕ ਅਤੇ ਲੀਡ ਕੋਚ ਹਨ (ਫਗਵਾੜਾ, ਪੰਜਾਬ)। ਉਹਨਾਂ ਕੋਲ ਲਾਈਫ ਕੋਚ, ਸਰਟੀਫਾਈਡ ਐਨਐਲਪੀ (NLP) ਪ੍ਰੈਕਟੀਸ਼ਨਰ, ਹਿਊਮਨ ਕੈਪੀਟਲ ਮਾਹਿਰ ਅਤੇ ਸਿੱਖਿਅਕ ਵਜੋਂ 15+ ਸਾਲਾਂ ਦਾ ਵਿਸ਼ਾਲ ਤਜਰਬਾ ਹੈ। ਤੁਸੀਂ /mentors/dr-shivani-koccher-dhand 'ਤੇ ਉਹਨਾਂ ਨਾਲ ਸਿੱਧਾ ਅਪੌਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰ ਸਕਦੇ ਹੋ।",
       es: "La Dra. Shivani Koccher Dhand es la fundadora y coach principal de Shivi, con más de 15 años de experiencia como Life Coach, practicante certificada de PNL (NLP) y experta en Capital Humano en Phagwara, India.",
       fr: "Le Dr. Shivani Koccher Dhand est la fondatrice et coach principale de Shivi, forte de plus de 15 ans d'expérience en tant que coach de vie, praticienne certifiée en PNL et experte en capital humain.",
+    },
+  },
+  {
+    id: 'about-dr-priyanka',
+    keywords: [
+      'dr priyanka', 'priyanka chhibber', 'dr priyanka chhibber', 'priyanka', 'chhibber',
+      'shrm', 'lpu', 'hr mentor', 'human resource management mentor', 'cod hrm', 'new mentor',
+      'who is priyanka', 'dr priyanka details', 'shrm certified', 'dr. priyanka',
+      'डॉ प्रियंका', 'प्रियंका छिब्बर', 'ਡਾ ਪ੍ਰਿਯੰਕਾ', 'ਪ੍ਰਿਯੰਕਾ ਛਿੱਬਰ'
+    ],
+    links: [
+      { label: 'Dr. Priyanka Profile & Booking', href: '/mentors/dr-priyanka-chhibber' },
+      { label: 'Meet All Mentors', href: '/contact' },
+    ],
+    responses: {
+      en: "Dr. Priyanka Chhibber is an Expert Mentor at Shivi. She is a distinguished Professor and Coordinator (COD) of Human Resource Management at Lovely Professional University (LPU), Punjab, and a SHRM-Certified HR Professional with 15+ years of academic and professional mentorship experience.\n\nHer mentorship focuses on Strategic HR Management, Organizational Behavior, Talent Development, Managerial Presence, and People Leadership. You can explore her full profile and book a 1-on-1 appointment directly at /mentors/dr-priyanka-chhibber.",
+      hi: "डॉ. प्रियंका छिब्बर Shivi की विशेषज्ञ मेंटर हैं। वह लवली प्रोफेशनल यूनिवर्सिटी (LPU), पंजाब में ह्यूमन रिसोर्स मैनेजमेंट की प्रोफेसर और सीओडी (COD) हैं, और 15+ वर्षों के अनुभव वाली SHRM-सर्टिफाइड एचआर प्रोफेशनल हैं।\n\nवह स्ट्रेटेजिक एचआर, संगठनात्मक व्यवहार (Organizational Behavior), टीम डायनेमिक्स और लीडरशिप मेंटरशिप में माहिर हैं। आप उनकी पूरी प्रोफाइल देखने और 1-ऑन-1 अपॉइंटमेंट बुक करने के लिए /mentors/dr-priyanka-chhibber पर जा सकते हैं।",
+      pa: "ਡਾ. ਪ੍ਰਿਯੰਕਾ ਛਿੱਬਰ Shivi ਵਿਖੇ ਮਾਹਿਰ ਮੈਂਟਰ ਹਨ। ਉਹ ਲਵਲੀ ਪ੍ਰੋਫੈਸ਼ਨਲ ਯੂਨੀਵਰਸਿਟੀ (LPU) ਵਿਖੇ ਹਿਊਮਨ ਰਿਸੋਰਸ ਮੈਨੇਜਮੈਂਟ ਦੇ ਪ੍ਰੋਫੈਸਰ ਅਤੇ ਸੀਓਡੀ (COD) ਹਨ, ਅਤੇ 15+ ਸਾਲਾਂ ਦੇ ਤਜਰਬੇ ਵਾਲੇ SHRM-ਸਰਟੀਫਾਈਡ ਐਚਆਰ ਮਾਹਿਰ ਹਨ। ਉਹਨਾਂ ਨਾਲ 1-ਆਨ-1 ਸੈਸ਼ਨ ਬੁੱਕ ਕਰਨ ਲਈ ਤੁਸੀਂ /mentors/dr-priyanka-chhibber 'ਤੇ ਜਾ ਸਕਦੇ ਹੋ।",
+      es: "La Dra. Priyanka Chhibber es mentora experta en Shivi. Es profesora y coordinadora de Gestión de Recursos Humanos en LPU y profesional certificada por SHRM con más de 15 años de experiencia. Puedes agendar citas con ella en /mentors/dr-priyanka-chhibber.",
+      fr: "Le Dr. Priyanka Chhibber est mentor experte chez Shivi. Professeure et coordinatrice en gestion des ressources humaines à LPU, certifiée SHRM avec plus de 15 ans d'expérience. Vous pouvez réserver une séance sur /mentors/dr-priyanka-chhibber.",
+    },
+  },
+  {
+    id: 'expert-mentors',
+    keywords: [
+      'mentors', 'mentor', 'meet our mentors', 'who are the mentors', 'expert mentors',
+      'available mentors', 'find mentor', 'mentor list', 'book mentor', 'mentor profile',
+      'all mentors', 'how many mentors', 'choose mentor', 'मेंटर', 'मार्गदर्शक', 'ਮੈਂਟਰ'
+    ],
+    links: [
+      { label: 'Meet Our Expert Mentors', href: '/contact' },
+      { label: 'Dr. Priyanka Chhibber (HR & SHRM)', href: '/mentors/dr-priyanka-chhibber' },
+      { label: 'Dr. Shivani Koccher Dhand (Life & NLP)', href: '/mentors/dr-shivani-koccher-dhand' },
+    ],
+    responses: {
+      en: "Shivi features two experienced, dedicated mentors ready to guide your growth:\n\n1. **Dr. Shivani Koccher Dhand** — Founder & Lead Coach, Master NLP Practitioner, and Human Capital Expert (15+ years experience) focusing on Life Coaching, NLP mindset shifts, and emotional intelligence.\n\n2. **Dr. Priyanka Chhibber** — Professor & COD of Human Resource Management at LPU, SHRM-Certified Professional (15+ years experience) specializing in Strategic HR, organizational behavior, and leadership presence.\n\nYou can explore both mentor profiles and book an appointment in a new tab directly on our Contact page (/contact).",
+      hi: "Shivi में दो अनुभवी विशेषज्ञ मेंटर्स उपलब्ध हैं:\n\n1. **डॉ. शिवानी कोचर ढांड** — संस्थापक और लीड कोच, मास्टर एनएलपी प्रैक्टिशनर और ह्यूमन कैपिटल एक्सपर्ट (15+ वर्ष अनुभव), जो लाइफ कोचिंग, एनएलपी और माइंडसेट ट्रांसफॉर्मेशन में मार्गदर्शन करती हैं।\n\n2. **डॉ. प्रियंका छिब्बर** — प्रोफेसर और सीओडी (HRM, LPU), SHRM-सर्टिफाइड एक्सपर्ट (15+ वर्ष अनुभव), जो स्ट्रेटेजिक एचआर, लीडरशिप और करियर ग्रोथ में मेंटरशिप प्रदान करती हैं।\n\nआप हमारे कांटेक्ट पेज (/contact) पर दोनों मेंटर्स की प्रोफाइल देख सकते हैं और अपॉइंटमेंट बुक कर सकते हैं।",
+      pa: "Shivi ਵਿਖੇ ਦੋ ਤਜਰਬੇਕਾਰ ਮੈਂਟਰ ਉਪਲਬਧ ਹਨ:\n\n1. **ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ** — ਸੰਸਥਾਪਕ ਅਤੇ ਲੀਡ ਕੋਚ, ਐਨਐਲਪੀ ਪ੍ਰੈਕਟੀਸ਼ਨਰ (ਲਾਈਫ ਕੋਚਿੰਗ ਅਤੇ ਨਿੱਜੀ ਵਿਕਾਸ)।\n\n2. **ਡਾ. ਪ੍ਰਿਯੰਕਾ ਛਿੱਬਰ** — ਪ੍ਰੋਫੈਸਰ ਅਤੇ ਸੀਓਡੀ ਐਚਆਰਐਮ (LPU), SHRM ਸਰਟੀਫਾਈਡ (ਐਚਆਰ ਅਤੇ ਲੀਡਰਸ਼ਿਪ ਮੈਂਟਰਸ਼ਿਪ)।\n\nਤੁਸੀਂ Contact ਪੰਨੇ (/contact) 'ਤੇ ਜਾ ਕੇ ਦੋਵਾਂ ਦੀ ਪ੍ਰੋਫਾਈਲ ਵੇਖ ਸਕਦੇ ਹੋ ਅਤੇ ਅਪੌਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰ ਸਕਦੇ ਹੋ।",
+      es: "Shivi cuenta con dos mentoras expertas: la Dra. Shivani Koccher Dhand (Life Coaching y PNL) y la Dra. Priyanka Chhibber (Recursos Humanos Estratégicos y certificación SHRM). Puedes agendar citas con ambas en /contact.",
+      fr: "Shivi propose deux mentors expertes : le Dr. Shivani Koccher Dhand (coaching de vie et PNL) et le Dr. Priyanka Chhibber (gestion stratégique des RH et certification SHRM). Vous pouvez réserver vos séances sur /contact.",
     },
   },
   {
@@ -185,17 +240,22 @@ export const DOMAIN_TOPICS: DomainTopic[] = [
   },
   {
     id: 'booking-and-fees',
-    keywords: ['book', 'how to book', 'discovery call', 'consultation', 'fees', 'cost', 'pricing', 'price', 'charges', 'contact', 'appointment', 'how to start', 'fees kitni hai', 'booking kaise kare', 'ਫੀਸ', 'ਬੁਕਿੰਗ'],
+    keywords: [
+      'book', 'how to book', 'discovery call', 'consultation', 'fees', 'cost', 'pricing', 'price',
+      'charges', 'contact', 'appointment', 'how to start', 'fees kitni hai', 'booking kaise kare',
+      'book mentor', 'book appointment', 'appointment booking', 'schedule session', 'ਫੀਸ', 'ਬੁਕਿੰਗ', 'अपॉइंटमेंट'
+    ],
     links: [
-      { label: 'Book Discovery Call (Contact Form)', href: '/contact' },
-      { label: 'Explore All Services', href: '/services' },
+      { label: 'Meet Mentors & Book Appointment', href: '/contact' },
+      { label: 'Dr. Priyanka Chhibber (HR & SHRM)', href: '/mentors/dr-priyanka-chhibber' },
+      { label: 'Dr. Shivani Koccher Dhand (Life Coach)', href: '/mentors/dr-shivani-koccher-dhand' },
     ],
     responses: {
-      en: "You can easily schedule a consultation with Dr. Shivani by visiting our Contact page (/contact) and completing the 'Please Answer Our Few Questions' form.\n\nWe offer a complimentary initial discovery call to understand your needs and recommend the ideal coaching roadmap.",
-      hi: "आप हमारे कांटेक्ट पेज (/contact) पर जाकर 'Please Answer Our Few Questions' फॉर्म भरकर डॉ. शिवानी के साथ डिस्कवरी कॉल शेड्यूल कर सकते हैं।\n\nहम आपकी आवश्यकताओं को समझने और आपके लिए सही कोचिंग प्लान तैयार करने के लिए प्रारंभिक डिस्कवरी कॉल प्रदान करते हैं।",
-      pa: "ਤੁਸੀਂ ਸਾਡੇ ਸੰਪਰਕ ਪੰਨੇ (/contact) 'ਤੇ ਜਾ ਕੇ ਫਾਰਮ ਭਰ ਕੇ ਡਾ. ਸ਼ਿਵਾਨੀ ਨਾਲ ਮੁਲਾਕਾਤ ਜਾਂ ਡਿਸਕਵਰੀ ਕਾਲ ਤੈਅ ਕਰ ਸਕਦੇ ਹੋ। ਅਸੀਂ ਤੁਹਾਡੀਆਂ ਲੋੜਾਂ ਅਨੁਸਾਰ ਸਹੀ ਕੋਚਿੰਗ ਪਲਾਨ ਸੁਝਾਉਂਦੇ ਹਾਂ।",
-      es: "Puedes agendar una llamada de descubrimiento con la Dra. Shivani completando el formulario en nuestra página de Contacto (/contact).",
-      fr: "Vous pouvez réserver un appel de découverte avec le Dr. Shivani en remplissant le formulaire sur notre page Contact (/contact).",
+      en: "Booking an appointment at Shivi is quick and easy:\n\n1. Visit our Contact page (/contact) to explore our available mentors—**Dr. Shivani Koccher Dhand** (Life & NLP Coaching) and **Dr. Priyanka Chhibber** (Strategic HR & Leadership Mentorship).\n\n2. Click 'Book Appointment' on any mentor card to open their dedicated page and select your preferred date and time slot.\n\n3. You can also send us a direct message on /contact or take our complimentary Personal Discovery Assessment.",
+      hi: "Shivi में अपॉइंटमेंट या कंसल्टेशन बुक करना बहुत आसान है:\n\n1. हमारे Contact पेज (/contact) पर जाकर हमारे विशेषज्ञ मेंटर्स—**डॉ. शिवानी कोचर ढांड** (लाइफ और एनएलपी कोचिंग) और **डॉ. प्रियंका छिब्बर** (स्ट्रेटेजिक एचआर और लीडरशिप) को देखें।\n\n2. किसी भी मेंटर कार्ड पर 'Book Appointment' पर क्लिक करें और अपनी सुविधानुसार तारीख और समय चुनें।\n\n3. आप /contact पर हमें डायरेक्ट मैसेज भी भेज सकते हैं या हमारा पर्सनल डिस्कवरी असेसमेंट ले सकते हैं।",
+      pa: "Shivi ਵਿਖੇ ਅਪੌਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰਨਾ ਬਹੁਤ ਹੀ ਸੌਖਾ ਹੈ:\n\n1. Contact ਪੰਨੇ (/contact) 'ਤੇ ਜਾ ਕੇ ਸਾਡੇ ਮੈਂਟਰਜ਼—**ਡਾ. ਸ਼ਿਵਾਨੀ ਕੋਚਰ ਢਾਂਡ** (ਲਾਈਫ ਕੋਚਿੰਗ) ਅਤੇ **ਡਾ. ਪ੍ਰਿਯੰਕਾ ਛਿੱਬਰ** (ਐਚਆਰ ਅਤੇ ਲੀਡਰਸ਼ਿਪ) ਵੇਖੋ।\n\n2. 'Book Appointment' 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਆਪਣੀ ਮਨਪਸੰਦ ਮਿਤੀ ਅਤੇ ਸਮਾਂ ਚੁਣੋ।",
+      es: "Puedes agendar una cita con nuestras mentoras expertas (Dra. Shivani Koccher Dhand y Dra. Priyanka Chhibber) visitando nuestra página de Contacto (/contact) o en sus perfiles dedicados.",
+      fr: "Vous pouvez réserver une séance avec nos mentors expertes (Dr. Shivani Koccher Dhand et Dr. Priyanka Chhibber) en visitant notre page Contact (/contact).",
     },
   },
   {

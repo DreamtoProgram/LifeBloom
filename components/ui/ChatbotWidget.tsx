@@ -28,11 +28,11 @@ const INITIAL_MESSAGES: Message[] = [
 ];
 
 const SUGGESTED_TOPICS = [
-  { label: '🌿 Life Coaching', query: 'Tell me about Life Coaching' },
-  { label: '💼 Career & Leadership', query: 'What career and leadership programs do you offer?' },
+  { label: '👥 Meet Our Mentors', query: 'Tell me about the mentors available at Shivi' },
+  { label: '💼 Dr. Priyanka Chhibber', query: 'Tell me about Dr. Priyanka Chhibber and HR mentorship' },
+  { label: '🌿 Life Coaching', query: 'Tell me about Life Coaching with Dr. Shivani' },
   { label: '🧠 NLP Sessions', query: 'How does NLP coaching work at Shivi?' },
-  { label: '🏢 Corporate Workshops', query: 'Tell me about corporate workshops' },
-  { label: '📅 Book Discovery Call', query: 'How can I book a discovery call with Dr. Shivani?' },
+  { label: '📅 Book Appointment', query: 'How can I book an appointment with a mentor?' },
 ];
 
 export function ChatbotWidget() {

@@ -86,7 +86,7 @@ export function isQueryOutOfField(text: string): boolean {
   for (const kw of OUT_OF_BOUNDS_KEYWORDS) {
     if (lower.includes(kw)) {
       // Check if it's mentioning it in a life/career context (e.g. "career as a python programmer")
-      if (lower.includes('career') || lower.includes('job') || lower.includes('coaching') || lower.includes('interview')) {
+      if (lower.includes('career') || lower.includes('job') || lower.includes('coaching') || lower.includes('interview') || lower.includes('mentor') || lower.includes('priyanka') || lower.includes('shivani') || lower.includes('hr') || lower.includes('shrm')) {
         return false;
       }
       return true;
@@ -482,6 +482,15 @@ function findRelevantLinks(text: string): QuickLink[] {
   const lower = text.toLowerCase();
   const links: QuickLink[] = [];
 
+  if (lower.includes('priyanka') || lower.includes('chhibber') || lower.includes('shrm') || lower.includes('human resource management') || lower.includes('hrm')) {
+    links.push({ label: 'Dr. Priyanka Profile & Booking', href: '/mentors/dr-priyanka-chhibber' });
+  }
+  if (lower.includes('shivani') || lower.includes('founder') || lower.includes('lead coach')) {
+    links.push({ label: 'Dr. Shivani Profile & Booking', href: '/mentors/dr-shivani-koccher-dhand' });
+  }
+  if (lower.includes('mentor') || lower.includes('mentors') || lower.includes('मेंटर') || lower.includes('ਮੈਂਟਰ')) {
+    links.push({ label: 'Meet Our Expert Mentors', href: '/contact' });
+  }
   if (lower.includes('life coaching') || lower.includes('लाइफ कोचिंग') || lower.includes('ਲਾਈਫ ਕੋਚਿੰਗ')) {
     links.push({ label: 'Life Coaching', href: '/services/life-coaching' });
   }
@@ -497,14 +506,14 @@ function findRelevantLinks(text: string): QuickLink[] {
   if (lower.includes('workshop') || lower.includes('corporate') || lower.includes('वर्कशॉप') || lower.includes('ਵਰਕਸ਼ਾਪ')) {
     links.push({ label: 'Corporate Workshops', href: '/workshops' });
   }
-  if (lower.includes('contact') || lower.includes('book') || lower.includes('discovery call') || lower.includes('कॉल') || lower.includes('ਕਾਲ')) {
-    links.push({ label: 'Book Discovery Call', href: '/contact' });
+  if (lower.includes('contact') || lower.includes('book') || lower.includes('appointment') || lower.includes('discovery call') || lower.includes('कॉल') || lower.includes('ਕਾਲ')) {
+    links.push({ label: 'Book an Appointment', href: '/contact' });
   }
 
   if (links.length === 0) {
     links.push(
-      { label: 'Explore Services', href: '/services' },
-      { label: 'Book Discovery Call', href: '/contact' }
+      { label: 'Meet Our Expert Mentors', href: '/contact' },
+      { label: 'Explore Services', href: '/services' }
     );
   }
 
