@@ -2,8 +2,11 @@ export interface BookingPayload {
   name: string;
   email: string;
   phone?: string;
-  serviceSlug: string;
+  serviceSlug?: string;
+  mentorSlug?: string;
+  mentorName?: string;
   preferredDate?: string;
+  timeSlot?: string;
   notes?: string;
 }
 

@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { services } from '@/lib/data/services';
 import { insights } from '@/lib/data/insights';
+import { mentors } from '@/lib/data/mentors';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.shivi.sbs';
@@ -103,5 +104,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...insightRoutes];
+  // Dynamic Mentor Detail Pages
+  const mentorRoutes: MetadataRoute.Sitemap = mentors.map((m) => ({
+    url: `${baseUrl}/mentors/${m.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...insightRoutes, ...mentorRoutes];
 }

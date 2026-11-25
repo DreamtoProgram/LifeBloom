@@ -70,3 +70,6 @@ export interface Inquiry {
   interest: string;
   message: string;
 }
+
+export type { Mentor } from '@/lib/data/mentors';
+
