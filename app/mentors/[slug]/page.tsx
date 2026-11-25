@@ -166,9 +166,9 @@ export default async function MentorDetailPage({
                   {/* Floating pill badge */}
                   <div className="absolute bottom-4 left-4 right-4 z-20">
                     <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-[#EDE7EE] shadow-lg">
-                      <p className="font-serif text-xs italic text-[#C9A5E8] mb-0.5">Mentorship Focus</p>
-                      <p className="font-sans text-xs text-[#25222A] font-semibold leading-snug">
-                        {mentor.expertise[0]} &amp; {mentor.expertise[1]}
+                      <p className="font-serif text-xs italic text-[#9B70C7] mb-0.5">Mentorship Focus</p>
+                      <p className="font-sans text-xs sm:text-sm text-[#25222A] font-semibold leading-snug">
+                        {mentor.mentorshipFocus || `${mentor.expertise[0]} & ${mentor.expertise[1]}`}
                       </p>
                     </div>
                   </div>

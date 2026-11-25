@@ -113,83 +113,22 @@ export default function ContactPage() {
       />
 
       {/* ============================================================ */}
-      {/* SECTION 1 — Hero / Introduction: Meet Our Expert Mentors */}
+      {/* SECTION 1 — Meet Our Expert Mentors */}
       {/* ============================================================ */}
       <section
-        className="py-16 sm:py-20 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #FCF8FB 0%, #F5EDF9 100%)' }}
+        id="mentors"
+        className="pt-12 sm:pt-16 pb-16 sm:pb-20 relative overflow-hidden bg-gradient-to-b from-[#FCF8FB] via-white to-white scroll-mt-24"
       >
-        {/* Soft background glow shapes */}
-        <div
-          className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-40 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #FBE8F0 0%, transparent 70%)' }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-40 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #EEE7FA 0%, transparent 70%)' }}
-          aria-hidden="true"
-        />
-
-        <Container className="relative z-10 text-center max-w-4xl mx-auto">
-          <AnimatedSection direction="down" delay={50}>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-[#C9A5E8]" aria-hidden="true" />
-              <p className="font-sans text-xs font-semibold tracking-[0.2em] text-[#9B70C7] uppercase">
-                Expert Guidance &amp; Transformation
-              </p>
-              <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-[#C9A5E8]" aria-hidden="true" />
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[#25222A] leading-[1.15] mb-5">
+        <Container className="max-w-5xl mx-auto">
+          {/* Clean, Non-Buzzing Title */}
+          <AnimatedSection direction="down" delay={50} className="text-center mb-10 sm:mb-14">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#25222A] leading-tight">
               Meet Our <span className="text-[#9B70C7] italic">Expert Mentors</span>
             </h1>
-
-            <p className="font-sans text-base sm:text-lg text-[#6E6872] leading-relaxed max-w-2xl mx-auto mb-8">
-              Connect with experienced mentors who understand your journey, guide your growth, and help you achieve your goals. Explore profiles below and reserve your dedicated session.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-[#6E6872]">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-[#EDE7EE] shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9B70C7]" aria-hidden="true" />
-                1-on-1 Personalized Mentoring
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-[#EDE7EE] shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E99AB8]" aria-hidden="true" />
-                Virtual &amp; In-Person Formats
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-[#EDE7EE] shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9B70C7]" aria-hidden="true" />
-                Confidential &amp; Evidence-Informed
-              </span>
-            </div>
-          </AnimatedSection>
-        </Container>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 2 — Mentor Profiles Grid */}
-      {/* ============================================================ */}
-      <section id="mentors" className="py-16 sm:py-20 bg-white scroll-mt-24">
-        <Container>
-          <AnimatedSection direction="up" delay={100} className="mb-12">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#25222A] leading-tight mb-2">
-                  Select Your Mentor &amp; Book an Appointment
-                </h2>
-                <p className="font-sans text-sm sm:text-base text-[#6E6872]">
-                  Click on any mentor to review their full credentials and book your preferred date and time slot in a new tab.
-                </p>
-              </div>
-              <span className="text-xs font-sans font-medium text-[#9B70C7] bg-[#EEE7FA] px-3.5 py-1.5 rounded-full self-start sm:self-auto border border-[#C9A5E8]/40">
-                2 Expert Mentors Available
-              </span>
-            </div>
           </AnimatedSection>
 
-          {/* Mentors Responsive Grid — Centered & Scaled Appropriately for 2 Profiles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl lg:max-w-4xl mx-auto">
+          {/* Mentors Responsive Grid — 2 Profiles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl lg:max-w-4xl mx-auto">
             {mentors.map((mentor, index) => (
               <AnimatedSection key={mentor.id} direction="up" delay={100 + index * 80}>
                 <MentorCard mentor={mentor} />

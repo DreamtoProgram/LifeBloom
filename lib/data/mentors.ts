@@ -7,6 +7,7 @@ export interface Mentor {
   location?: string;
   experience: string;
   image: string;
+  mentorshipFocus?: string;
   shortBio: string;
   fullBio: string[];
   expertise: string[];
@@ -26,6 +27,7 @@ export const mentors: Mentor[] = [
     location: 'Phagwara, Punjab, India',
     experience: '15+ Years Experience',
     image: '/coach-portrait.jpg',
+    mentorshipFocus: 'Life Transformation, Master NLP & Human Capital Growth',
     isFounder: true,
     shortBio:
       'Founder and Lead Coach at Shivi specializing in deep personal transformation, certified Neuro-Linguistic Programming (NLP), emotional intelligence, and human capital growth.',
@@ -71,6 +73,7 @@ export const mentors: Mentor[] = [
     location: 'Ludhiana, Punjab, India',
     experience: '15+ Years Experience',
     image: '/priyanka-chhibber.jpg',
+    mentorshipFocus: 'Human Resource Management & SHRM Certified HR Strategies',
     isFounder: false,
     shortBio:
       'Professor and Coordinator of Human Resource Management at Lovely Professional University (LPU). SHRM-certified mentor specializing in strategic HR, organizational behavior, and leadership.',
